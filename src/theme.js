@@ -85,7 +85,7 @@ const theme = createTheme({
       textTransform: "none",
     },
   },
-  spacing: 8,
+  spacing: 4,
   components: {
     MuiDivider: {
       styleOverrides: {
