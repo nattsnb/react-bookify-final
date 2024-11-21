@@ -19,13 +19,6 @@ const theme = createTheme({
     fontFamily: "Poppins",
     fontSize: 16,
     padding: 0,
-    h1: {
-      fontSize: 36,
-      fontWeight: 600,
-      textAlign: "right",
-      marginTop: "133px",
-      marginRight: "50px",
-    },
     homeLink: {
       fontSize: 35,
       fontWeight: 100,

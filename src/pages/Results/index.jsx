@@ -5,6 +5,7 @@ export function Results() {
   return (
     <PageWidthContainer>
       <Banner />
+      <p>PLACEHOLDER</p>
     </PageWidthContainer>
   );
 }

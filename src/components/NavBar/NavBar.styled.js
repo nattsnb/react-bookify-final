@@ -23,5 +23,4 @@ export const StyledNavBarLinksContainer = styled("div")`
   max-width: 590px;
   width: 100%;
   margin-left: ${({ theme }) => theme.spacing(16)};
-}
 `;

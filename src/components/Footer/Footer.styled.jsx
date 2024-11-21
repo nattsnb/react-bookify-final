@@ -13,7 +13,7 @@ export const StyledFooterTextContainer = styled("div")`
   @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
     margin-top: ${({ theme }) => theme.spacing(12)};
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
     font-size: 12px;
   }
