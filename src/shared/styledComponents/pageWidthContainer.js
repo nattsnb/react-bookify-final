@@ -5,5 +5,5 @@ export const PageWidthContainer = styled("div")`
   display: flex;
   flex-direction: column;
   justify-self: center;
-  background-color: red;
+  align-items: center;
 `;

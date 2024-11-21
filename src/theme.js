@@ -4,6 +4,7 @@ const theme = createTheme({
   palette: {
     primary: {
       main: "#67AA92",
+      font: "black",
     },
     secondary: {
       main: "#595959",
@@ -16,7 +17,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "Poppins",
-    fontSize: 14,
+    fontSize: 16,
     padding: 0,
     h1: {
       fontSize: 36,
@@ -35,6 +36,7 @@ const theme = createTheme({
       padding: "10px 60px",
     },
     iconLink: {
+      fontSize: "40px",
       fontWeight: 400,
       padding: "50px 80px",
     },
@@ -86,6 +88,15 @@ const theme = createTheme({
     },
   },
   spacing: 4,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 480,
+      md: 768,
+      lg: 992,
+      xl: 1279,
+    },
+  },
   components: {
     MuiDivider: {
       styleOverrides: {

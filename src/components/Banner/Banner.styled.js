@@ -1,5 +1,4 @@
-import {styled} from "@mui/material";
-
+import { styled } from "@mui/material";
 
 export const StyledInputContainer = styled("div")`
   max-width: 220px;
@@ -9,7 +8,7 @@ export const StyledInputContainer = styled("div")`
   @media (max-width: 768px) {
     margin-bottom: ${({ theme }) => theme.spacing(8)};
   }
-`
+`;
 
 export const StyledSearchBarContainer = styled("div")`
   width: 100%;
@@ -17,13 +16,11 @@ export const StyledSearchBarContainer = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- 
 
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`
+`;
 export const StyledBanner = styled("div")`
   width: 100%;
-`
-
+`;

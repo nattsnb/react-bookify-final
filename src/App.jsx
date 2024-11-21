@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Results } from "./pages/Results/index.jsx";
 import { Venue } from "./pages/Venue/index.jsx";
 import { Layout } from "./components/Layout/index.jsx";
+import "./poppins.css";
 
 export function App() {
   return (
