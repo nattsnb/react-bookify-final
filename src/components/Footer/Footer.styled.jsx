@@ -9,9 +9,11 @@ export const StyledFooterTextContainer = styled("div")`
   min-width: 198px;
   max-width: 550px;
   width: 100%;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
     margin-top: ${({ theme }) => theme.spacing(12)};
   }
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
     font-size: 12px;
   }

@@ -6,10 +6,12 @@ export const StyledNavBarContainer = styled("div")`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-padding: 0 ${({ theme }) => theme.spacing(30)};
+  padding: 0 ${({ theme }) => theme.spacing(30)};
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
     padding: 0 ${({ theme }) => theme.spacing(12)};
-    @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+    
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
       padding: 0 ${({ theme }) => theme.spacing(6)};
 `;
 
@@ -21,7 +23,5 @@ export const StyledNavBarLinksContainer = styled("div")`
   max-width: 590px;
   width: 100%;
   margin-left: ${({ theme }) => theme.spacing(16)};
-
-  
 }
 `;
