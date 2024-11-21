@@ -1,3 +1,5 @@
+import {PageWidthContainer} from "../../shared/styledComponents/pageWidthContainer.js";
+
 export function Results() {
-  return <p>RESULTS PLACEHOLDER</p>;
+  return <PageWidthContainer>RESULTS PLACEHOLDER</PageWidthContainer>;
 }

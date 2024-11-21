@@ -17,6 +17,7 @@ const theme = createTheme({
   typography: {
     fontFamily: "Poppins",
     fontSize: 14,
+    padding: 0,
     h1: {
       fontSize: 36,
       fontWeight: 600,
@@ -113,6 +114,14 @@ const theme = createTheme({
         root: {
           textDecoration: "none",
           color: "#000000",
+          padding: 0,
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          padding: 0,
         },
       },
     },
