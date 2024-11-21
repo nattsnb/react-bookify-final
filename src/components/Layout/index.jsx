@@ -1,9 +1,10 @@
 import { Footer } from "../Footer/index.jsx";
+import { NavBar } from "../NavBar/index.jsx";
 
 export function Layout({ children }) {
   return (
     <>
-      <p>NAVBAR</p>
+      <NavBar />
       {children}
       <Footer />
     </>

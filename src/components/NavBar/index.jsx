@@ -1,0 +1,56 @@
+import Typography from "@mui/material/Typography";
+import { Link, useMediaQuery, useTheme } from "@mui/material";
+import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  StyledNavBarContainer,
+  StyledNavBarLinksContainer,
+} from "./NavBar.styled.js";
+
+export function NavBar() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  return (
+    <PageWidthContainer>
+      <StyledNavBarContainer>
+        {matches ? (
+          <>
+            <div>
+              <Link href={"/"}>
+                <Typography variant="homeLink">bookify</Typography>
+              </Link>
+            </div>
+            <StyledNavBarLinksContainer>
+              <Link href={"/"} variant="link">
+                <Typography variant="aboutUsLink">about us</Typography>
+              </Link>
+              <Link href={"/"} variant="link">
+                your favourites
+              </Link>
+              <Link href={"/"} variant="link">
+                start hosting
+              </Link>
+              <Link href={"/"} sx={{ color: "#67AA92" }} variant="boldLink">
+                login
+              </Link>
+            </StyledNavBarLinksContainer>
+          </>
+        ) : (
+          <>
+            <div>
+              <MenuIcon />
+            </div>
+            <div>
+              <Link href={"/"}>
+                <Typography variant="homeLink">bookify</Typography>
+              </Link>
+            </div>
+            <Link href={"/"} sx={{ color: "#67AA92" }} variant="boldLink">
+              login
+            </Link>
+          </>
+        )}
+      </StyledNavBarContainer>
+    </PageWidthContainer>
+  );
+}
