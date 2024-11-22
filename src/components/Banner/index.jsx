@@ -5,9 +5,8 @@ import {
   StyledHeaderTypography,
   StyledHeaderTypographyContainer,
 } from "./Banner.styled.js";
-import { Box, Divider, useMediaQuery, useTheme } from "@mui/material";
+import { Divider, useMediaQuery, useTheme } from "@mui/material";
 import { SearchBar } from "./SearchBar/index.jsx";
-import bottomDecorationImage from "../../images/bottomDecoration.svg";
 
 export function Banner() {
   const theme = useTheme();

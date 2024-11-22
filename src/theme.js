@@ -130,30 +130,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiList: {
-      styleOverrides: {
-        root: {
-          padding: 0,
-        },
-      },
-    },
-    MuiListItemText: {
-      styleOverrides: {
-        primary: {
-          paddingLeft: "10px",
-          paddingLRight: "10px",
-          paddingTop: "10xp",
-          paddingBottom: "29px",
-        },
-      },
-    },
-    MuiListItemIcon: {
-      styleOverrides: {
-        primary: {
-          color: "#818181",
-        },
-      },
-    },
   },
 });
 
