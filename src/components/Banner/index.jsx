@@ -1,12 +1,13 @@
 import {
-  StyledBanner,
-  StyledBannerContent,
-  StyledHeaderTypography,
-  StyledHeaderTypographyContainer,
+    BottomDecorationImageContainer,
+    StyledBanner,
+    StyledBannerContent,
+    StyledHeaderTypography,
+    StyledHeaderTypographyContainer,
 } from "./Banner.styled.js";
-import { Divider, useMediaQuery, useTheme } from "@mui/material";
-import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
+import { Box, Divider, useMediaQuery, useTheme } from "@mui/material";
 import { SearchBar } from "./SearchBar/index.jsx";
+import bottomDecorationImage from "../../images/bottomDecoration.svg";
 
 export function Banner() {
   const theme = useTheme();
@@ -17,22 +18,26 @@ export function Banner() {
       <StyledBanner>
         <StyledBannerContent>
           {matches ? (
-            <StyledHeaderTypographyContainer>
-              <StyledHeaderTypography>
-                Find your place and experience it together.
-              </StyledHeaderTypography>
-            </StyledHeaderTypographyContainer>
+            <>
+              <StyledHeaderTypographyContainer>
+                <StyledHeaderTypography>
+                  Find your place and experience it together.
+                </StyledHeaderTypography>
+              </StyledHeaderTypographyContainer>
+              <SearchBar />
+            </>
           ) : (
-            <StyledHeaderTypographyContainer>
-              <StyledHeaderTypography>Find your place</StyledHeaderTypography>
-              <StyledHeaderTypography>
-                and experience it together.
-              </StyledHeaderTypography>
-            </StyledHeaderTypographyContainer>
+            <>
+              <StyledHeaderTypographyContainer>
+                <StyledHeaderTypography>Find your place</StyledHeaderTypography>
+                <StyledHeaderTypography>
+                  and experience it together.
+                </StyledHeaderTypography>
+              </StyledHeaderTypographyContainer>
+              <SearchBar />
+              <BottomDecorationImageContainer/>
+            </>
           )}
-          <VerticalContainer>
-            <SearchBar />
-          </VerticalContainer>
         </StyledBannerContent>
       </StyledBanner>
       <Divider variant="light"></Divider>

@@ -6,6 +6,9 @@ import Typography from "@mui/material/Typography";
 
 export const StyledBannerContent = styled("div")`
   width: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+    padding-bottom: 20px;
+  }
 `;
 
 export const StyledBanner = styled("div")`
@@ -22,6 +25,16 @@ export const StyledBanner = styled("div")`
     top left,
     bottom left,
     center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+    height: fit-content;
+    background-image: url(${topDecorationImage}), url(${backgroundImage});
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto, cover;
+    background-position:
+      top left,
+      center;
+  }
 `;
 
 export const StyledHeaderTypography = styled(Typography)`
@@ -55,3 +68,11 @@ export const StyledHeaderTypography = styled(Typography)`
 export const StyledHeaderTypographyContainer = styled(Typography)`
   margin-top: ${({ theme }) => theme.spacing(45)};
 `;
+
+export const BottomDecorationImageContainer = styled("div")`
+  background-image:  url(${bottomDecorationImage});
+  min-height: 275px;
+  background-repeat: no-repeat;
+  
+`;
+
