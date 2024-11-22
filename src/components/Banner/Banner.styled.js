@@ -74,4 +74,3 @@ export const StyledBottomDecorationImageContainer = styled("div")`
   min-height: 275px;
   background-repeat: no-repeat;
 `;
-

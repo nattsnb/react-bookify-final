@@ -1,14 +1,16 @@
 import {
-    Button, Checkbox,
-    ListItemIcon,
-    ListItemText,
-    MenuItem,
-    MenuList,
+  Button,
+  Checkbox,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+  MenuList,
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
   StyledDrawerToolbar,
+  StyledDrawerToolbarBackground,
   StyledFiltersContainer,
 } from "./ResultsBody.styled.js";
 import { HiddenElement } from "../../shared/styledComponents/hiddenElement.styled.js";
@@ -21,15 +23,14 @@ export function SortDrawer() {
   ];
   return (
     <StyledFiltersContainer>
-      <StyledDrawerToolbar>
-
+      <StyledDrawerToolbarBackground>
         <Typography variant="filterTitle">sort</Typography>
+      </StyledDrawerToolbarBackground>
 
-      </StyledDrawerToolbar>
       <MenuList>
         {arrayOfFilters.map((filter) => (
           <MenuItem key={filter.id}>
-              <Checkbox label={filter.id} />
+            <Checkbox label={filter.id} />
             <ListItemText>{filter.name}</ListItemText>
           </MenuItem>
         ))}

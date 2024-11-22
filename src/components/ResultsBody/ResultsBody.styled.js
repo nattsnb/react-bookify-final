@@ -12,13 +12,13 @@ export const StyledWideBodyContentContainer = styled("div")`
     padding-left: ${({ theme }) => theme.spacing(25)};
     @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
       padding-left: ${({ theme }) => theme.spacing(20)};
+
 `;
 
-export const StyledDrawerToolbar = styled(Toolbar)`
+export const StyledDrawerToolbarBackground = styled(Toolbar)`
   background-image: url(${toolbarBackgroundImage});
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   min-width: 282px;
   width: 40px;
   background-position: center;
@@ -26,6 +26,13 @@ export const StyledDrawerToolbar = styled(Toolbar)`
   background-size: cover;
   margin-bottom: ${({ theme }) => theme.spacing(18)};
   box-shadow: 0 0 6px ${({ theme }) => theme.palette.secondary.light};
+`;
+
+export const StyledDrawerToolbar = styled(Toolbar)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export const StyledResultsBodyElementsWrapper = styled("div")`

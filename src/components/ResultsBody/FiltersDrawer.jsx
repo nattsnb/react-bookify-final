@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
   StyledDrawerToolbar,
+  StyledDrawerToolbarBackground,
   StyledFiltersContainer,
 } from "./ResultsBody.styled.js";
 import { HiddenElement } from "../../shared/styledComponents/hiddenElement.styled.js";
@@ -23,17 +24,20 @@ export function FiltersDrawer() {
   ];
   return (
     <StyledFiltersContainer>
-      <StyledDrawerToolbar>
-        <HiddenElement>
-          <Typography>reset</Typography>
-        </HiddenElement>
+      <StyledDrawerToolbarBackground>
+        <StyledDrawerToolbar>
+          <HiddenElement>
+            <Typography>reset</Typography>
+          </HiddenElement>
 
-        <Typography variant="filterTitle">filters</Typography>
+          <Typography variant="filterTitle">filters</Typography>
 
-        <Button>
-          <Typography variant="sortButton">reset</Typography>
-        </Button>
-      </StyledDrawerToolbar>
+          <Button>
+            <Typography variant="sortButton">reset</Typography>
+          </Button>
+        </StyledDrawerToolbar>
+      </StyledDrawerToolbarBackground>
+
       <MenuList>
         {arrayOfFilters.map((filter) => (
           <MenuItem key={filter.id}>

@@ -1,9 +1,10 @@
 import { FiltersDrawer } from "./FiltersDrawer.jsx";
 import { ResultsBodyElementsWrapper } from "./ResultsBodyElementsWrapper.jsx";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
-import {Drawer, useMediaQuery, useTheme} from "@mui/material";
+import { Drawer, useMediaQuery, useTheme } from "@mui/material";
 import {
-  FiltersButton, SortButton,
+  FiltersButton,
+  SortButton,
   StyledDrawerButtonsContainer,
   StyledNoBannerFrame,
   StyledWideBodyContentContainer,
@@ -11,8 +12,8 @@ import {
 } from "./ResultsBody.styled.js";
 import { PaginatedList } from "./PaginatedList/index.jsx";
 import React, { useState } from "react";
-import {SearchBar} from "../Banner/SearchBar/index.jsx";
-import {SortDrawer} from "./SortDrawer.jsx";
+import { SearchBar } from "../Banner/SearchBar/index.jsx";
+import { SortDrawer } from "./SortDrawer.jsx";
 
 export function ResultsBody() {
   const theme = useTheme();
@@ -35,25 +36,35 @@ export function ResultsBody() {
           <ResultsBodyElementsWrapper limit={limit} setLimit={setLimit} />
         </StyledWideBodyContentContainer>
       ) : (
-        <><StyledNoBannerFrame>
-          <StyledDrawerButtonsContainer>
-            <FiltersButton onClick={toggleFiltersDrawer(true)}>filters</FiltersButton>
-            <SortButton onClick={toggleSortDrawer("right", true)}>sort</SortButton>
-          </StyledDrawerButtonsContainer>
-          <Drawer open={isFilterDrawerOpen} onClose={toggleFiltersDrawer(false)}>
-            <FiltersDrawer/>
-          </Drawer>
-          <Drawer  anchor={"right"}
-                   open={isSortDrawerOpen}
-                   onClose={toggleSortDrawer(false)}>
-            <SortDrawer/>
-          </Drawer>
-          <SearchBar />
-        </StyledNoBannerFrame>
+        <>
+          <StyledNoBannerFrame>
+            <StyledDrawerButtonsContainer>
+              <FiltersButton onClick={toggleFiltersDrawer(true)}>
+                filters
+              </FiltersButton>
+              <SortButton onClick={toggleSortDrawer("right", true)}>
+                sort
+              </SortButton>
+            </StyledDrawerButtonsContainer>
+            <Drawer
+              open={isFilterDrawerOpen}
+              onClose={toggleFiltersDrawer(false)}
+            >
+              <FiltersDrawer />
+            </Drawer>
+            <Drawer
+              anchor={"right"}
+              open={isSortDrawerOpen}
+              onClose={toggleSortDrawer(false)}
+            >
+              <SortDrawer />
+            </Drawer>
+            <SearchBar />
+          </StyledNoBannerFrame>
           <StyleThinBodyContentContainer>
             <PaginatedList limit={limit} />
-          </StyleThinBodyContentContainer></>
-
+          </StyleThinBodyContentContainer>
+        </>
       )}
     </PageWidthContainer>
   );
