@@ -69,10 +69,43 @@ export const StyledHeaderTypographyContainer = styled(Typography)`
   margin-top: ${({ theme }) => theme.spacing(45)};
 `;
 
-export const BottomDecorationImageContainer = styled("div")`
-  background-image:  url(${bottomDecorationImage});
+export const StyledBottomDecorationImageContainer = styled("div")`
+  background-image: url(${bottomDecorationImage});
   min-height: 275px;
   background-repeat: no-repeat;
-  
 `;
 
+export const StyledNoBannerFrame = styled("div")`
+  padding-bottom: ${({ theme }) => theme.spacing(8)};
+  box-shadow: 0 2px 6px ${({ theme }) => theme.palette.secondary.light};
+  width: 100%;
+`;
+
+export const StyledDrawerButtonsContainer = styled("div")`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: ${({ theme }) => theme.spacing(6)};
+`;
+
+export const FiltersButton = styled("button")`
+  border-radius: 0 20px 20px 0;
+  font-size: 16px;
+  border: none;
+  background-color: ${({ theme }) => theme.palette.primary.main};
+  font-weight: 500;
+  color: ${({ theme }) => theme.palette.background.default};
+  height: 40px;
+  width: 64px;
+`;
+export const SortButton = styled("button")`
+  border-radius: 20px 0 0 20px;
+  font-size: 16px;
+  border: none;
+  background-color: ${({ theme }) => theme.palette.primary.main};
+  font-weight: 500;
+  color: ${({ theme }) => theme.palette.background.default};
+  height: 40px;
+  width: 64px;
+`;

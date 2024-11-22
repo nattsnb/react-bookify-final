@@ -7,6 +7,7 @@ export const StyledNavBarContainer = styled("div")`
   align-items: center;
   width: 100%;
   padding: 0 ${({ theme }) => theme.spacing(30)};
+  box-shadow: 0 2px 6px ${({ theme }) => theme.palette.secondary.light};
   
   @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
     padding: 0 ${({ theme }) => theme.spacing(12)};

@@ -1,9 +1,9 @@
 import {
-    BottomDecorationImageContainer,
-    StyledBanner,
-    StyledBannerContent,
-    StyledHeaderTypography,
-    StyledHeaderTypographyContainer,
+  StyledBottomDecorationImageContainer,
+  StyledBanner,
+  StyledBannerContent,
+  StyledHeaderTypography,
+  StyledHeaderTypographyContainer,
 } from "./Banner.styled.js";
 import { Box, Divider, useMediaQuery, useTheme } from "@mui/material";
 import { SearchBar } from "./SearchBar/index.jsx";
@@ -35,7 +35,7 @@ export function Banner() {
                 </StyledHeaderTypography>
               </StyledHeaderTypographyContainer>
               <SearchBar />
-              <BottomDecorationImageContainer/>
+              <StyledBottomDecorationImageContainer />
             </>
           )}
         </StyledBannerContent>
