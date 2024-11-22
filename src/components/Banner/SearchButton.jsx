@@ -5,11 +5,7 @@ export function SearchButton() {
   return (
     <div>
       <Link href={"/"}>
-        <Button variant="contained">
-          <Typography variant="confirmSearchButton">
-            Search for venue
-          </Typography>
-        </Button>
+        <Button variant="contained">Search for venue</Button>
       </Link>
     </div>
   );

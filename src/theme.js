@@ -12,7 +12,7 @@ const theme = createTheme({
     },
     background: {
       default: "#FFFFFF",
-      gray: "#FDFDFD",
+      offDefault: "#FDFDFD",
     },
   },
   typography: {
@@ -74,11 +74,6 @@ const theme = createTheme({
       color: "#FFFFFF",
       textTransform: "capitalize",
     },
-    confirmSearchButton: {
-      fontWeight: 500,
-      color: "#FFFFFF",
-      textTransform: "none",
-    },
   },
   spacing: 4,
   breakpoints: {
@@ -134,6 +129,9 @@ const theme = createTheme({
         contained: {
           borderRadius: "20px",
           marginTop: "35px",
+          fontWeight: 500,
+          color: "#FFFFFF",
+          textTransform: "none",
         },
       },
     },
