@@ -1,5 +1,4 @@
 import { styled, TextField } from "@mui/material";
-import { Form } from "react-hook-form";
 
 export const StyledSearchBarTextField = styled(TextField)`
   max-width: 220px;
@@ -37,7 +36,7 @@ export const StyledSearchBarTextField = styled(TextField)`
   }
 `;
 
-export const StyledSearchBarContainer = styled("div")`
+export const StyledInputsContainer = styled("div")`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -46,16 +45,26 @@ export const StyledSearchBarContainer = styled("div")`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: ${({ theme }) => theme.spacing(8)};
   }
 `;
 
-export const StyledForm = styled(Form)`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+export const StyledCollapseTypographyContainer = styled("div")`
+  margin-top: ${({ theme }) => theme.spacing(2)};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
-    flex-direction: column;
+  .MuiButton-root {
+    border: none;
+    font-weight: 600;
+    color: ${({ theme }) => theme.palette.primary.main};
+    text-transform: none;
   }
+`;
+
+export const StyledSearchBarContainer = styled("div")`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

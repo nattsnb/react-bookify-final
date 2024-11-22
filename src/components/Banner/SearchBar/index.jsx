@@ -1,77 +1,51 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Search } from "@mui/icons-material";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import RemoveIcon from "@mui/icons-material/Remove";
-import AddIcon from "@mui/icons-material/Add";
-import { InputAdornment } from "@mui/material";
+import { Button, Collapse, useMediaQuery, useTheme } from "@mui/material";
 import {
+  StyledCollapseTypographyContainer,
   StyledSearchBarContainer,
-  StyledSearchBarTextField,
 } from "./SearchBar.styled.js";
+import Typography from "@mui/material/Typography";
+import { InputsContainer } from "./InputsContainer.jsx";
 
-const textFieldsDataArray = [
-  {
-    id: 0,
-    placeholder: "localization",
-    startAdornmentIcon: <Search />,
-    endAdornmentIcon: <></>,
-  },
-  {
-    id: 1,
-    placeholder: "occasion",
-    startAdornmentIcon: <Search />,
-    endAdornmentIcon: <></>,
-  },
-  {
-    id: 2,
-    placeholder: "date",
-    startAdornmentIcon: <CalendarMonthIcon />,
-    endAdornmentIcon: <></>,
-  },
-  {
-    id: 3,
-    placeholder: "guests",
-    startAdornmentIcon: <RemoveIcon />,
-    endAdornmentIcon: <AddIcon />,
-  },
-  {
-    id: 4,
-    placeholder: "venue type",
-    startAdornmentIcon: <Search />,
-    endAdornmentIcon: <></>,
-  },
-];
-
-export const Index = () => {
+export const SearchBar = () => {
   const { register, handleSubmit } = useForm();
-
   const onSubmit = (data) => {
     console.log(data);
   };
+  const [isCollapsed, setIsCollapsed] = React.useState(false);
+  const collapseSearchBar = () => {
+    setIsCollapsed((prev) => !prev);
+  };
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <StyledSearchBarContainer>
-        {textFieldsDataArray.map((dataEntry) => (
-          <StyledSearchBarTextField
-            variant="outlined"
-            placeholder={dataEntry.placeholder}
-            {...register(dataEntry.placeholder, { required: true })}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  {dataEntry.startAdornmentIcon}
-                </InputAdornment>
-              ),
-              endAdornment: (
-                <InputAdornment position="end">
-                  {dataEntry.endAdornmentIcon}
-                </InputAdornment>
-              ),
-            }}
-          />
-        ))}
+        {matches ? (
+          <Collapse
+            in={isCollapsed}
+            orientation="horizontal"
+            collapsedSize={100}
+          >
+            <InputsContainer register={register} />
+          </Collapse>
+        ) : (
+          <Collapse in={isCollapsed} collapsedSize={90}>
+            <InputsContainer register={register} />
+          </Collapse>
+        )}
+
+        <StyledCollapseTypographyContainer>
+          <Button variant="outlined" onClick={collapseSearchBar}>
+            I don't want to be that specific
+          </Button>
+        </StyledCollapseTypographyContainer>
+
+        <Button variant="contained" type="submit">
+          Search for venue
+        </Button>
       </StyledSearchBarContainer>
     </form>
   );

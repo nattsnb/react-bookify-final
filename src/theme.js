@@ -43,12 +43,7 @@ const theme = createTheme({
       fontSize: 20,
       fontWeight: 400,
     },
-    sortButton: {
-      fontWeight: 500,
-      color: "#67AA92",
-      textTransform: "none",
-    },
-    landingPageLink: {
+    collapseSearchBar: {
       fontWeight: 600,
       color: "#67AA92",
     },
