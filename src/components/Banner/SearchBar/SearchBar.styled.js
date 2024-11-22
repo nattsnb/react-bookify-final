@@ -34,6 +34,20 @@ export const StyledSearchBarTextField = styled(TextField)`
       margin: 0;
     }
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+    &.MuiFormControl-root {
+      margin: ${({ theme }) => theme.spacing(2)}
+      ${({ theme }) => theme.spacing(3)};
+      padding: ${({ theme }) => theme.spacing(1)};
+    }
+    .MuiInputBase-root {
+      padding: ${({ theme }) => theme.spacing(1)};
+    }
+    .MuiInputAdornment-root {
+      margin: ${({ theme }) => theme.spacing(1)};
+    }
+  }
 `;
 
 export const StyledInputsContainer = styled("div")`
