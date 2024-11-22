@@ -140,8 +140,9 @@ const theme = createTheme({
     MuiListItemText: {
       styleOverrides: {
         primary: {
-          paddingLeft: "20px",
-          paddingTop: "20xp",
+          paddingLeft: "10px",
+          paddingLRight: "10px",
+          paddingTop: "10xp",
           paddingBottom: "29px",
         },
       },

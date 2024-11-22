@@ -8,6 +8,7 @@ import {
   StyledDrawerButtonsContainer,
   StyledNoBannerFrame,
 } from "../../components/Banner/Banner.styled.js";
+import { ResultsBody } from "../../components/ResultsBody/index.jsx";
 
 export function Results() {
   const theme = useTheme();
@@ -25,8 +26,7 @@ export function Results() {
           <SearchBar />
         </StyledNoBannerFrame>
       )}
-
-      <p>PLACEHOLDER</p>
+      <ResultsBody />
     </PageWidthContainer>
   );
 }

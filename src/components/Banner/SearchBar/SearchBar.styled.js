@@ -38,7 +38,7 @@ export const StyledSearchBarTextField = styled(TextField)`
   @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
     &.MuiFormControl-root {
       margin: ${({ theme }) => theme.spacing(2)}
-      ${({ theme }) => theme.spacing(3)};
+        ${({ theme }) => theme.spacing(3)};
       padding: ${({ theme }) => theme.spacing(1)};
     }
     .MuiInputBase-root {
