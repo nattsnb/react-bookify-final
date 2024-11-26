@@ -47,6 +47,7 @@ export const InputsContainer = ({ register, isCollapsed }) => {
     <StyledInputsContainer>
       {textFieldsDataArray.map((dataEntry) => (
         <StyledSearchBarTextField
+          key={dataEntry.id}
           variant="outlined"
           placeholder={dataEntry.placeholder}
           isCollapsed={isCollapsed}
