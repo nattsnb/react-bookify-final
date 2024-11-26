@@ -2,14 +2,14 @@ import { styled, TextField } from "@mui/material";
 
 export const StyledSearchBarTextField = styled(TextField)`
   max-width: 220px;
+  min-width: ${(props) => (props.isCollapsed ? "142px" : "220px")};
   max-height: 48px;
   padding: 0;
   justify-content: center;
-  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px 1px rgb(0 0 0 / 20%);
   border-radius: 15px;
   font-size: 1.2vw;
-  border: none;
-  margin: 30px;
   background-color: ${({ theme }) => theme.palette.background.offDefault};
 
   .MuiOutlinedInput-notchedOutline {

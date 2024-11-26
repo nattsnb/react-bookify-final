@@ -42,13 +42,14 @@ const textFieldsDataArray = [
   },
 ];
 
-export const InputsContainer = ({ register }) => {
+export const InputsContainer = ({ register, isCollapsed }) => {
   return (
     <StyledInputsContainer>
       {textFieldsDataArray.map((dataEntry) => (
         <StyledSearchBarTextField
           variant="outlined"
           placeholder={dataEntry.placeholder}
+          isCollapsed={isCollapsed}
           {...register(dataEntry.placeholder, { required: true })}
           InputProps={{
             startAdornment: (

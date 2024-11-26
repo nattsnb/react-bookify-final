@@ -18,21 +18,32 @@ export const SearchBar = () => {
     setIsCollapsed((prev) => !prev);
   };
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportLargerThanLG = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <StyledSearchBarContainer>
-        {matches ? (
-          <Collapse
-            in={isCollapsed}
-            orientation="horizontal"
-            collapsedSize={100}
-          >
-            <InputsContainer register={register} />
-          </Collapse>
+        {isViewportLargerThanMd ? (
+          isViewportLargerThanLG ? (
+            <Collapse
+              in={isCollapsed}
+              orientation="horizontal"
+              collapsedSize={245}
+            >
+              <InputsContainer register={register} isCollapsed={isCollapsed} />
+            </Collapse>
+          ) : (
+            <Collapse
+              in={isCollapsed}
+              orientation="horizontal"
+              collapsedSize={228}
+            >
+              <InputsContainer register={register} isCollapsed={isCollapsed} />
+            </Collapse>
+          )
         ) : (
-          <Collapse in={isCollapsed} collapsedSize={90}>
+          <Collapse in={isCollapsed} collapsedSize={95}>
             <InputsContainer register={register} />
           </Collapse>
         )}
