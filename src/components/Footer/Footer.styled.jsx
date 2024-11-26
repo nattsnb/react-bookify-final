@@ -33,8 +33,9 @@ export const StyledFooterLinksContainer = styled("div")`
   justify-content: space-between;
   padding-bottom: ${({ theme }) => theme.spacing(8)};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
-    padding: 0 ${({ theme }) => theme.spacing(4)};
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+    padding-left: ${({ theme }) => theme.spacing(4)};
+    padding-right: ${({ theme }) => theme.spacing(4)};
   }
 `;
 
