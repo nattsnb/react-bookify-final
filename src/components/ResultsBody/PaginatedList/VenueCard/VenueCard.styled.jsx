@@ -63,11 +63,6 @@ export const StyledPictureBottomInfoDiv = styled("div")`
   padding-top: ${({ theme }) => theme.spacing(2)};
 `;
 
-export const StyledArrowIcon = styled("div")`
-  color: ${({ theme }) => theme.palette.background.offDefault};
-  text-shadow: 3px 3px 15px ${({ theme }) => theme.palette.secondary.dark};
-`;
-
 export const StyledLocalizationDiv = styled("div")`
   display: flex;
   flex-direction: row;
@@ -97,6 +92,10 @@ export const StyledIconContainer = styled("div")`
   flex-direction: row;
   justify-content: space-between;
   height: 40px;
-  color: ${({ theme }) => theme.palette.background.offDefault};
-  opacity: 80%;
+
+  & .MuiSvgIcon-root {
+    color: ${({ theme }) => theme.palette.background.offDefault};
+    opacity: 80%;
+    text-shadow: 3px 3px 15px ${({ theme }) => theme.palette.secondary.dark};
+  }
 `;

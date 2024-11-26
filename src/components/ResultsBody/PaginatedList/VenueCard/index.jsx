@@ -12,22 +12,38 @@ import {
   StyledPictureFrameTopInfoContainer,
   StyledIconContainer,
 } from "./VenueCard.styled.jsx";
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import GradeIcon from "@mui/icons-material/Grade";
 import PeopleIcon from "@mui/icons-material/People";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useState } from "react";
 
-export function VenueCard({ venue, backgroundurl, currencyData }) {
+export function VenueCard({ venue, currencyData }) {
   const pricePreNightInPLN = (
     (venue.pricePerNightInEURCent / 100) *
     (currencyData.PLN / currencyData.EUR)
   ).toFixed(0);
+  const [currentPictureNumber, setCurrentPictureNumber] = useState(0);
+  const handleClickForward = () => {
+    if (currentPictureNumber === venue.images.length - 1) {
+      setCurrentPictureNumber(0);
+    } else {
+      setCurrentPictureNumber(currentPictureNumber + 1);
+    }
+  };
 
+  const handleClickBack = () => {
+    if (currentPictureNumber === 0) {
+      setCurrentPictureNumber(venue.images.length - 1);
+    } else {
+      setCurrentPictureNumber(currentPictureNumber - 1);
+    }
+  };
   return (
     <StyledVenueCardWrapper>
-      <StyledPictureFrame backgroundurl={backgroundurl}>
+      <StyledPictureFrame backgroundurl={venue.images[currentPictureNumber]}>
         <StyledPictureFrameTopInfoContainer>
           <StyledHeartDiv>
             <Typography variant="boldOnCard">
@@ -39,8 +55,12 @@ export function VenueCard({ venue, backgroundurl, currencyData }) {
           </StyledNameDiv>
         </StyledPictureFrameTopInfoContainer>
         <StyledIconContainer>
-          <ArrowBackIosIcon />
-          <ArrowForwardIosIcon />
+          <IconButton onClick={handleClickBack}>
+            <ArrowBackIosIcon />
+          </IconButton>
+          <IconButton onClick={handleClickForward}>
+            <ArrowForwardIosIcon />
+          </IconButton>
         </StyledIconContainer>
         <StyledPictureBottomInfoDiv>
           <div>
