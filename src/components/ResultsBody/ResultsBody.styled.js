@@ -19,7 +19,7 @@ export const StyledDrawerToolbarBackground = styled(Toolbar)`
   background-image: url(${toolbarBackgroundImage});
   display: flex;
   justify-content: center;
-  min-width: 282px;
+  min-width: 285px;
   width: 40px;
   background-position: center;
   background-repeat: no-repeat;
@@ -77,6 +77,18 @@ export const StyledDisplayNumberWrapper = styled("div")`
 export const StyledFiltersContainer = styled("div")`
   box-shadow: 0 5px 4px ${({ theme }) => theme.palette.secondary.light};
   width: 283px;
+
+  & .MuiMenuItem-root {
+    padding-bottom: ${({ theme }) => theme.spacing(8)};
+  }
+  
+  & .MuiSvgIcon-root {
+    font-size: 40px;
+    color: ${({ theme }) => theme.palette.secondary.middle};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+    height: 100%;
 `;
 
 export const StyledLimitSettingsContainer = styled("div")`

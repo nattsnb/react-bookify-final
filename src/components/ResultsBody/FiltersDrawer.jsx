@@ -19,8 +19,8 @@ export function FiltersDrawer() {
     { id: 0, name: "price range" },
     { id: 1, name: "amenities" },
     { id: 2, name: "room amenities" },
-    { id: 3, name: "neighbourhoods" },
-    { id: 4, name: "handicap accessibility" },
+    { id: 3, name: "handicap accessibility" },
+    { id: 4, name: "neighbourhoods" },
   ];
   return (
     <StyledFiltersContainer>
