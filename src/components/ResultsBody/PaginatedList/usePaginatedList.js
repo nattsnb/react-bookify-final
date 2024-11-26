@@ -3,6 +3,7 @@ import { api } from "../../../shared/api.js";
 
 export const usePaginatedList = (limit) => {
   const [venuesOnPage, setVenuesOnPage] = useState(null);
+  const [currencyData, setCurrencyData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [numberOfAllPages, setNumberOfAllPages] = useState(null);
   const [page, setPage] = useState(1);
@@ -12,17 +13,34 @@ export const usePaginatedList = (limit) => {
   };
 
   useEffect(() => {
-    async function getDataOnPage(page, limit) {
+    async function getData(page, limit) {
       setIsLoading(true);
       try {
-        const venuesResponse = await api.getVenuesOnPage(page, limit);
+        const [venuesResponse, currencyResponse] = await Promise.all([
+          api.getVenuesOnPage(page, limit),
+          api.getCurrencyResults(),
+        ]);
         setNumberOfAllPages(venuesResponse.pages);
         setVenuesOnPage(venuesResponse.data);
-      } catch (error) {}
+        setCurrencyData({
+          PLN: currencyResponse.rates.PLN,
+          EUR: currencyResponse.rates.EUR,
+        });
+      } catch (error) {
+        console.error("Error while fetching data:", error);
+      }
       setIsLoading(false);
     }
-    getDataOnPage(page, limit);
+
+    getData(page, limit);
   }, [page, limit]);
 
-  return { venuesOnPage, isLoading, numberOfAllPages, page, handleChange };
+  return {
+    venuesOnPage,
+    currencyData,
+    isLoading,
+    numberOfAllPages,
+    page,
+    handleChange,
+  };
 };

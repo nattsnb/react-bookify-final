@@ -25,4 +25,15 @@ const getVenuesOnPage = (page, limit) => {
     .catch((error) => console.error("Error fetching venues:", error));
 };
 
-export const api = { getAllVenues, getVenueDetails, getVenuesOnPage };
+function getCurrencyResults() {
+  return fetch(`https://api.exchangerate-api.com/v4/latest/USD`)
+    .then((res) => res.json())
+    .catch((error) => console.error("Error fetching venues:", error));
+}
+
+export const api = {
+  getAllVenues,
+  getVenueDetails,
+  getVenuesOnPage,
+  getCurrencyResults,
+};

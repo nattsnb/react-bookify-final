@@ -4,7 +4,6 @@ import {
   StyledPictureFrame,
   StyledHeartDiv,
   StyledNameDiv,
-  StyledArrowIcon,
   StyledPictureBottomInfoDiv,
   StyledLocalizationDiv,
   StyledUnderCardInfoBox,
@@ -20,7 +19,12 @@ import PeopleIcon from "@mui/icons-material/People";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-export function VenueCard({ venue, backgroundurl }) {
+export function VenueCard({ venue, backgroundurl, currencyData }) {
+  const pricePreNightInPLN = (
+    (venue.pricePerNightInEURCent / 100) *
+    (currencyData.PLN / currencyData.EUR)
+  ).toFixed(0);
+
   return (
     <StyledVenueCardWrapper>
       <StyledPictureFrame backgroundurl={backgroundurl}>
@@ -40,7 +44,9 @@ export function VenueCard({ venue, backgroundurl }) {
         </StyledIconContainer>
         <StyledPictureBottomInfoDiv>
           <div>
-            <Typography variant="boldOnCard">666 zł / doba</Typography>
+            <Typography variant="boldOnCard">
+              {pricePreNightInPLN} zł / doba
+            </Typography>
           </div>
           <StyledLocalizationDiv>
             <div>

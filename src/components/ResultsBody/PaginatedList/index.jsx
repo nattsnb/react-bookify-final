@@ -10,8 +10,14 @@ import {
 } from "./PaginatedList.styled.jsx";
 
 export const PaginatedList = ({ limit }) => {
-  const { venuesOnPage, isLoading, numberOfAllPages, page, handleChange } =
-    usePaginatedList(limit);
+  const {
+    venuesOnPage,
+    currencyData,
+    isLoading,
+    numberOfAllPages,
+    page,
+    handleChange,
+  } = usePaginatedList(limit);
 
   if (isLoading) {
     return <Typography>Loading...</Typography>;
@@ -23,7 +29,11 @@ export const PaginatedList = ({ limit }) => {
         {limit > 0 ? (
           venuesOnPage.map((venue, index) => (
             <CardContainer key={index}>
-              <VenueCard backgroundurl={venue.coverPhoto} venue={venue} />
+              <VenueCard
+                backgroundurl={venue.coverPhoto}
+                venue={venue}
+                currencyData={currencyData}
+              />
             </CardContainer>
           ))
         ) : (
