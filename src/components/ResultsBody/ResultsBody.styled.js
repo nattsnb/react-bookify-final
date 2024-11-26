@@ -72,11 +72,16 @@ export const StyledResultsNumberTextFiled = styled(TextField)`
 export const StyledDisplayNumberWrapper = styled("div")`
   margin-right: ${({ theme }) => theme.spacing(3)};
   margin-left: ${({ theme }) => theme.spacing(3)};
+
+  & .MuiInputBase-input {
+    padding-right: ${({ theme }) => theme.spacing(5)};
+    padding-left: ${({ theme }) => theme.spacing(4)};
+  }
 `;
 
 export const StyledFiltersContainer = styled("div")`
   box-shadow: 0 5px 4px ${({ theme }) => theme.palette.secondary.light};
-  width: 283px;
+  width: 285px;
 
   & .MuiMenuItem-root {
     padding-bottom: ${({ theme }) => theme.spacing(8)};
@@ -93,6 +98,7 @@ export const StyledFiltersContainer = styled("div")`
 
 export const StyledLimitSettingsContainer = styled("div")`
   display: flex;
+  align-items: flex-end;
 `;
 
 export const StyleThinBodyContentContainer = styled("div")`
