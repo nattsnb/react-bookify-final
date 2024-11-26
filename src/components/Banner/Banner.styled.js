@@ -65,7 +65,7 @@ export const StyledHeaderTypography = styled(Typography)`
   }
 `;
 
-export const StyledHeaderTypographyContainer = styled(Typography)`
+export const StyledHeaderTypographyContainer = styled("div")`
   margin-top: ${({ theme }) => theme.spacing(45)};
 `;
 
