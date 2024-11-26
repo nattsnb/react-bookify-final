@@ -92,13 +92,24 @@ const theme = createTheme({
         {
           props: { variant: "light" },
           style: {
-            backgroundColor: "#BBBBBB",
+            backgroundColor: "#000000",
+            height: "1px",
+            opacity: "20%",
+          },
+        },
+        {
+          props: { variant: "footer" },
+          style: {
+            backgroundColor: "#000000",
+            height: "0.48px",
           },
         },
         {
           props: { variant: "dark" },
           style: {
-            backgroundColor: "#595959",
+            backgroundColor: "#000000",
+            height: "2px",
+            opacity: "65%",
           },
         },
       ],

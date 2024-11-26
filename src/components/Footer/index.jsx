@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import { SMLinks } from "../SMLinks/index.jsx";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import {
+  StyledFooterContainer,
   StyledFooterLink,
   StyledFooterLinksContainer,
   StyledFooterTextContainer,
@@ -23,35 +24,37 @@ export function Footer() {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <PageWidthContainer>
-      <StyledFooterLinksContainer>
-        <StyledFooterLink href={"/"} variant="link">
-          contact
-        </StyledFooterLink>
-        <StyledFooterLink href={"/"} variant="link">
-          assistance
-        </StyledFooterLink>
-        <StyledFooterLink href={"/"} variant="link">
-          about us
-        </StyledFooterLink>
-      </StyledFooterLinksContainer>
-      <Divider variant="dark"></Divider>
-      <StyledFooterTextContainer>
-        {matches ? (
-          <>
-            <div>
-              Feel free to contact us in case of any problems and doubts.
-            </div>
-            <div>We are there for you.</div>
-          </>
-        ) : (
-          <>
-            <div>Feel free to contact us in case of</div>
-            <div> any problems and doubts.</div>
-            <div>We are there for you.</div>
-          </>
-        )}
-      </StyledFooterTextContainer>
-      <SMLinks links={socialMediaLinks}></SMLinks>
+      <StyledFooterContainer>
+        <StyledFooterLinksContainer>
+          <StyledFooterLink href={"/"} variant="link">
+            contact
+          </StyledFooterLink>
+          <StyledFooterLink href={"/"} variant="link">
+            assistance
+          </StyledFooterLink>
+          <StyledFooterLink href={"/"} variant="link">
+            about us
+          </StyledFooterLink>
+        </StyledFooterLinksContainer>
+        <Divider variant="footer"></Divider>
+        <StyledFooterTextContainer>
+          {matches ? (
+            <>
+              <div>
+                Feel free to contact us in case of any problems and doubts.
+              </div>
+              <div>We are there for you.</div>
+            </>
+          ) : (
+            <>
+              <div>Feel free to contact us in case of</div>
+              <div> any problems and doubts.</div>
+              <div>We are there for you.</div>
+            </>
+          )}
+        </StyledFooterTextContainer>
+        <SMLinks links={socialMediaLinks}></SMLinks>
+      </StyledFooterContainer>
     </PageWidthContainer>
   );
 }

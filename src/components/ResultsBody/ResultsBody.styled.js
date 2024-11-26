@@ -75,7 +75,7 @@ export const StyledDisplayNumberWrapper = styled("div")`
 `;
 
 export const StyledFiltersContainer = styled("div")`
-  box-shadow: 0 0 6px ${({ theme }) => theme.palette.secondary.light};
+  box-shadow: 0 5px 4px ${({ theme }) => theme.palette.secondary.light};
   width: 283px;
 `;
 
@@ -89,7 +89,7 @@ export const StyleThinBodyContentContainer = styled("div")`
 
 export const StyledNoBannerFrame = styled("div")`
   padding-bottom: ${({ theme }) => theme.spacing(8)};
-  box-shadow: 0 2px 6px ${({ theme }) => theme.palette.secondary.light};
+  box-shadow: 0 7px 7px -7px ${({ theme }) => theme.palette.secondary.light};
   width: 100%;
 `;
 
@@ -98,7 +98,7 @@ export const StyledDrawerButtonsContainer = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top: ${({ theme }) => theme.spacing(6)};
+  padding-top: ${({ theme }) => theme.spacing(4)};
 `;
 
 export const FiltersButton = styled("button")`
