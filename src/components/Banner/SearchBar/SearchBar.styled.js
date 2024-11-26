@@ -2,7 +2,7 @@ import { styled, TextField } from "@mui/material";
 
 export const StyledSearchBarTextField = styled(TextField)`
   max-width: 220px;
-  min-width: ${(props) => (props.iscollapsed ? "142px" : "220px")};
+  min-width: ${(props) => (props.iscollapsed === "true" ? "0px" : "220px")};
   max-height: 48px;
   padding: 0;
   justify-content: center;

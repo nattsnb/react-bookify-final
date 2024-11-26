@@ -13,9 +13,9 @@ export const SearchBar = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
-  const [isCollapsed, setIsCollapsed] = React.useState(false);
+  const [iscollapsed, setIscollapsed] = React.useState(false);
   const collapseSearchBar = () => {
-    setIsCollapsed((prev) => !prev);
+    setIscollapsed((prev) => !prev);
   };
   const theme = useTheme();
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
@@ -27,30 +27,36 @@ export const SearchBar = () => {
         {isViewportLargerThanMd ? (
           isViewportLargerThanLG ? (
             <Collapse
-              in={isCollapsed}
+              in={iscollapsed}
               orientation="horizontal"
               collapsedSize={245}
             >
-              <InputsContainer register={register} isCollapsed={isCollapsed} />
+              <InputsContainer
+                register={register}
+                iscollapsed={iscollapsed.toString()}
+              />
             </Collapse>
           ) : (
             <Collapse
-              in={isCollapsed}
+              in={iscollapsed}
               orientation="horizontal"
               collapsedSize={228}
             >
-              <InputsContainer register={register} isCollapsed={isCollapsed} />
+              <InputsContainer
+                register={register}
+                iscollapsed={iscollapsed.toString()}
+              />
             </Collapse>
           )
         ) : (
-          <Collapse in={isCollapsed} collapsedSize={95}>
+          <Collapse in={iscollapsed} collapsedSize={95}>
             <InputsContainer register={register} />
           </Collapse>
         )}
 
         <StyledCollapseTypographyContainer>
           <Button variant="outlined" onClick={collapseSearchBar}>
-            {!isCollapsed
+            {!iscollapsed
               ? "I want to be more specific (4)"
               : "I don`t want to be that specific"}
           </Button>

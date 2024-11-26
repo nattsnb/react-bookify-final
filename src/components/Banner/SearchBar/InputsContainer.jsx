@@ -42,7 +42,7 @@ const textFieldsDataArray = [
   },
 ];
 
-export const InputsContainer = ({ register, isCollapsed }) => {
+export const InputsContainer = ({ register, iscollapsed }) => {
   return (
     <StyledInputsContainer>
       {textFieldsDataArray.map((dataEntry) => (
@@ -50,7 +50,7 @@ export const InputsContainer = ({ register, isCollapsed }) => {
           key={dataEntry.id}
           variant="outlined"
           placeholder={dataEntry.placeholder}
-          isCollapsed={isCollapsed}
+          iscollapsed={iscollapsed}
           {...register(dataEntry.placeholder, { required: true })}
           InputProps={{
             startAdornment: (

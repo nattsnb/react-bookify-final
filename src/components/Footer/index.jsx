@@ -26,13 +26,13 @@ export function Footer() {
     <PageWidthContainer>
       <StyledFooterContainer>
         <StyledFooterLinksContainer>
-          <StyledFooterLink href={"/"} variant="link">
+          <StyledFooterLink href={"/contact/"} variant="link">
             contact
           </StyledFooterLink>
-          <StyledFooterLink href={"/"} variant="link">
+          <StyledFooterLink href={"/assistance/"} variant="link">
             assistance
           </StyledFooterLink>
-          <StyledFooterLink href={"/"} variant="link">
+          <StyledFooterLink href={"/aboutUs/"} variant="link">
             about us
           </StyledFooterLink>
         </StyledFooterLinksContainer>

@@ -18,15 +18,15 @@ import GradeIcon from "@mui/icons-material/Grade";
 import PeopleIcon from "@mui/icons-material/People";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import {useVenueCard} from "./useVenueCard.js";
+import { useVenueCard } from "./useVenueCard.js";
 
 export function VenueCard({ venue, currencyData }) {
   const {
     currentPictureNumber,
     pricePreNightInPLN,
     handleClickForward,
-    handleClickBack
-  } = useVenueCard(venue, currencyData)
+    handleClickBack,
+  } = useVenueCard(venue, currencyData);
 
   return (
     <StyledVenueCardWrapper>

@@ -15,6 +15,12 @@ export function App() {
         <Routes>
           <Route path="/results/" element={<Results />} exact />
           <Route path="/venue/" element={<Venue />} />
+          <Route path="/aboutUs/" element={<p>about us</p>} />
+          <Route path="/yourFavourites/" element={<p>your favourites</p>} />
+          <Route path="/startHosting/" element={<p>start hosting</p>} />
+          <Route path="/login/" element={<p>log in</p>} />
+          <Route path="/contact/" element={<p>contact</p>} />
+          <Route path="/assistance/" element={<p>assistance</p>} />
         </Routes>
       </Layout>
     </ThemeProvider>

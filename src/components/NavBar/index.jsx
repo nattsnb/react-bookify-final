@@ -21,16 +21,20 @@ export function NavBar() {
               </Link>
             </div>
             <StyledNavBarLinksContainer>
-              <Link href={"/"} variant="link">
+              <Link href={"/aboutUs/"} variant="link">
                 <Typography variant="aboutUsLink">about us</Typography>
               </Link>
-              <Link href={"/"} variant="link">
+              <Link href={"/yourFavourites/"} variant="link">
                 your favourites
               </Link>
-              <Link href={"/"} variant="link">
+              <Link href={"/startHosting/"} variant="link">
                 start hosting
               </Link>
-              <Link href={"/"} sx={{ color: "#67AA92" }} variant="boldLink">
+              <Link
+                href={"/login/"}
+                sx={{ color: "#67AA92" }}
+                variant="boldLink"
+              >
                 login
               </Link>
             </StyledNavBarLinksContainer>
@@ -45,7 +49,7 @@ export function NavBar() {
                 <Typography variant="homeLink">bookify</Typography>
               </Link>
             </div>
-            <Link href={"/"} sx={{ color: "#67AA92" }} variant="boldLink">
+            <Link href={"/login/"} sx={{ color: "#67AA92" }} variant="boldLink">
               login
             </Link>
           </>
