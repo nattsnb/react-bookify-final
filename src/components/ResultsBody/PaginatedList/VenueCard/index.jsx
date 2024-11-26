@@ -18,29 +18,16 @@ import GradeIcon from "@mui/icons-material/Grade";
 import PeopleIcon from "@mui/icons-material/People";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useState } from "react";
+import {useVenueCard} from "./useVenueCard.js";
 
 export function VenueCard({ venue, currencyData }) {
-  const pricePreNightInPLN = (
-    (venue.pricePerNightInEURCent / 100) *
-    (currencyData.PLN / currencyData.EUR)
-  ).toFixed(0);
-  const [currentPictureNumber, setCurrentPictureNumber] = useState(0);
-  const handleClickForward = () => {
-    if (currentPictureNumber === venue.images.length - 1) {
-      setCurrentPictureNumber(0);
-    } else {
-      setCurrentPictureNumber(currentPictureNumber + 1);
-    }
-  };
+  const {
+    currentPictureNumber,
+    pricePreNightInPLN,
+    handleClickForward,
+    handleClickBack
+  } = useVenueCard(venue, currencyData)
 
-  const handleClickBack = () => {
-    if (currentPictureNumber === 0) {
-      setCurrentPictureNumber(venue.images.length - 1);
-    } else {
-      setCurrentPictureNumber(currentPictureNumber - 1);
-    }
-  };
   return (
     <StyledVenueCardWrapper>
       <StyledPictureFrame backgroundurl={venue.images[currentPictureNumber]}>
