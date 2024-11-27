@@ -1,3 +1,6 @@
+import { useParams } from "react-router-dom";
+
 export function Venue() {
-  return <p>VENUE PLACEHOLDER</p>;
+  const { venueId } = useParams();
+  return <p>VENUE {venueId} PLACEHOLDER</p>;
 }

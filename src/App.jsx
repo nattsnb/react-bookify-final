@@ -14,7 +14,7 @@ export function App() {
       <Layout>
         <Routes>
           <Route path="/results/" element={<Results />} exact />
-          <Route path="/venue/" element={<Venue />} />
+          <Route path="/venue/:venueId" element={<Venue />} />
           <Route path="/aboutUs/" element={<p>about us</p>} />
           <Route path="/yourFavourites/" element={<p>your favourites</p>} />
           <Route path="/startHosting/" element={<p>start hosting</p>} />

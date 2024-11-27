@@ -1,6 +1,6 @@
 # Bookify
 
-Booking mock-up. 
+Booking mock-up.
 
 ## App installation:
 
