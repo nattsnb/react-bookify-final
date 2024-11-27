@@ -5,15 +5,15 @@ Booking mock-up.
 ## App installation:
 
 1. Pull repo to your directory
-2. Install Bookify repo
+2. Install dependencies
 
 `npm install`
 
-4. Run json server on localhost:3000
+4. Run json server
 
-`json-server db.json`
+`npm run server`
 
-5. Run Bookify repo on other localhost
+5. Run Bookify repo
 
 `npm run dev`
 
