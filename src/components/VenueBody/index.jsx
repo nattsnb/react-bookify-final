@@ -1,5 +1,5 @@
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
-import { Link, useMediaQuery, useTheme } from "@mui/material";
+import { Link, Typography, useMediaQuery, useTheme } from "@mui/material";
 import {
   StyledArrowBackIosIcon,
   StyledBackToResultsFlexDiv,
@@ -10,10 +10,17 @@ import {
   StyledWideBodyContainer,
 } from "./VenueBody.styled.js";
 import { DetailsAndImageContainer } from "./DetailsAndImageContainer.jsx";
+import React from "react";
+import { useVenueBody } from "./useVenueBody.js";
 
 export function VenueBody({ venueId }) {
+  const { venueDetails, isLoading } = useVenueBody(venueId);
   const theme = useTheme();
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
+
+  if (isLoading) {
+    return <Typography>Loading...</Typography>;
+  }
 
   return (
     <PageWidthContainer>
@@ -28,7 +35,7 @@ export function VenueBody({ venueId }) {
         {isViewportLargerThanMd ? (
           <StyledWideBodyContainer>
             <StyledLeftColumnContainer>
-              <DetailsAndImageContainer />
+              <DetailsAndImageContainer venueDetails={venueDetails} />
             </StyledLeftColumnContainer>
             <StyledRightColumnContainer>
               calendar placeholder
