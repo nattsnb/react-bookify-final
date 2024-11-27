@@ -1,8 +1,8 @@
 import { styled } from "@mui/material";
 
 export const StyledVenueCardWrapper = styled("div")`
-  min-width: 282px;
-  min-height: 228px;
+  width: 282px;
+  height: 228px;
   box-shadow: 0 0 0.4vw ${({ theme }) => theme.palette.secondary.light};
 `;
 
@@ -20,9 +20,8 @@ export const StyledPictureFrame = styled("div")`
 
 export const StyledUnderCardInfoBox = styled("div")`
   background-color: ${({ theme }) => theme.palette.background.offDefault};
-  min-height: 28px;
-  width: 100%;
   height: 20%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
