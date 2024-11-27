@@ -17,7 +17,7 @@ import { SortDrawer } from "./SortDrawer.jsx";
 
 export function ResultsBody() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
   const [limit, setLimit] = useState(6);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = React.useState(false);
   const toggleFiltersDrawer = () => () => {
@@ -30,7 +30,7 @@ export function ResultsBody() {
   };
   return (
     <PageWidthContainer>
-      {matches ? (
+      {isViewportLargerThanMd ? (
         <StyledWideBodyContentContainer>
           <FiltersDrawer />
           <ResultsBodyElementsWrapper limit={limit} setLimit={setLimit} />

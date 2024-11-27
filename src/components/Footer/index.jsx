@@ -21,7 +21,7 @@ const socialMediaLinks = [
 ];
 export function Footer() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <PageWidthContainer>
       <StyledFooterContainer>
@@ -38,7 +38,7 @@ export function Footer() {
         </StyledFooterLinksContainer>
         <Divider variant="footer"></Divider>
         <StyledFooterTextContainer>
-          {matches ? (
+          {isViewportLargerThanMd ? (
             <>
               <div>
                 Feel free to contact us in case of any problems and doubts.
