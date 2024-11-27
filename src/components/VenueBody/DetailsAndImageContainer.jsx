@@ -1,25 +1,46 @@
 import {
   StyledDetailsAndImageContainer,
-  StyledAddressAndRatingContainer,
+  StyledDetailsContainer,
+  StyledNameAndAddressContainer,
+  StyledRatingContainer,
+  StyledVenueAddressTypography,
+  StyledVenueNameTypography,
+  StyledVenueRatingTypography,
+  StyledImageContainer,
+  StyledReviewsTypography,
 } from "./VenueBody.styled.js";
-import Typography from "@mui/material/Typography";
+import StarIcon from "@mui/icons-material/Star";
 
 export function DetailsAndImageContainer({ venueDetails }) {
   const cityName = venueDetails.venuesBasicData.location.city;
   const cityNameLowerCase = cityName.toLowerCase();
-  const cityNameCapitalised =
-    cityNameLowerCase[0].toUpperCase() + cityNameLowerCase.substring(1);
+  const numberOfStars = Math.round(venueDetails.venuesBasicData.rating);
+  const stars = new Array(numberOfStars).fill("star");
   return (
     <StyledDetailsAndImageContainer>
-      <Typography>{venueDetails.venuesBasicData.name}</Typography>
-      <StyledAddressAndRatingContainer>
-        <div>
-          {venueDetails.venuesBasicData.location.postalCode},{" "}
-          {cityNameCapitalised}
-        </div>
-        <div> rating</div>
-      </StyledAddressAndRatingContainer>
-      <div>IMAGE</div>
+      <StyledDetailsContainer>
+        <StyledNameAndAddressContainer>
+          <StyledVenueNameTypography>
+            {venueDetails.venuesBasicData.name}
+          </StyledVenueNameTypography>
+          <StyledVenueAddressTypography>
+            {venueDetails.venuesBasicData.location.postalCode},{" "}
+            {cityNameLowerCase}
+          </StyledVenueAddressTypography>
+        </StyledNameAndAddressContainer>
+        <StyledRatingContainer>
+          <StyledReviewsTypography>
+            {venueDetails.venuesBasicData.reviews} reviews
+          </StyledReviewsTypography>
+          <StyledVenueRatingTypography>
+            {stars.map((star, index) => {
+              return <StarIcon key={index} />;
+            })}
+          </StyledVenueRatingTypography>
+        </StyledRatingContainer>
+      </StyledDetailsContainer>
+
+      <StyledImageContainer>IMAGE</StyledImageContainer>
     </StyledDetailsAndImageContainer>
   );
 }

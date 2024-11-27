@@ -16,7 +16,7 @@ import { useVenueBody } from "./useVenueBody.js";
 export function VenueBody({ venueId }) {
   const { venueDetails, isLoading } = useVenueBody(venueId);
   const theme = useTheme();
-  const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   if (isLoading) {
     return <Typography>Loading...</Typography>;
@@ -32,7 +32,7 @@ export function VenueBody({ venueId }) {
             </StyledBackToResultsFlexDiv>
           </Link>
         </StyledBackToResultsLinkContainer>
-        {isViewportLargerThanMd ? (
+        {isViewportLargerThanLg ? (
           <StyledWideBodyContainer>
             <StyledLeftColumnContainer>
               <DetailsAndImageContainer venueDetails={venueDetails} />
@@ -42,7 +42,7 @@ export function VenueBody({ venueId }) {
             </StyledRightColumnContainer>
           </StyledWideBodyContainer>
         ) : (
-          <DetailsAndImageContainer />
+          <DetailsAndImageContainer venueDetails={venueDetails} />
         )}
       </StyledBodyContainer>
     </PageWidthContainer>
