@@ -48,35 +48,36 @@ export const StyledResultsToolbarDiv = styled("div")`
   justify-content: space-between;
 `;
 
-export const StyledResultsNumberTextFiled = styled(TextField)`
-  width: auto;
-
+export const StyledLimitTextFiled = styled(TextField)`
   & .MuiInputBase-input {
-    color: var(--primary-main);
+    color: ${({ theme }) => theme.palette.primary.main};
     font-weight: 600;
-    text-align: center;
-    padding: ${({ theme }) => theme.spacing(3)};
-    margin: 0;
+    //   padding-left: ${({ theme }) => theme.spacing(30)};
+    padding-top: ${({ theme }) => theme.spacing(4)};
+    //   margin: 0;
+    //
+  }
+  & .MuiSelect-outlined {
+    padding: ${({ theme }) => theme.spacing(2)}
+      ${({ theme }) => theme.spacing(3.5)};
   }
 
   & .MuiOutlinedInput-root {
     & fieldset {
       border-radius: 0;
+      margin: 0;
+      padding: 0;
     }
   }
+
   & .MuiSelect-icon {
     display: none;
   }
 `;
 
-export const StyledDisplayNumberWrapper = styled("div")`
+export const StyledLimitWrapper = styled("div")`
   margin-right: ${({ theme }) => theme.spacing(3)};
   margin-left: ${({ theme }) => theme.spacing(3)};
-
-  & .MuiInputBase-input {
-    padding-right: ${({ theme }) => theme.spacing(5)};
-    padding-left: ${({ theme }) => theme.spacing(4)};
-  }
 `;
 
 export const StyledFiltersContainer = styled("div")`
@@ -99,6 +100,7 @@ export const StyledFiltersContainer = styled("div")`
 export const StyledLimitSettingsContainer = styled("div")`
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
 `;
 
 export const StyleThinContentContainer = styled("div")`

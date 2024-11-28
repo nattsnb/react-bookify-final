@@ -3,10 +3,10 @@ import { PaginatedList } from "./PaginatedList/index.jsx";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import {
-  StyledDisplayNumberWrapper,
+  StyledLimitWrapper,
   StyledResultsToolbarDiv,
   StyledResultsElementsWrapper,
-  StyledResultsNumberTextFiled,
+  StyledLimitTextFiled,
   StyledLimitSettingsContainer,
 } from "./Results.styled.js";
 
@@ -22,8 +22,8 @@ export function ResultsElementsWrapper({ limit, setLimit }) {
       <StyledResultsToolbarDiv>
         <StyledLimitSettingsContainer>
           <Box>show</Box>
-          <StyledDisplayNumberWrapper>
-            <StyledResultsNumberTextFiled
+          <StyledLimitWrapper>
+            <StyledLimitTextFiled
               id="select-number-of-cards"
               select
               value={limit}
@@ -35,8 +35,8 @@ export function ResultsElementsWrapper({ limit, setLimit }) {
                   {setting}
                 </MenuItem>
               ))}
-            </StyledResultsNumberTextFiled>
-          </StyledDisplayNumberWrapper>
+            </StyledLimitTextFiled>
+          </StyledLimitWrapper>
 
           <Box>on the page</Box>
         </StyledLimitSettingsContainer>

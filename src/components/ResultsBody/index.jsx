@@ -55,7 +55,7 @@ export function ResultsBody() {
               <FiltersDrawer />
             </Drawer>
             <Drawer
-              anchor={"right"}
+              anchor="right"
               open={isSortDrawerOpen}
               onClose={toggleSortDrawer(false)}
             >
