@@ -5,12 +5,12 @@ import Typography from "@mui/material/Typography";
 import {
   StyledDisplayNumberWrapper,
   StyledResultsToolbarDiv,
-  StyledResultsBodyElementsWrapper,
+  StyledResultsElementsWrapper,
   StyledResultsNumberTextFiled,
   StyledLimitSettingsContainer,
-} from "./ResultsBody.styled.js";
+} from "./Results.styled.js";
 
-export function ResultsBodyElementsWrapper({ limit, setLimit }) {
+export function ResultsElementsWrapper({ limit, setLimit }) {
   const arrayOfPaginationSettings = [6, 18, 36];
 
   const handleNumberOfCardsChange = (event) => {
@@ -18,7 +18,7 @@ export function ResultsBodyElementsWrapper({ limit, setLimit }) {
   };
 
   return (
-    <StyledResultsBodyElementsWrapper>
+    <StyledResultsElementsWrapper>
       <StyledResultsToolbarDiv>
         <StyledLimitSettingsContainer>
           <Box>show</Box>
@@ -45,6 +45,6 @@ export function ResultsBodyElementsWrapper({ limit, setLimit }) {
         </Button>
       </StyledResultsToolbarDiv>
       <PaginatedList limit={limit} />
-    </StyledResultsBodyElementsWrapper>
+    </StyledResultsElementsWrapper>
   );
 }

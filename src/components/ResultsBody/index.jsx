@@ -1,5 +1,5 @@
 import { FiltersDrawer } from "./FiltersDrawer.jsx";
-import { ResultsBodyElementsWrapper } from "./ResultsBodyElementsWrapper.jsx";
+import { ResultsElementsWrapper } from "./ResultsElementsWrapper.jsx";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import { Drawer, useMediaQuery, useTheme } from "@mui/material";
 import {
@@ -7,9 +7,9 @@ import {
   SortButton,
   StyledDrawerButtonsContainer,
   StyledNoBannerFrame,
-  StyledWideBodyContentContainer,
-  StyleThinBodyContentContainer,
-} from "./ResultsBody.styled.js";
+  StyledWideContentContainer,
+  StyleThinContentContainer,
+} from "./Results.styled.js";
 import { PaginatedList } from "./PaginatedList/index.jsx";
 import React, { useState } from "react";
 import { SearchBar } from "../Banner/SearchBar/index.jsx";
@@ -31,10 +31,10 @@ export function ResultsBody() {
   return (
     <PageWidthContainer>
       {isViewportLargerThanMd ? (
-        <StyledWideBodyContentContainer>
+        <StyledWideContentContainer>
           <FiltersDrawer />
-          <ResultsBodyElementsWrapper limit={limit} setLimit={setLimit} />
-        </StyledWideBodyContentContainer>
+          <ResultsElementsWrapper limit={limit} setLimit={setLimit} />
+        </StyledWideContentContainer>
       ) : (
         <>
           <StyledNoBannerFrame>
@@ -61,9 +61,9 @@ export function ResultsBody() {
             </Drawer>
             <SearchBar />
           </StyledNoBannerFrame>
-          <StyleThinBodyContentContainer>
+          <StyleThinContentContainer>
             <PaginatedList limit={limit} />
-          </StyleThinBodyContentContainer>
+          </StyleThinContentContainer>
         </>
       )}
     </PageWidthContainer>

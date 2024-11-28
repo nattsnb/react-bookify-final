@@ -11,7 +11,7 @@ import {
   StyledDrawerToolbar,
   StyledDrawerToolbarBackground,
   StyledFiltersContainer,
-} from "./ResultsBody.styled.js";
+} from "./Results.styled.js";
 import { HiddenElement } from "../../shared/styledComponents/hiddenElement.styled.js";
 
 export function FiltersDrawer() {

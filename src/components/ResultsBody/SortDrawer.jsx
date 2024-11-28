@@ -1,19 +1,9 @@
-import {
-  Button,
-  Checkbox,
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-  MenuList,
-} from "@mui/material";
+import { Checkbox, ListItemText, MenuItem, MenuList } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
-  StyledDrawerToolbar,
   StyledDrawerToolbarBackground,
   StyledFiltersContainer,
-} from "./ResultsBody.styled.js";
-import { HiddenElement } from "../../shared/styledComponents/hiddenElement.styled.js";
+} from "./Results.styled.js";
 
 export function SortDrawer() {
   const arrayOfFilters = [

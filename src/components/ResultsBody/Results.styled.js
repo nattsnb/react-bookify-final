@@ -1,7 +1,7 @@
 import { styled, TextField, Toolbar } from "@mui/material";
 import toolbarBackgroundImage from "../../images/toolbar.svg";
 
-export const StyledWideBodyContentContainer = styled("div")`
+export const StyledWideContentContainer = styled("div")`
   padding-top: ${({ theme }) => theme.spacing(31)};
   display: flex;
   flex-direction: row;
@@ -35,7 +35,7 @@ export const StyledDrawerToolbar = styled(Toolbar)`
   width: 100%;
 `;
 
-export const StyledResultsBodyElementsWrapper = styled("div")`
+export const StyledResultsElementsWrapper = styled("div")`
   width: 100%;
   margin-left: ${({ theme }) => theme.spacing(18)};
 `;
@@ -101,7 +101,7 @@ export const StyledLimitSettingsContainer = styled("div")`
   align-items: flex-end;
 `;
 
-export const StyleThinBodyContentContainer = styled("div")`
+export const StyleThinContentContainer = styled("div")`
   padding-top: ${({ theme }) => theme.spacing(21)};
 `;
 

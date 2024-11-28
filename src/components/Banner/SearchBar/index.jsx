@@ -5,7 +5,6 @@ import {
   StyledCollapseTypographyContainer,
   StyledSearchBarContainer,
 } from "./SearchBar.styled.js";
-import Typography from "@mui/material/Typography";
 import { InputsContainer } from "./InputsContainer.jsx";
 
 export const SearchBar = () => {
