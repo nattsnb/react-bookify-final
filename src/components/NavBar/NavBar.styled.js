@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Link, styled } from "@mui/material";
 
 export const StyledNavBarContainer = styled("div")`
   display: flex;
@@ -25,4 +25,9 @@ export const StyledNavBarLinksContainer = styled("div")`
   max-width: 590px;
   width: 100%;
   margin-left: ${({ theme }) => theme.spacing(16)};
+  color: ${({ theme }) => theme.palette.secondary.dark};
+`;
+
+export const StyledLoginLink = styled(Link)`
+  color: ${({ theme }) => theme.palette.primary.main};
 `;

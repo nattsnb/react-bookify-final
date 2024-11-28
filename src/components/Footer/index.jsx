@@ -22,7 +22,7 @@ export function Footer() {
   const theme = useTheme();
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <PageWidthContainer>
+    <div>
       <StyledFooterContainer>
         <StyledFooterLinksContainer>
           <StyledFooterLink href={"/contact/"} variant="link">
@@ -54,6 +54,6 @@ export function Footer() {
         </StyledFooterTextContainer>
         <SMLinks links={socialMediaLinks}></SMLinks>
       </StyledFooterContainer>
-    </PageWidthContainer>
+    </div>
   );
 }

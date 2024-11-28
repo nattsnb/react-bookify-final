@@ -3,6 +3,7 @@ import { Link, useMediaQuery, useTheme } from "@mui/material";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
+  StyledLoginLink,
   StyledNavBarContainer,
   StyledNavBarLinksContainer,
 } from "./NavBar.styled.js";
@@ -11,7 +12,7 @@ export function NavBar() {
   const theme = useTheme();
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <PageWidthContainer>
+    <div>
       <StyledNavBarContainer>
         {isViewportLargerThanMd ? (
           <>
@@ -30,13 +31,9 @@ export function NavBar() {
               <Link href={"/startHosting/"} variant="link">
                 start hosting
               </Link>
-              <Link
-                href={"/login/"}
-                sx={{ color: "#67AA92" }}
-                variant="boldLink"
-              >
+              <StyledLoginLink href={"/login/"} variant="boldLink">
                 login
-              </Link>
+              </StyledLoginLink>
             </StyledNavBarLinksContainer>
           </>
         ) : (
@@ -55,6 +52,6 @@ export function NavBar() {
           </>
         )}
       </StyledNavBarContainer>
-    </PageWidthContainer>
+    </div>
   );
 }
