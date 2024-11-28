@@ -52,7 +52,6 @@ export const StyledBodyContainer = styled("div")`
 export const StyledLeftColumnContainer = styled("div")`
   display: flex;
   flex-direction: column;
-  background-color: aqua;
   max-width: 692px;
   width: 100%;
 `;
@@ -78,6 +77,9 @@ export const StyledDetailsContainer = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
+      @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+        margin-bottom: ${({ theme }) => theme.spacing(1)};
 `;
 
 export const StyledNameAndAddressContainer = styled("div")`
@@ -92,7 +94,14 @@ export const StyledRatingContainer = styled("div")`
 `;
 
 export const StyledImageContainer = styled("div")`
+  aspect-ratio: 2 / 1;
+  background-size: cover;
+  background-position: center;
+  background-image: ${(props) => `url(${props.backgroundurl})`};
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
 `;
 
 export const StyledVenueNameTypography = styled(Typography)`
@@ -119,6 +128,10 @@ export const StyledVenueAddressTypography = styled(Typography)`
 
 export const StyledVenueRatingTypography = styled(Typography)`
   color: ${({ theme }) => theme.palette.primary.detail};
+    @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+      & .MuiSvgIcon-root {
+        font-size: 20px;
+      }
 `;
 
 export const StyledReviewsTypography = styled(Typography)`
@@ -126,4 +139,40 @@ export const StyledReviewsTypography = styled(Typography)`
   opacity: 75%;
   @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
     font-size: 12px;
+`;
+
+export const StyledIconContainer = styled("div")`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
+  padding-left: ${({ theme }) => theme.spacing(10)};
+  padding-right: ${({ theme }) => theme.spacing(8)};
+
+  & .MuiSvgIcon-root {
+    font-size: 50px;
+    color: ${({ theme }) => theme.palette.background.offDefault};
+    opacity: 80%;
+    text-shadow: 3px 3px 15px ${({ theme }) => theme.palette.secondary.dark};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+    padding-left: ${({ theme }) => theme.spacing(5)};
+    padding-right: ${({ theme }) => theme.spacing(4)};
+    & .MuiSvgIcon-root {
+      font-size: 35px;
+    }
+  }
+`;
+
+export const StyledHeartDiv = styled("div")`
+  width: 40px;
+  height: 40px;
+  background-color: ${({ theme }) => theme.palette.secondary.dark};
+  opacity: 0.63;
+  border-radius: 0 0 10px 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-top: ${({ theme }) => theme.spacing(1)};
 `;

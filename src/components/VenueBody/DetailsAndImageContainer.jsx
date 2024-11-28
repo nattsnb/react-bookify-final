@@ -8,10 +8,21 @@ import {
   StyledVenueRatingTypography,
   StyledImageContainer,
   StyledReviewsTypography,
+  StyledHeartDiv,
+  StyledIconContainer,
 } from "./VenueBody.styled.js";
 import StarIcon from "@mui/icons-material/Star";
+import Typography from "@mui/material/Typography";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { IconButton } from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useDetailsAndImageContainer } from "./useDetailsAndImageContainer.js";
+import { HiddenElement } from "../../shared/styledComponents/hiddenElement.styled.js";
 
 export function DetailsAndImageContainer({ venueDetails }) {
+  const { currentPictureNumber, handleClickForward, handleClickBack } =
+    useDetailsAndImageContainer(venueDetails.venuesBasicData);
   const cityName = venueDetails.venuesBasicData.location.city;
   const cityNameLowerCase = cityName.toLowerCase();
   const numberOfStars = Math.round(venueDetails.venuesBasicData.rating);
@@ -39,8 +50,26 @@ export function DetailsAndImageContainer({ venueDetails }) {
           </StyledVenueRatingTypography>
         </StyledRatingContainer>
       </StyledDetailsContainer>
-
-      <StyledImageContainer>IMAGE</StyledImageContainer>
+      <StyledImageContainer
+        backgroundurl={
+          venueDetails.venuesBasicData.images[currentPictureNumber]
+        }
+      >
+        <StyledHeartDiv>
+          <Typography variant="boldOnCard">
+            <FavoriteBorderIcon />
+          </Typography>
+        </StyledHeartDiv>
+        <StyledIconContainer>
+          <IconButton onClick={handleClickBack}>
+            <ArrowBackIosIcon />
+          </IconButton>
+          <IconButton onClick={handleClickForward}>
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </StyledIconContainer>
+        <HiddenElement></HiddenElement>
+      </StyledImageContainer>
     </StyledDetailsAndImageContainer>
   );
 }
