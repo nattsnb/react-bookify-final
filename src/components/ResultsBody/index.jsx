@@ -15,18 +15,22 @@ import React, { useState } from "react";
 import { SearchBar } from "../Banner/SearchBar/index.jsx";
 import { SortDrawer } from "./SortDrawer.jsx";
 
+const INITIAL_LIMIT = 6;
+
 export function ResultsBody() {
+  const [limit, setLimit] = useState(INITIAL_LIMIT);
+  const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
+  const [isSortDrawerOpen, setIsSortDrawerOpen] = useState(false);
+
   const theme = useTheme();
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
-  const [limit, setLimit] = useState(6);
-  const [isFilterDrawerOpen, setIsFilterDrawerOpen] = React.useState(false);
-  const toggleFiltersDrawer = () => () => {
-    setIsFilterDrawerOpen((prev) => !prev);
-  };
-  const [isSortDrawerOpen, setIsSortDrawerOpen] = React.useState(false);
 
-  const toggleSortDrawer = () => () => {
-    setIsSortDrawerOpen((prev) => !prev);
+  const toggleFiltersDrawer = (boolean) => () => {
+    setIsFilterDrawerOpen(boolean);
+  };
+
+  const toggleSortDrawer = (boolean) => () => {
+    setIsSortDrawerOpen(boolean);
   };
   return (
     <PageWidthContainer>
@@ -42,9 +46,7 @@ export function ResultsBody() {
               <FiltersButton onClick={toggleFiltersDrawer(true)}>
                 filters
               </FiltersButton>
-              <SortButton onClick={toggleSortDrawer("right", true)}>
-                sort
-              </SortButton>
+              <SortButton onClick={toggleSortDrawer(true)}>sort</SortButton>
             </StyledDrawerButtonsContainer>
             <Drawer
               open={isFilterDrawerOpen}
