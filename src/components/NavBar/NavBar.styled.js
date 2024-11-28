@@ -9,11 +9,11 @@ export const StyledNavBarContainer = styled("div")`
   padding: 0 ${({ theme }) => theme.spacing(30)};
   box-shadow:  0 7px 7px -7px  ${({ theme }) => theme.palette.secondary.light};
   margin-bottom: ${({ theme }) => theme.spacing(2)};
-  
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
+
+  ${({ theme }) => theme.breakpoints.down("lg")} {
     padding: 0 ${({ theme }) => theme.spacing(12)};
-    
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+
+    ${({ theme }) => theme.breakpoints.down("md")} {
       padding: 0 ${({ theme }) => theme.spacing(6)};
 `;
 

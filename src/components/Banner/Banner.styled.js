@@ -6,7 +6,8 @@ import Typography from "@mui/material/Typography";
 
 export const StyledBannerContent = styled("div")`
   width: 100%;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
     padding-bottom: 20px;
   }
 `;
@@ -26,7 +27,7 @@ export const StyledBanner = styled("div")`
     bottom left,
     center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down("md")} {
     height: fit-content;
     background-image: url(${topDecorationImage}), url(${backgroundImage});
     background-repeat: no-repeat, no-repeat;
@@ -43,23 +44,23 @@ export const StyledHeaderTypography = styled(Typography)`
   text-align: right;
   margin-right: ${({ theme }) => theme.spacing(28)};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.xl}px) {
+  ${({ theme }) => theme.breakpoints.down("xl")} {
     font-size: 36px;
     margin-right: ${({ theme }) => theme.spacing(16)};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
+  ${({ theme }) => theme.breakpoints.down("lg")} {
     margin-right: ${({ theme }) => theme.spacing(12)};
     font-size: 32px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down("md")} {
     margin-left: ${({ theme }) => theme.spacing(8)};
     margin-right: ${({ theme }) => theme.spacing(0)};
     text-align: left;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     margin-left: ${({ theme }) => theme.spacing(4)};
     font-size: 25px;
   }

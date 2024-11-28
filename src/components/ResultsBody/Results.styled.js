@@ -8,11 +8,14 @@ export const StyledWideContentContainer = styled("div")`
   width: 100%;
   padding-left: ${({ theme }) => theme.spacing(30)};
   padding-right: ${({ theme }) => theme.spacing(8)};
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.xl}px) {
-    padding-left: ${({ theme }) => theme.spacing(25)};
-    @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
-      padding-left: ${({ theme }) => theme.spacing(20)};
 
+  ${({ theme }) => theme.breakpoints.down("xl")} {
+    padding-left: ${({ theme }) => theme.spacing(25)};
+  }
+
+  ${({ theme }) => theme.breakpoints.down("lg")} {
+    padding-left: ${({ theme }) => theme.spacing(20)};
+  }
 `;
 
 export const StyledDrawerToolbarBackground = styled(Toolbar)`
@@ -52,10 +55,7 @@ export const StyledLimitTextFiled = styled(TextField)`
   & .MuiInputBase-input {
     color: ${({ theme }) => theme.palette.primary.main};
     font-weight: 600;
-    //   padding-left: ${({ theme }) => theme.spacing(30)};
     padding-top: ${({ theme }) => theme.spacing(4)};
-    //   margin: 0;
-    //
   }
   & .MuiSelect-outlined {
     padding: ${({ theme }) => theme.spacing(2)}
@@ -92,8 +92,8 @@ export const StyledFiltersContainer = styled("div")`
     font-size: 40px;
     color: ${({ theme }) => theme.palette.secondary.middle};
   }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  
+  ${({ theme }) => theme.breakpoints.down("md")} {
     height: 100%;
 `;
 
@@ -131,6 +131,7 @@ export const FiltersButton = styled("button")`
   height: 40px;
   width: 64px;
 `;
+
 export const SortButton = styled("button")`
   border-radius: 20px 0 0 20px;
   font-size: 16px;

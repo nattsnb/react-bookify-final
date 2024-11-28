@@ -21,7 +21,7 @@ export const StyledSearchBarTextField = styled(TextField)`
       ${({ theme }) => theme.spacing(3)};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
+  ${({ theme }) => theme.breakpoints.down("lg")} {
     &.MuiFormControl-root {
       margin: ${({ theme }) => theme.spacing(2)}
         ${({ theme }) => theme.spacing(1)};
@@ -35,7 +35,7 @@ export const StyledSearchBarTextField = styled(TextField)`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down("md")} {
     &.MuiFormControl-root {
       margin: ${({ theme }) => theme.spacing(2)}
         ${({ theme }) => theme.spacing(3)};
@@ -57,7 +57,7 @@ export const StyledInputsContainer = styled("div")`
   justify-content: space-between;
   margin-top: ${({ theme }) => theme.spacing(19)};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down("md")} {
     flex-direction: column;
     justify-content: center;
     align-items: center;
