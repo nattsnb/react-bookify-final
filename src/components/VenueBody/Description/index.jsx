@@ -1,19 +1,23 @@
 import { Divider } from "@mui/material";
 import {
   StyledDescriptionContainer,
-  StyledParagraphContainer,
+  StyledSectionContainer,
 } from "./Description.styled.js";
 
 export function Description({ venueDetails }) {
   return (
     <StyledDescriptionContainer>
-      <StyledParagraphContainer>
+      <StyledSectionContainer>
         {venueDetails.description}
-      </StyledParagraphContainer>
+      </StyledSectionContainer>
       <Divider variant="light" />
-      <div></div>
+      <StyledSectionContainer>
+
+      </StyledSectionContainer>
       <Divider variant="light" />
-      <div></div>
+      <StyledSectionContainer>
+
+      </StyledSectionContainer>
     </StyledDescriptionContainer>
   );
 }

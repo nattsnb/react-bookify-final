@@ -6,7 +6,7 @@ export const StyledDescriptionContainer = styled("div")`
         padding: 0 ${({ theme }) => theme.spacing(12)};
 `;
 
-export const StyledParagraphContainer = styled("div")`
+export const StyledSectionContainer = styled("div")`
   font-size: 20px;
   line-height: 45px;
   margin-bottom: ${({ theme }) => theme.spacing(10)};
