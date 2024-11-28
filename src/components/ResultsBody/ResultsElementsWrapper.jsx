@@ -10,9 +10,9 @@ import {
   StyledLimitSettingsContainer,
 } from "./Results.styled.js";
 
-export function ResultsElementsWrapper({ limit, setLimit }) {
-  const arrayOfPaginationSettings = [6, 18, 36];
+const ARRAY_OF_LIMIT_SETTINGS = [6, 18, 36];
 
+export function ResultsElementsWrapper({ limit, setLimit }) {
   const handleNumberOfCardsChange = (event) => {
     setLimit(event.target.value);
   };
@@ -30,7 +30,7 @@ export function ResultsElementsWrapper({ limit, setLimit }) {
               onChange={handleNumberOfCardsChange}
               variant="outlined"
             >
-              {arrayOfPaginationSettings.map((setting) => (
+              {ARRAY_OF_LIMIT_SETTINGS.map((setting) => (
                 <MenuItem key={setting} value={setting}>
                   {setting}
                 </MenuItem>
