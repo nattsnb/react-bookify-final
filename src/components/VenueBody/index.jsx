@@ -9,9 +9,11 @@ import {
   StyledRightColumnContainer,
   StyledWideBodyContainer,
 } from "./VenueBody.styled.js";
-import { DetailsAndImageContainer } from "./DetailsAndImageContainer.jsx";
+import { DetailsAndImageContainer } from "./DetailsAndImageContainer/index.jsx";
 import React from "react";
 import { useVenueBody } from "./useVenueBody.js";
+import { WideBodyLinkBarAndContentContainer } from "./LinkBar/WideBodyLinkBarAndContentContainer.jsx";
+import { StyledWideBodyClickedContentContainer } from "./LinkBar/LinkBar.styled.js";
 
 export function VenueBody({ venueId }) {
   const { venueDetails, isLoading } = useVenueBody(venueId);
@@ -36,6 +38,7 @@ export function VenueBody({ venueId }) {
           <StyledWideBodyContainer>
             <StyledLeftColumnContainer>
               <DetailsAndImageContainer venueDetails={venueDetails} />
+              <WideBodyLinkBarAndContentContainer />
             </StyledLeftColumnContainer>
             <StyledRightColumnContainer>
               calendar placeholder

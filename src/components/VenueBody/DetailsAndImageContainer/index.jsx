@@ -10,7 +10,7 @@ import {
   StyledReviewsTypography,
   StyledHeartDiv,
   StyledIconContainer,
-} from "./VenueBody.styled.js";
+} from "../VenueBody.styled.js";
 import StarIcon from "@mui/icons-material/Star";
 import Typography from "@mui/material/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -18,7 +18,7 @@ import { IconButton } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useDetailsAndImageContainer } from "./useDetailsAndImageContainer.js";
-import { HiddenElement } from "../../shared/styledComponents/hiddenElement.styled.js";
+import { HiddenElement } from "../../../shared/styledComponents/hiddenElement.styled.js";
 
 export function DetailsAndImageContainer({ venueDetails }) {
   const { currentPictureNumber, handleClickForward, handleClickBack } =
