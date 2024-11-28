@@ -38,7 +38,7 @@ export function VenueBody({ venueId }) {
           <StyledWideBodyContainer>
             <StyledLeftColumnContainer>
               <DetailsAndImageContainer venueDetails={venueDetails} />
-              <WideBodyLinkBarAndContentContainer />
+              <WideBodyLinkBarAndContentContainer venueDetails={venueDetails} />
             </StyledLeftColumnContainer>
             <StyledRightColumnContainer>
               calendar placeholder

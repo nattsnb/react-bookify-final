@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { Description } from "../Description/index.jsx";
 import { Gallery } from "../Gallery/index.jsx";
 import { Map } from "../Map/index.jsx";
+import { useLinkBar } from "./useLinkBar.js";
 
 const DisplayedContentValue = {
   description: "description",
@@ -14,18 +15,13 @@ const DisplayedContentValue = {
   map: "map",
 };
 
-export function WideBodyLinkBarAndContentContainer() {
-  const [displayedContent, setDisplayedContent] = useState("description");
-
-  const handleDescriptionClick = () => {
-    setDisplayedContent(DisplayedContentValue.description);
-  };
-  const handleGalleryClick = () => {
-    setDisplayedContent(DisplayedContentValue.gallery);
-  };
-  const handleMapClick = () => {
-    setDisplayedContent(DisplayedContentValue.map);
-  };
+export function WideBodyLinkBarAndContentContainer({ venueDetails }) {
+  const {
+    displayedContent,
+    handleDescriptionClick,
+    handleGalleryClick,
+    handleMapClick,
+  } = useLinkBar(DisplayedContentValue);
 
   return (
     <>
@@ -37,12 +33,12 @@ export function WideBodyLinkBarAndContentContainer() {
       <StyledWideBodyClickedContentContainer>
         {displayedContent !== DisplayedContentValue.description ? (
           displayedContent !== DisplayedContentValue.gallery ? (
-            <Map />
+            <Map venueDetails={venueDetails} />
           ) : (
-            <Gallery />
+            <Gallery venueDetails={venueDetails} />
           )
         ) : (
-          <Description />
+          <Description venueDetails={venueDetails} />
         )}
       </StyledWideBodyClickedContentContainer>
     </>
