@@ -1,5 +1,4 @@
 import { Divider, useMediaQuery, useTheme } from "@mui/material";
-import Typography from "@mui/material/Typography";
 import { SMLinks } from "../SMLinks/index.jsx";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import {
@@ -21,9 +20,9 @@ const socialMediaLinks = [
 ];
 export function Footer() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <PageWidthContainer>
+    <div>
       <StyledFooterContainer>
         <StyledFooterLinksContainer>
           <StyledFooterLink href={"/contact/"} variant="link">
@@ -38,7 +37,7 @@ export function Footer() {
         </StyledFooterLinksContainer>
         <Divider variant="footer"></Divider>
         <StyledFooterTextContainer>
-          {matches ? (
+          {isViewportLargerThanMd ? (
             <>
               <div>
                 Feel free to contact us in case of any problems and doubts.
@@ -55,6 +54,6 @@ export function Footer() {
         </StyledFooterTextContainer>
         <SMLinks links={socialMediaLinks}></SMLinks>
       </StyledFooterContainer>
-    </PageWidthContainer>
+    </div>
   );
 }

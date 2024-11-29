@@ -2,8 +2,6 @@ import { Pagination, styled } from "@mui/material";
 
 export const ListWrapper = styled("div")`
   padding: 16px;
-  height: auto;
-  margin-bottom: 500px;
 `;
 
 export const CardsWrapper = styled("div")`

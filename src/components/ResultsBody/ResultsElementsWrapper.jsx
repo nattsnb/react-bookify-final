@@ -3,40 +3,40 @@ import { PaginatedList } from "./PaginatedList/index.jsx";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import {
-  StyledDisplayNumberWrapper,
+  StyledLimitWrapper,
   StyledResultsToolbarDiv,
-  StyledResultsBodyElementsWrapper,
-  StyledResultsNumberTextFiled,
+  StyledResultsElementsWrapper,
+  StyledLimitTextFiled,
   StyledLimitSettingsContainer,
-} from "./ResultsBody.styled.js";
+} from "./Results.styled.js";
 
-export function ResultsBodyElementsWrapper({ limit, setLimit }) {
-  const arrayOfPaginationSettings = [6, 18, 36];
+const ARRAY_OF_LIMIT_SETTINGS = [6, 18, 36];
 
+export function ResultsElementsWrapper({ limit, setLimit }) {
   const handleNumberOfCardsChange = (event) => {
     setLimit(event.target.value);
   };
 
   return (
-    <StyledResultsBodyElementsWrapper>
+    <StyledResultsElementsWrapper>
       <StyledResultsToolbarDiv>
         <StyledLimitSettingsContainer>
           <Box>show</Box>
-          <StyledDisplayNumberWrapper>
-            <StyledResultsNumberTextFiled
+          <StyledLimitWrapper>
+            <StyledLimitTextFiled
               id="select-number-of-cards"
               select
               value={limit}
               onChange={handleNumberOfCardsChange}
               variant="outlined"
             >
-              {arrayOfPaginationSettings.map((setting) => (
+              {ARRAY_OF_LIMIT_SETTINGS.map((setting) => (
                 <MenuItem key={setting} value={setting}>
                   {setting}
                 </MenuItem>
               ))}
-            </StyledResultsNumberTextFiled>
-          </StyledDisplayNumberWrapper>
+            </StyledLimitTextFiled>
+          </StyledLimitWrapper>
 
           <Box>on the page</Box>
         </StyledLimitSettingsContainer>
@@ -45,6 +45,6 @@ export function ResultsBodyElementsWrapper({ limit, setLimit }) {
         </Button>
       </StyledResultsToolbarDiv>
       <PaginatedList limit={limit} />
-    </StyledResultsBodyElementsWrapper>
+    </StyledResultsElementsWrapper>
   );
 }

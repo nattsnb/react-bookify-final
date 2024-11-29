@@ -5,7 +5,6 @@ import {
   StyledCollapseTypographyContainer,
   StyledSearchBarContainer,
 } from "./SearchBar.styled.js";
-import Typography from "@mui/material/Typography";
 import { InputsContainer } from "./InputsContainer.jsx";
 
 export const SearchBar = () => {
@@ -19,13 +18,13 @@ export const SearchBar = () => {
   };
   const theme = useTheme();
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
-  const isViewportLargerThanLG = useMediaQuery(theme.breakpoints.up("lg"));
+  const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <StyledSearchBarContainer>
         {isViewportLargerThanMd ? (
-          isViewportLargerThanLG ? (
+          isViewportLargerThanLg ? (
             <Collapse
               in={iscollapsed}
               orientation="horizontal"

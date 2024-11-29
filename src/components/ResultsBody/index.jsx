@@ -1,5 +1,5 @@
 import { FiltersDrawer } from "./FiltersDrawer.jsx";
-import { ResultsBodyElementsWrapper } from "./ResultsBodyElementsWrapper.jsx";
+import { ResultsElementsWrapper } from "./ResultsElementsWrapper.jsx";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import { Drawer, useMediaQuery, useTheme } from "@mui/material";
 import {
@@ -7,34 +7,38 @@ import {
   SortButton,
   StyledDrawerButtonsContainer,
   StyledNoBannerFrame,
-  StyledWideBodyContentContainer,
-  StyleThinBodyContentContainer,
-} from "./ResultsBody.styled.js";
+  StyledWideContentContainer,
+  StyleThinContentContainer,
+} from "./Results.styled.js";
 import { PaginatedList } from "./PaginatedList/index.jsx";
 import React, { useState } from "react";
 import { SearchBar } from "../Banner/SearchBar/index.jsx";
 import { SortDrawer } from "./SortDrawer.jsx";
 
-export function ResultsBody() {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
-  const [limit, setLimit] = useState(6);
-  const [isFilterDrawerOpen, setIsFilterDrawerOpen] = React.useState(false);
-  const toggleFiltersDrawer = () => () => {
-    setIsFilterDrawerOpen((prev) => !prev);
-  };
-  const [isSortDrawerOpen, setIsSortDrawerOpen] = React.useState(false);
+const INITIAL_LIMIT = 6;
 
-  const toggleSortDrawer = () => () => {
-    setIsSortDrawerOpen((prev) => !prev);
+export function ResultsBody() {
+  const [limit, setLimit] = useState(INITIAL_LIMIT);
+  const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
+  const [isSortDrawerOpen, setIsSortDrawerOpen] = useState(false);
+
+  const theme = useTheme();
+  const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
+
+  const toggleFiltersDrawer = (boolean) => () => {
+    setIsFilterDrawerOpen(boolean);
+  };
+
+  const toggleSortDrawer = (boolean) => () => {
+    setIsSortDrawerOpen(boolean);
   };
   return (
     <PageWidthContainer>
-      {matches ? (
-        <StyledWideBodyContentContainer>
+      {isViewportLargerThanMd ? (
+        <StyledWideContentContainer>
           <FiltersDrawer />
-          <ResultsBodyElementsWrapper limit={limit} setLimit={setLimit} />
-        </StyledWideBodyContentContainer>
+          <ResultsElementsWrapper limit={limit} setLimit={setLimit} />
+        </StyledWideContentContainer>
       ) : (
         <>
           <StyledNoBannerFrame>
@@ -42,9 +46,7 @@ export function ResultsBody() {
               <FiltersButton onClick={toggleFiltersDrawer(true)}>
                 filters
               </FiltersButton>
-              <SortButton onClick={toggleSortDrawer("right", true)}>
-                sort
-              </SortButton>
+              <SortButton onClick={toggleSortDrawer(true)}>sort</SortButton>
             </StyledDrawerButtonsContainer>
             <Drawer
               open={isFilterDrawerOpen}
@@ -53,7 +55,7 @@ export function ResultsBody() {
               <FiltersDrawer />
             </Drawer>
             <Drawer
-              anchor={"right"}
+              anchor="right"
               open={isSortDrawerOpen}
               onClose={toggleSortDrawer(false)}
             >
@@ -61,9 +63,9 @@ export function ResultsBody() {
             </Drawer>
             <SearchBar />
           </StyledNoBannerFrame>
-          <StyleThinBodyContentContainer>
+          <StyleThinContentContainer>
             <PaginatedList limit={limit} />
-          </StyleThinBodyContentContainer>
+          </StyleThinContentContainer>
         </>
       )}
     </PageWidthContainer>

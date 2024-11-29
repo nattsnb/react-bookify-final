@@ -10,13 +10,13 @@ import { SearchBar } from "./SearchBar/index.jsx";
 
 export function Banner() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <>
       <StyledBanner>
         <StyledBannerContent>
-          {matches ? (
+          {isViewportLargerThanMd ? (
             <>
               <StyledHeaderTypographyContainer>
                 <StyledHeaderTypography>

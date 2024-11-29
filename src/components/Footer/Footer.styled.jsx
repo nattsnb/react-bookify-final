@@ -10,11 +10,11 @@ export const StyledFooterTextContainer = styled("div")`
   max-width: 550px;
   width: 100%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down("md")} {
     margin-top: ${({ theme }) => theme.spacing(12)};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     font-size: 12px;
   }
 `;
@@ -33,14 +33,13 @@ export const StyledFooterLinksContainer = styled("div")`
   justify-content: space-between;
   padding-bottom: ${({ theme }) => theme.spacing(8)};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down("md")} {
     padding-left: ${({ theme }) => theme.spacing(4)};
     padding-right: ${({ theme }) => theme.spacing(4)};
   }
 `;
 
 export const StyledFooterContainer = styled("div")`
-  max-width: 1440px;
   width: 100%;
   display: flex;
   flex-direction: column;

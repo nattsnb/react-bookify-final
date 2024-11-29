@@ -19,6 +19,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useVenueCard } from "./useVenueCard.js";
+import RoomIcon from "@mui/icons-material/Room";
 
 export function VenueCard({ venue, currencyData }) {
   const {
@@ -57,14 +58,12 @@ export function VenueCard({ venue, currencyData }) {
               </Typography>
             </div>
             <StyledLocalizationDiv>
-              <div>
-                <Typography variant="thinOnCard">
-                  <i className={"fas fa-map-marker-alt"}></i>
-                </Typography>
-                <Typography variant="cardCityName">
-                  {venue.location.city}
-                </Typography>
-              </div>
+              <Typography variant="thinOnCard">
+                <RoomIcon />
+              </Typography>
+              <Typography variant="cardCityName">
+                {venue.location.city}
+              </Typography>
             </StyledLocalizationDiv>
           </StyledPictureBottomInfoDiv>
         </StyledPictureFrame>

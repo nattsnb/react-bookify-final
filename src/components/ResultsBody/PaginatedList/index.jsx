@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Typography } from "@mui/material";
+import React from "react";
+import { CircularProgress, Typography } from "@mui/material";
 import { usePaginatedList } from "./usePaginatedList.js";
 import { VenueCard } from "./VenueCard/index.jsx";
 import {
@@ -8,6 +8,7 @@ import {
   ListWrapper,
   StyledPagination,
 } from "./PaginatedList.styled.jsx";
+import { VerticalContainer } from "../../../shared/styledComponents/verticalContainer.styled.js";
 
 export const PaginatedList = ({ limit }) => {
   const {
@@ -20,7 +21,11 @@ export const PaginatedList = ({ limit }) => {
   } = usePaginatedList(limit);
 
   if (isLoading) {
-    return <Typography>Loading...</Typography>;
+    return (
+      <VerticalContainer>
+        <CircularProgress />
+      </VerticalContainer>
+    );
   }
 
   return (
