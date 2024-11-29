@@ -10,6 +10,7 @@ export const StyledWideBodyLinkBarContainer = styled("div")`
     ${({ theme }) => theme.spacing(15)};
   margin-top: ${({ theme }) => theme.spacing(4)};
   margin-bottom: ${({ theme }) => theme.spacing(4)};
+  width: 100%;
 
   & .MuiButton-root {
     text-transform: lowercase;

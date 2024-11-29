@@ -18,7 +18,7 @@ import {
 import { DetailsAndImageContainer } from "./DetailsAndImageContainer/index.jsx";
 import React from "react";
 import { useVenue } from "./useVenue.js";
-import { WideBodyLinkBarAndContentContainer } from "./LinkBar/WideBodyLinkBarAndContentContainer.jsx";
+import { WideBodyLinkBarAndContentContainer } from "./LinkBarAndBody/WideBodyLinkBarAndContentContainer.jsx";
 import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
 
 export function Venue({ venueId }) {

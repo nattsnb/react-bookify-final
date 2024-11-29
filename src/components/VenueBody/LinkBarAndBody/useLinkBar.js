@@ -21,7 +21,7 @@ export function useLinkBar(DisplayedContentValue) {
   }, []);
 
   const handleDescriptionClick = () => {
-    console.log("click")
+    console.log("click");
     setDisplayedContent(DisplayedContentValue.description);
   };
   const handleGalleryClick = () => {
