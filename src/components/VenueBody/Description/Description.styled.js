@@ -60,7 +60,6 @@ export const StyledEntryContainer = styled("div")`
   display: flex;
   flex-direction: row;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
-  background-color: deeppink;
   align-items: center;
 `;
 
