@@ -23,7 +23,7 @@ export const StyledBackToResultsLinkContainer = styled("div")`
   align-items: center;
   width: 100%;
   margin-bottom: ${({ theme }) => theme.spacing(16)};
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down("md")} {
     margin-bottom: ${({ theme }) => theme.spacing(8)};
 `;
 
@@ -40,13 +40,23 @@ export const StyledBodyContainer = styled("div")`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding: ${({ theme }) => theme.spacing(21)} ${({ theme }) => theme.spacing(28)};
-      @media (max-width: ${({ theme }) => theme.breakpoints.values.xl}px) {
-        padding: ${({ theme }) => theme.spacing(14)} ${({ theme }) => theme.spacing(18)};
-          @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
-            padding: ${({ theme }) => theme.spacing(8)} ${({ theme }) => theme.spacing(10)};
-              @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
-                padding: ${({ theme }) => theme.spacing(8)} ${({ theme }) => theme.spacing(4)};
+  padding: ${({ theme }) => theme.spacing(21)}
+    ${({ theme }) => theme.spacing(28)};
+
+  ${({ theme }) => theme.breakpoints.down("xl")} {
+    padding: ${({ theme }) => theme.spacing(14)}
+      ${({ theme }) => theme.spacing(18)};
+  }
+
+  ${({ theme }) => theme.breakpoints.down("lg")} {
+    padding: ${({ theme }) => theme.spacing(8)}
+      ${({ theme }) => theme.spacing(10)};
+  }
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    padding: ${({ theme }) => theme.spacing(8)}
+      ${({ theme }) => theme.spacing(4)};
+  }
 `;
 
 export const StyledLeftColumnContainer = styled("div")`
@@ -63,8 +73,10 @@ export const StyledRightColumnContainer = styled("div")`
   max-width: 382px;
   width: 100%;
   margin-left: ${({ theme }) => theme.spacing(12)};
-      @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
-        margin-left: ${({ theme }) => theme.spacing(6)};
+
+  ${({ theme }) => theme.breakpoints.down("lg")} {
+    margin-left: ${({ theme }) => theme.spacing(6)};
+  }
 `;
 
 export const StyledDetailsAndImageContainer = styled("div")`
@@ -78,8 +90,10 @@ export const StyledDetailsContainer = styled("div")`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: ${({ theme }) => theme.spacing(4)};
-      @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
-        margin-bottom: ${({ theme }) => theme.spacing(1)};
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    margin-bottom: ${({ theme }) => theme.spacing(1)};
+  }
 `;
 
 export const StyledNameAndAddressContainer = styled("div")`
@@ -109,26 +123,35 @@ export const StyledVenueNameTypography = styled(Typography)`
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
-    @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
-      font-size: 35px;
-      @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
-        font-size: 30px;
-          @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
-            font-size: 20px;
-    `;
+
+  ${({ theme }) => theme.breakpoints.down("lg")} {
+    font-size: 35px;
+  }
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    font-size: 30px;
+  }
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    font-size: 20px;
+  }
+`;
 
 export const StyledVenueAddressTypography = styled(Typography)`
   text-transform: capitalize;
   font-size: 25px;
-      @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
-        font-size: 20px;
-          @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
-            font-size: 14px;
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    font-size: 20px;
+  }
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    font-size: 14px;
+  }
 `;
 
 export const StyledVenueRatingTypography = styled(Typography)`
   color: ${({ theme }) => theme.palette.primary.detail};
-    @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
       & .MuiSvgIcon-root {
         font-size: 20px;
       }
@@ -156,7 +179,7 @@ export const StyledIconContainer = styled("div")`
     text-shadow: 3px 3px 15px ${({ theme }) => theme.palette.secondary.dark};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     padding-left: ${({ theme }) => theme.spacing(5)};
     padding-right: ${({ theme }) => theme.spacing(4)};
     & .MuiSvgIcon-root {

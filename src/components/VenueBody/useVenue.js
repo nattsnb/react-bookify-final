@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../../shared/api.js";
 
-export const useVenueBody = (venueId) => {
+export const useVenue = (venueId) => {
   const [venueDetails, setVenueDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 

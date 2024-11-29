@@ -11,13 +11,9 @@ export function Description({ venueDetails }) {
         {venueDetails.description}
       </StyledSectionContainer>
       <Divider variant="light" />
-      <StyledSectionContainer>
-
-      </StyledSectionContainer>
+      <StyledSectionContainer></StyledSectionContainer>
       <Divider variant="light" />
-      <StyledSectionContainer>
-
-      </StyledSectionContainer>
+      <StyledSectionContainer></StyledSectionContainer>
     </StyledDescriptionContainer>
   );
 }

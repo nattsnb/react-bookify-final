@@ -1,5 +1,11 @@
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
-import { Link, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  CircularProgress,
+  Link,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import {
   StyledArrowBackIosIcon,
   StyledBackToResultsFlexDiv,
@@ -8,20 +14,24 @@ import {
   StyledLeftColumnContainer,
   StyledRightColumnContainer,
   StyledWideBodyContainer,
-} from "./VenueBody.styled.js";
+} from "./Venue.styled.js";
 import { DetailsAndImageContainer } from "./DetailsAndImageContainer/index.jsx";
 import React from "react";
-import { useVenueBody } from "./useVenueBody.js";
+import { useVenue } from "./useVenue.js";
 import { WideBodyLinkBarAndContentContainer } from "./LinkBar/WideBodyLinkBarAndContentContainer.jsx";
-import { StyledWideBodyClickedContentContainer } from "./LinkBar/LinkBar.styled.js";
+import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
 
-export function VenueBody({ venueId }) {
-  const { venueDetails, isLoading } = useVenueBody(venueId);
+export function Venue({ venueId }) {
+  const { venueDetails, isLoading } = useVenue(venueId);
   const theme = useTheme();
   const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   if (isLoading) {
-    return <Typography>Loading...</Typography>;
+    return (
+      <VerticalContainer>
+        <CircularProgress />
+      </VerticalContainer>
+    );
   }
 
   return (

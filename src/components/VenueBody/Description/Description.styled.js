@@ -2,7 +2,7 @@ import { styled } from "@mui/material";
 
 export const StyledDescriptionContainer = styled("div")`
   padding: ${({ theme }) => theme.spacing(14)} ${({ theme }) => theme.spacing(18)};
-      @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
+  ${({ theme }) => theme.breakpoints.down("lg")} {
         padding: 0 ${({ theme }) => theme.spacing(12)};
 `;
 

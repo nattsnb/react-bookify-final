@@ -10,7 +10,7 @@ import {
   StyledReviewsTypography,
   StyledHeartDiv,
   StyledIconContainer,
-} from "../VenueBody.styled.js";
+} from "../Venue.styled.js";
 import StarIcon from "@mui/icons-material/Star";
 import Typography from "@mui/material/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";

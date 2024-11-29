@@ -3,7 +3,7 @@ import { CssBaseline } from "@mui/material";
 import theme from "./theme";
 import { Route, Routes } from "react-router-dom";
 import { Results } from "./pages/ResultsView/index.jsx";
-import { Venue } from "./pages/Venue/index.jsx";
+import { VenueView } from "./pages/VenueView/index.jsx";
 import { Layout } from "./components/Layout/index.jsx";
 import "./poppins.css";
 
@@ -14,7 +14,7 @@ export function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Results />} exact />
-          <Route path="/venue/:venueId" element={<Venue />} />
+          <Route path="/venue/:venueId" element={<VenueView />} />
           <Route path="/aboutUs/" element={<p>about us</p>} />
           <Route path="/yourFavourites/" element={<p>your favourites</p>} />
           <Route path="/startHosting/" element={<p>start hosting</p>} />
