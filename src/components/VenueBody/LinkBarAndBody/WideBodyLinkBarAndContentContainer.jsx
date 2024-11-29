@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { Description } from "../Description/index.jsx";
 import { Gallery } from "../Gallery/index.jsx";
-import { Map } from "../Map/index.jsx";
+import MapWithAddress from "../MapWithAddress/index.jsx";
 import { useLinkBar } from "./useLinkBar.js";
 
 const DisplayedContentValue = {
@@ -24,7 +24,6 @@ export function WideBodyLinkBarAndContentContainer({ venueDetails }) {
     handleGalleryClick,
     handleMapClick,
   } = useLinkBar(DisplayedContentValue);
-
   return (
     <>
       <StyledWideBodyLinkBarContainer>
@@ -35,7 +34,9 @@ export function WideBodyLinkBarAndContentContainer({ venueDetails }) {
       <StyledWideBodyClickedContentContainer>
         {displayedContent !== DisplayedContentValue.description ? (
           displayedContent !== DisplayedContentValue.gallery ? (
-            <Map venueDetails={venueDetails} />
+            <MapWithAddress
+              locationData={venueDetails.venuesBasicData.location}
+            />
           ) : (
             <Gallery venueDetails={venueDetails} />
           )

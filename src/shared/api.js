@@ -1,3 +1,5 @@
+const OPENCAGE_API_KEY = "938e7cda5d2c45f986a8c74c468eaaa7";
+
 const getAllVenues = () => {
   return fetch(`http://localhost:3000/venues/`, {
     method: "GET",
@@ -34,10 +36,17 @@ function getCurrencyResults() {
 const getVenuesAmenities = () => {
   return fetch(`http://localhost:3000/venuesAmenities/`, {
     method: "GET",
-  }).then((res) => res.json());
-  console
-    .log(res)
+  })
+    .then((res) => res.json())
     .catch((error) => console.error("Error fetching venues:", error));
+};
+
+const getCoordinatesData = async (address) => {
+  return fetch(
+    `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPENCAGE_API_KEY}`,
+  )
+    .then((res) => res.json())
+    .catch((error) => console.error("Error geocoding:", error));
 };
 
 export const api = {
@@ -46,4 +55,5 @@ export const api = {
   getVenuesOnPage,
   getCurrencyResults,
   getVenuesAmenities,
+  getCoordinatesData,
 };
