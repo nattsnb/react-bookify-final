@@ -1,24 +1,29 @@
 import {
   CircularProgress,
   Divider,
-  List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  MenuItem,
 } from "@mui/material";
 import {
   StyledDescriptionContainer,
   StyledDoneIcon,
-  StyledList,
+  StyledSleepingDetailsIcon,
+  StyledAmenitiesList,
   StyledSectionContainer,
+  StyledEntryContainer,
+  StyledIconContainer,
+  StyledTextContainer,
+  StyledSleepingDetailsContainer,
 } from "./Description.styled.js";
-import DoneIcon from "@mui/icons-material/Done";
 import { VerticalContainer } from "../../../shared/styledComponents/verticalContainer.styled.js";
 import React from "react";
+import { produceAmenitiesToList } from "./produceAmenitiesToList.js";
+import { produceSleepingDetailsToList } from "./produceSleepingDetailsToList.js";
 
 export function Description({ venueDetails, venuesAmenities, isLoading }) {
   let amenitiesToList = [];
+  let sleepingDetailsToList = [];
   if (isLoading) {
     return (
       <VerticalContainer>
@@ -26,47 +31,8 @@ export function Description({ venueDetails, venuesAmenities, isLoading }) {
       </VerticalContainer>
     );
   } else {
-    const activeAmenities = venuesAmenities.amenities
-      .filter((obj) =>
-        venueDetails.activeFiltersAndOccasions.activeFilters.activeAmenities.includes(
-          obj.id,
-        ),
-      )
-      .map((obj) => obj.name);
-    const roomAmenities = venuesAmenities.roomAmenities
-      .filter((obj) =>
-        venueDetails.activeFiltersAndOccasions.activeFilters.activeRoomAmenities.includes(
-          obj.id,
-        ),
-      )
-      .map((obj) => obj.name);
-    const activeHandicapAccessibility = venuesAmenities.handicapAccessibility
-      .filter((obj) =>
-        venueDetails.activeFiltersAndOccasions.activeFilters.activeHandicapAccessibility.includes(
-          obj.id,
-        ),
-      )
-      .map((obj) => obj.name);
-    const activeNeighbourhoods = venuesAmenities.neighbourhoods
-      .filter((obj) =>
-        venueDetails.activeFiltersAndOccasions.activeFilters.activeNeighbourhoods.includes(
-          obj.id,
-        ),
-      )
-      .map((obj) => obj.name);
-    const formattedActiveNeighbourhoods = () => {
-      const allButLast = activeNeighbourhoods
-        .slice(0, -1)
-        .map((item) => `${item}`)
-        .join(", ");
-      const lastItem = `${activeNeighbourhoods[activeNeighbourhoods.length - 1]}`;
-      return `${allButLast} and ${lastItem} nearby`;
-    };
-    amenitiesToList = activeAmenities.concat(
-      roomAmenities,
-      activeHandicapAccessibility,
-    );
-    amenitiesToList.push(formattedActiveNeighbourhoods());
+    amenitiesToList = produceAmenitiesToList(venueDetails, venuesAmenities);
+    sleepingDetailsToList = produceSleepingDetailsToList(venueDetails);
   }
 
   return (
@@ -76,7 +42,7 @@ export function Description({ venueDetails, venuesAmenities, isLoading }) {
       </StyledSectionContainer>
       <Divider variant="light" />
       <StyledSectionContainer>
-        <StyledList>
+        <StyledAmenitiesList>
           {amenitiesToList.map((amenity, index) => (
             <ListItem key={index}>
               <ListItemIcon>
@@ -85,10 +51,23 @@ export function Description({ venueDetails, venuesAmenities, isLoading }) {
               <ListItemText>{amenity}</ListItemText>
             </ListItem>
           ))}
-        </StyledList>
+        </StyledAmenitiesList>
       </StyledSectionContainer>
       <Divider variant="light" />
-      <StyledSectionContainer></StyledSectionContainer>
+      <StyledSectionContainer>
+        <StyledSleepingDetailsContainer>
+          {sleepingDetailsToList.map(({ id, Icon, string }) => (
+            <StyledEntryContainer>
+              <StyledIconContainer>
+                <StyledSleepingDetailsIcon>
+                  <Icon />
+                </StyledSleepingDetailsIcon>
+              </StyledIconContainer>
+              <StyledTextContainer>{string}</StyledTextContainer>
+            </StyledEntryContainer>
+          ))}
+        </StyledSleepingDetailsContainer>
+      </StyledSectionContainer>
     </StyledDescriptionContainer>
   );
 }
