@@ -57,7 +57,7 @@ export function Description({ venueDetails, venuesAmenities, isLoading }) {
       <StyledSectionContainer>
         <StyledSleepingDetailsContainer>
           {sleepingDetailsToList.map(({ id, Icon, string }) => (
-            <StyledEntryContainer>
+            <StyledEntryContainer key={id}>
               <StyledIconContainer>
                 <StyledSleepingDetailsIcon>
                   <Icon />
