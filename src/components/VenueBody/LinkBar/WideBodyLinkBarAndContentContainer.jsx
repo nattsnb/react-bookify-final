@@ -17,6 +17,8 @@ const DisplayedContentValue = {
 
 export function WideBodyLinkBarAndContentContainer({ venueDetails }) {
   const {
+    venuesAmenities,
+    isLoading,
     displayedContent,
     handleDescriptionClick,
     handleGalleryClick,
@@ -38,7 +40,11 @@ export function WideBodyLinkBarAndContentContainer({ venueDetails }) {
             <Gallery venueDetails={venueDetails} />
           )
         ) : (
-          <Description venueDetails={venueDetails} />
+          <Description
+            venueDetails={venueDetails}
+            venuesAmenities={venuesAmenities}
+            isLoading={isLoading}
+          />
         )}
       </StyledWideBodyClickedContentContainer>
     </>

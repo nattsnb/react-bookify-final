@@ -1,5 +1,5 @@
 const getAllVenues = () => {
-  return fetch(`/http://localhost:3000/venues/`, {
+  return fetch(`http://localhost:3000/venues/`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -31,9 +31,19 @@ function getCurrencyResults() {
     .catch((error) => console.error("Error fetching venues:", error));
 }
 
+const getVenuesAmenities = () => {
+  return fetch(`http://localhost:3000/venuesAmenities/`, {
+    method: "GET",
+  }).then((res) => res.json());
+  console
+    .log(res)
+    .catch((error) => console.error("Error fetching venues:", error));
+};
+
 export const api = {
   getAllVenues,
   getVenueDetails,
   getVenuesOnPage,
   getCurrencyResults,
+  getVenuesAmenities,
 };
