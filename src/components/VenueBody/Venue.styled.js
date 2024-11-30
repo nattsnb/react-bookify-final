@@ -69,7 +69,6 @@ export const StyledLeftColumnContainer = styled("div")`
 export const StyledRightColumnContainer = styled("div")`
   display: flex;
   flex-direction: column;
-  background-color: deeppink;
   max-width: 382px;
   width: 100%;
   margin-left: ${({ theme }) => theme.spacing(12)};

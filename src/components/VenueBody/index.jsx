@@ -20,6 +20,8 @@ import React from "react";
 import { useVenue } from "./useVenue.js";
 import { WideBodyLinkBarAndContentContainer } from "./LinkBarAndBody/WideBodyLinkBarAndContentContainer.jsx";
 import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
+import { ContactInfo } from "./ContactInfo/index.jsx";
+import { DatePicker } from "./DatePicker/index.jsx";
 
 export function Venue({ venueId }) {
   const { venueDetails, isLoading } = useVenue(venueId);
@@ -51,7 +53,8 @@ export function Venue({ venueId }) {
               <WideBodyLinkBarAndContentContainer venueDetails={venueDetails} />
             </StyledLeftColumnContainer>
             <StyledRightColumnContainer>
-              calendar placeholder
+              <DatePicker />
+              <ContactInfo venueDetails={venueDetails} />
             </StyledRightColumnContainer>
           </StyledWideBodyContainer>
         ) : (
