@@ -10,7 +10,9 @@ export const useDatePicker = () => {
 
   useEffect(() => {
     const calculateDaysBetween = () => {
-      if (startDate && endDate) {
+      if (startDate === endDate) {
+        setDaysBetween(1);
+      } else if (startDate && endDate) {
         const diff = endDate.diff(startDate, "day");
         setDaysBetween(diff);
       } else {
