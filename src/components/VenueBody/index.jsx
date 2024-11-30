@@ -1,11 +1,5 @@
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
-import {
-  CircularProgress,
-  Link,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { CircularProgress, Link, useMediaQuery, useTheme } from "@mui/material";
 import {
   StyledArrowBackIosIcon,
   StyledBackToResultsFlexDiv,
@@ -21,7 +15,7 @@ import { useVenue } from "./useVenue.js";
 import { WideBodyLinkBarAndContentContainer } from "./LinkBarAndBody/WideBodyLinkBarAndContentContainer.jsx";
 import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
 import { ContactInfo } from "./ContactInfo/index.jsx";
-import { DatePicker } from "./DatePicker/index.jsx";
+import DatePicker from "./DatePicker/index.jsx";
 
 export function Venue({ venueId }) {
   const { venueDetails, isLoading } = useVenue(venueId);
@@ -53,7 +47,7 @@ export function Venue({ venueId }) {
               <WideBodyLinkBarAndContentContainer venueDetails={venueDetails} />
             </StyledLeftColumnContainer>
             <StyledRightColumnContainer>
-              <DatePicker />
+              <DatePicker venueDetails={venueDetails} />
               <ContactInfo venueDetails={venueDetails} />
             </StyledRightColumnContainer>
           </StyledWideBodyContainer>
