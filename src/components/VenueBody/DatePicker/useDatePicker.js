@@ -15,7 +15,9 @@ export const useDatePicker = () => {
       } else if (startDate === endDate) {
         setDaysBetween(1);
       } else {
-        const diff = endDate.diff(startDate, "day");
+        const diff = Math.ceil(
+          (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24),
+        );
         setDaysBetween(diff);
       }
     };
@@ -49,7 +51,7 @@ export const useDatePicker = () => {
       setEndDate(newDate);
     }
 
-    if (endDate && newDate.isAfter(endDate)) {
+    if (endDate && newDate > endDate) {
       setCalendarToZero();
       setIsCalendarError(true);
       return;
@@ -60,7 +62,7 @@ export const useDatePicker = () => {
 
   const handleEndDateChange = (newDate) => {
     setIsCalendarError(false);
-    if (startDate && newDate.isBefore(startDate)) {
+    if (startDate && newDate < startDate) {
       setCalendarToZero();
       setIsCalendarError(true);
       return;
