@@ -104,7 +104,7 @@ export default function DatePicker({ venueDetails }) {
         </LocalizationProvider>
       </StyledCalendarContainer>
 
-      {isCalendarError && <div>Provided end date is before start date.</div>}
+      {isCalendarError && <div>that's not a time machine, start over.</div>}
 
       <StyledPriceContainer>
         <StyledPerDayContainer>

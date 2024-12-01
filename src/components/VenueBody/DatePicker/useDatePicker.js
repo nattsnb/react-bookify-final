@@ -10,45 +10,64 @@ export const useDatePicker = () => {
 
   useEffect(() => {
     const calculateDaysBetween = () => {
-      if (startDate === endDate) {
+      if (!startDate || !endDate) {
+        setDaysBetween(0);
+      } else if (startDate === endDate) {
         setDaysBetween(1);
-      } else if (startDate && endDate) {
+      } else {
         const diff = endDate.diff(startDate, "day");
         setDaysBetween(diff);
-      } else {
-        setDaysBetween(0);
       }
     };
     calculateDaysBetween();
   }, [startDate, endDate]);
 
   const handleStartsAtClick = () => {
+    setIsCalendarError(false);
     setWhichCalendarIsActive("start");
+    setIsChecked(false);
   };
   const handleEndsAtClick = () => {
+    setIsCalendarError(false);
     setWhichCalendarIsActive("end");
+    setIsChecked(false);
   };
   const handleCheckboxChange = () => {
-    setIsChecked((prev) => !prev);
-    if (!isChecked) {
-      setWhichCalendarIsActive("none");
+    if (isChecked) {
+      setIsChecked(false);
+      setWhichCalendarIsActive("start");
     } else {
-      handleStartsAtClick();
+      setIsChecked(true);
+      setWhichCalendarIsActive("start");
+      setEndDate(startDate);
     }
   };
   const handleStartDateChange = (newDate) => {
     if (isChecked) {
       setEndDate(newDate);
     }
+
+    if (endDate && newDate.isAfter(endDate)) {
+      setCalendarToZero();
+      setIsCalendarError(true);
+      return;
+    }
+
     setStartDate(newDate);
   };
 
   const handleEndDateChange = (newDate) => {
     if (startDate && newDate.isBefore(startDate)) {
-      alert("End date cannot be earlier than start date.");
+      setCalendarToZero();
+      setIsCalendarError(true);
       return;
     }
     setEndDate(newDate);
+  };
+
+  const setCalendarToZero = () => {
+    setEndDate(null);
+    setStartDate(null);
   };
 
   return {

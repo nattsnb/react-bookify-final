@@ -59,6 +59,7 @@ export const StyledCalendarContainer = styled("div")`
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     width: 100%;
+    padding: 0; /* Zapewnia brak dodatkowego marginesu */
   }
 
   & .MuiPickersDay-root {
@@ -72,6 +73,19 @@ export const StyledCalendarContainer = styled("div")`
     margin-left: ${({ theme }) => theme.spacing(2)};
     margin-right: ${({ theme }) => theme.spacing(2)};
   }
+
+  & .MuiDateRangeCalendar-root {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 100%;
+    padding: 0; /* Zapewnia brak dodatkowego marginesu */
+  }
+
+  /* Zapewnia jednolity wygląd kalendarzy */
+  & .MuiDateCalendar-root,
+  & .MuiDateRangeCalendar-root {
+    border-bottom: none; /* Usuwa ciemną kreskę na dole */
+  }
 `;
 
 export const StyledPriceContainer = styled("div")`
@@ -79,6 +93,7 @@ export const StyledPriceContainer = styled("div")`
   flex-direction: column;
   margin-bottom: ${({ theme }) => theme.spacing(35)};
 `;
+
 export const StyledPerDayContainer = styled("div")`
   font-size: 20px;
   margin-top: ${({ theme }) => theme.spacing(11)};
@@ -102,6 +117,7 @@ export const StyledBookButton = styled(Button)`
   width: 138px;
   height: 40px;
 `;
+
 export const StyledBookButtonContainer = styled("div")`
   display: flex;
   flex-direction: row;
