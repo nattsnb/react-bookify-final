@@ -21,6 +21,7 @@ import { Description } from "./Description/index.jsx";
 import { Gallery } from "./Gallery/index.jsx";
 import MapWithAddress from "./MapWithAddress/index.jsx";
 import { useLinkBar } from "./LinkBarAndBody/useLinkBar.js";
+import { BookDrawer } from "./BookDrawer.jsx";
 
 const DisplayedContentValue = {
   description: "description",
@@ -84,6 +85,7 @@ export function Venue({ venueId }) {
               locationData={venueDetails.venuesBasicData.location}
             />
             <ContactInfo venueDetails={venueDetails} />
+            <BookDrawer venueDetails={venueDetails} />
           </>
         )}
       </StyledBodyContainer>

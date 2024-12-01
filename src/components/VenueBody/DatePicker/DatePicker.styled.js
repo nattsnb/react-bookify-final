@@ -42,6 +42,7 @@ export const StyledButtonGroup = styled(ButtonGroup)`
 `;
 
 export const StyledOneDayContainer = styled("div")`
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -55,10 +56,11 @@ export const StyledOneDayTypography = styled(Typography)`
 `;
 
 export const StyledCalendarContainer = styled("div")`
+  display: flex;
+  justify-content: center;
   & .MuiDateCalendar-root {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    width: 100%;
     padding: 0;
   }
 
@@ -96,6 +98,7 @@ export const StyledPerDayContainer = styled("div")`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 `;
 
 export const StyledTotalContainer = styled("div")`
@@ -105,6 +108,7 @@ export const StyledTotalContainer = styled("div")`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 `;
 
 export const StyledBookButton = styled(Button)`

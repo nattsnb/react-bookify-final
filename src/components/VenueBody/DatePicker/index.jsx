@@ -1,10 +1,7 @@
 import * as React from "react";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { Checkbox, Divider } from "@mui/material";
 import { StyledContactInfoTypogrphy } from "../ContactInfo/ContactInfo.styled.js";
-import { useEffect, useState } from "react";
 import {
   StyledEndsAtButton,
   StyledStartsAtButton,
@@ -22,7 +19,7 @@ import { DateCalendar } from "@mui/x-date-pickers";
 import { getPriceInPLN } from "../../../shared/getPrice.js";
 import { useDatePicker } from "./useDatePicker.js";
 
-export default function DatePicker({ venueDetails }) {
+export default function DatePicker({ venueDetails, drawerOpen }) {
   const {
     whichCalendarIsActive,
     startDate,
@@ -39,8 +36,15 @@ export default function DatePicker({ venueDetails }) {
 
   return (
     <>
-      <StyledContactInfoTypogrphy>Book this venue</StyledContactInfoTypogrphy>
-      <Divider variant="dark" />
+      {!drawerOpen && (
+        <>
+          <StyledContactInfoTypogrphy>
+            Book this venue
+          </StyledContactInfoTypogrphy>
+          <Divider variant="dark" />
+        </>
+      )}
+
       <StyledButtonGroup>
         <StyledStartsAtButton
           onClick={handleStartsAtClick}
@@ -64,44 +68,42 @@ export default function DatePicker({ venueDetails }) {
         <StyledOneDayTypography>just one day</StyledOneDayTypography>
       </StyledOneDayContainer>
       <StyledCalendarContainer>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoContainer
-            components={["DateCalendar", "DateCalendar", "DateCalendar"]}
-          >
-            {isChecked ? (
-              <DemoItem>
-                <DateCalendar
-                  showDaysOutsideCurrentMonth
-                  value={startDate}
-                  onChange={handleStartDateChange}
-                  calendars={1}
-                />
-              </DemoItem>
-            ) : (
-              <>
-                {whichCalendarIsActive === "start" ? (
-                  <DemoItem>
-                    <DateCalendar
-                      showDaysOutsideCurrentMonth
-                      value={startDate}
-                      onChange={handleStartDateChange}
-                      calendars={1}
-                    />
-                  </DemoItem>
-                ) : (
-                  <DemoItem>
-                    <DateCalendar
-                      showDaysOutsideCurrentMonth
-                      value={endDate}
-                      onChange={handleEndDateChange}
-                      calendars={1}
-                    />
-                  </DemoItem>
-                )}
-              </>
-            )}
-          </DemoContainer>
-        </LocalizationProvider>
+        <DemoContainer
+          components={["DateCalendar", "DateCalendar", "DateCalendar"]}
+        >
+          {isChecked ? (
+            <DemoItem>
+              <DateCalendar
+                showDaysOutsideCurrentMonth
+                value={startDate}
+                onChange={handleStartDateChange}
+                calendars={1}
+              />
+            </DemoItem>
+          ) : (
+            <>
+              {whichCalendarIsActive === "start" ? (
+                <DemoItem>
+                  <DateCalendar
+                    showDaysOutsideCurrentMonth
+                    value={startDate}
+                    onChange={handleStartDateChange}
+                    calendars={1}
+                  />
+                </DemoItem>
+              ) : (
+                <DemoItem>
+                  <DateCalendar
+                    showDaysOutsideCurrentMonth
+                    value={endDate}
+                    onChange={handleEndDateChange}
+                    calendars={1}
+                  />
+                </DemoItem>
+              )}
+            </>
+          )}
+        </DemoContainer>
       </StyledCalendarContainer>
 
       {isCalendarError && <div>that's not a time machine, start over.</div>}
