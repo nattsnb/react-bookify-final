@@ -51,7 +51,7 @@ export const useDatePicker = () => {
       setEndDate(newDate);
     }
 
-    if (endDate && newDate > endDate) {
+    if (endDate && newDate > endDate && !isChecked) {
       setCalendarToZero();
       setIsCalendarError(true);
       return;
