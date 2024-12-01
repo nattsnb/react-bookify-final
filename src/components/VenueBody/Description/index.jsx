@@ -21,7 +21,12 @@ import React from "react";
 import { produceAmenitiesToList } from "./produceAmenitiesToList.js";
 import { produceSleepingDetailsToList } from "./produceSleepingDetailsToList.js";
 
-export function Description({ venueDetails, venuesAmenities, isLoading }) {
+export function Description({
+  venueDetails,
+  venuesAmenities,
+  isLoading,
+  descriptionRef,
+}) {
   let amenitiesToList = [];
   let sleepingDetailsToList = [];
   if (isLoading) {
@@ -36,7 +41,7 @@ export function Description({ venueDetails, venuesAmenities, isLoading }) {
   }
 
   return (
-    <StyledDescriptionContainer>
+    <StyledDescriptionContainer ref={descriptionRef}>
       <StyledSectionContainer>
         {venueDetails.description}
       </StyledSectionContainer>

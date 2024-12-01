@@ -9,7 +9,7 @@ import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
 import { StyledContactInfoTypogrphy } from "../ContactInfo/ContactInfo.styled.js";
 
-const MapWithAddress = ({ locationData }) => {
+const MapWithAddress = ({ locationData, mapRef }) => {
   const { coordinatesData, isLoading, address, FullscreenControl } =
     useMapWithAddress(locationData);
   let lat = null;
@@ -29,7 +29,7 @@ const MapWithAddress = ({ locationData }) => {
   }
 
   return (
-    <>
+    <div ref={mapRef}>
       {isViewportSmallerThanLg ? (
         <>
           <StyledContactInfoTypogrphy>Map</StyledContactInfoTypogrphy>
@@ -54,7 +54,7 @@ const MapWithAddress = ({ locationData }) => {
           </MapContainer>
         </StyledMapContainer>
       )}
-    </>
+    </div>
   );
 };
 

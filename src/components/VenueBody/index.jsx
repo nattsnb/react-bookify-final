@@ -10,7 +10,7 @@ import {
   StyledWideBodyContainer,
 } from "./Venue.styled.js";
 import { DetailsAndImageContainer } from "./DetailsAndImageContainer/index.jsx";
-import React from "react";
+import React, { useRef } from "react";
 import { useVenue } from "./useVenue.js";
 import { WideBodyLinkBarAndContentContainer } from "./LinkBarAndBody/WideBodyLinkBarAndContentContainer.jsx";
 import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
@@ -31,10 +31,27 @@ const DisplayedContentValue = {
 };
 
 export function Venue({ venueId }) {
+  const descriptionRef = useRef(null);
+  const galleryRef = useRef(null);
+  const mapRef = useRef(null);
+  const contactsRef = useRef(null);
+
   const { venueDetails, isLoading } = useVenue(venueId);
   const { venuesAmenities } = useLinkBar(DisplayedContentValue);
   const theme = useTheme();
   const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
+
+  const handleScroll = (ref) => {
+    if (ref?.current.offsetTop) {
+      window.scrollTo({
+        top: ref.current.offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    } else {
+      console.warn("Ref is null or undefined:", ref);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -72,19 +89,28 @@ export function Venue({ venueId }) {
           <>
             <DetailsAndImageContainer venueDetails={venueDetails} />
             <NarrowBodyLinkBar
-              venueDetails={venueDetails}
-              DisplayedContentValue={DisplayedContentValue}
+              handleScroll={handleScroll}
+              descriptionRef={descriptionRef}
+              galleryRef={galleryRef}
+              mapRef={mapRef}
+              contactsRef={contactsRef}
             />
+
             <Description
               venueDetails={venueDetails}
               venuesAmenities={venuesAmenities}
               isLoading={isLoading}
+              descriptionRef={descriptionRef}
             />
-            <Gallery venueDetails={venueDetails} />
+            <Gallery venueDetails={venueDetails} galleryRef={galleryRef} />
             <MapWithAddress
               locationData={venueDetails.venuesBasicData.location}
+              mapRef={mapRef}
             />
-            <ContactInfo venueDetails={venueDetails} />
+            <ContactInfo
+              venueDetails={venueDetails}
+              contactsRef={contactsRef}
+            />
             <BookDrawer venueDetails={venueDetails} />
           </>
         )}

@@ -18,12 +18,12 @@ export const StyledBodyLinkBarContainer = styled("div")`
 
   ${({ theme }) => theme.breakpoints.down("md")} {
     padding: ${({ theme }) => theme.spacing(4)}
-    ${({ theme }) => theme.spacing(7)};
+      ${({ theme }) => theme.spacing(7)};
   }
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: ${({ theme }) => theme.spacing(4)}
-    ${({ theme }) => theme.spacing(2)};
+      ${({ theme }) => theme.spacing(2)};
   }
 `;
 

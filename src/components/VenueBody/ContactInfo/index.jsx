@@ -16,7 +16,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LanguageIcon from "@mui/icons-material/Language";
 
-export function ContactInfo({ venueDetails }) {
+export function ContactInfo({ venueDetails, contactsRef }) {
   let contactDetailsToList = [
     {
       id: 0,
@@ -40,9 +40,8 @@ export function ContactInfo({ venueDetails }) {
     { id: 2, path: venueDetails.socialMediaLinks.twitter, Icon: TwitterIcon },
     { id: 3, path: venueDetails.socialMediaLinks.website, Icon: LanguageIcon },
   ];
-
   return (
-    <div>
+    <div ref={contactsRef}>
       <StyledContactInfoTypogrphy>
         Contact this venue
       </StyledContactInfoTypogrphy>

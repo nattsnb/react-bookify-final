@@ -3,24 +3,22 @@ import {
   StyledImageContainer,
 } from "./Gallery.styled.js";
 import React from "react";
-import { Divider, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { StyledContactInfoTypogrphy } from "../ContactInfo/ContactInfo.styled.js";
 
-export function Gallery(venueDetails) {
+export function Gallery({ venueDetails, galleryRef }) {
   const theme = useTheme();
   const isViewportSmallerThanLg = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
-    <>
+    <div ref={galleryRef}>
       {isViewportSmallerThanLg ? (
         <>
           <StyledContactInfoTypogrphy>Gallery</StyledContactInfoTypogrphy>
           <StyledGalleryContainer>
-            {venueDetails.venueDetails.venuesBasicData.images.map(
-              (imageURL, index) => (
-                <StyledImageContainer key={index} imageUrl={imageURL} />
-              ),
-            )}
+            {venueDetails.venuesBasicData.images.map((imageURL, index) => (
+              <StyledImageContainer key={index} imageUrl={imageURL} />
+            ))}
           </StyledGalleryContainer>
         </>
       ) : (
@@ -32,6 +30,6 @@ export function Gallery(venueDetails) {
           )}
         </StyledGalleryContainer>
       )}
-    </>
+    </div>
   );
 }
