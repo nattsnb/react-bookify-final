@@ -3,7 +3,8 @@ export function SMLinks({ links }) {
   return (
     <SMContainer>
       {links.map(({ id, path, Icon }) => (
-        <StyledSMLinks href={path} key={id}>
+        <StyledSMLinks href={`https://${path}`} key={id}>
+          `
           <Icon />
         </StyledSMLinks>
       ))}

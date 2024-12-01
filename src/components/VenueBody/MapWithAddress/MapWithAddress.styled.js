@@ -5,6 +5,8 @@ export const StyledMapContainer = styled("div")`
   height: 430px;
 
   ${({ theme }) => theme.breakpoints.down("lg")} {
+    margin-top: ${({ theme }) => theme.spacing(4)};
+    margin-bottom: ${({ theme }) => theme.spacing(14)};
     height: 380px;
   }
 

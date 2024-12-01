@@ -2,9 +2,16 @@ import { Icon, List, ListItem, styled } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 
 export const StyledDescriptionContainer = styled("div")`
-  padding: ${({ theme }) => theme.spacing(14)} ${({ theme }) => theme.spacing(18)};
+  padding: ${({ theme }) => theme.spacing(14)}
+    ${({ theme }) => theme.spacing(18)};
+
+  ${({ theme }) => theme.breakpoints.down("xl")} {
+    padding: ${({ theme }) => theme.spacing(14)}
+      ${({ theme }) => theme.spacing(9)};
+  }
   ${({ theme }) => theme.breakpoints.down("lg")} {
-        padding: 0 ${({ theme }) => theme.spacing(12)};
+    padding: 0 0;
+  }
 `;
 
 export const StyledSectionContainer = styled("div")`
