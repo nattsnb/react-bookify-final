@@ -33,6 +33,7 @@ export const useDatePicker = () => {
     setIsChecked(false);
   };
   const handleCheckboxChange = () => {
+    setIsCalendarError(false);
     if (isChecked) {
       setIsChecked(false);
       setWhichCalendarIsActive("start");
@@ -43,6 +44,7 @@ export const useDatePicker = () => {
     }
   };
   const handleStartDateChange = (newDate) => {
+    setIsCalendarError(false);
     if (isChecked) {
       setEndDate(newDate);
     }
@@ -57,6 +59,7 @@ export const useDatePicker = () => {
   };
 
   const handleEndDateChange = (newDate) => {
+    setIsCalendarError(false);
     if (startDate && newDate.isBefore(startDate)) {
       setCalendarToZero();
       setIsCalendarError(true);

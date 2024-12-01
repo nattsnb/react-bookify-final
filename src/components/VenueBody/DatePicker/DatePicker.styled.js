@@ -15,8 +15,8 @@ export const StyledStartsAtButton = styled(Button)`
     whichcalendarisactive === "start" ? "600" : "300"};
   box-shadow: ${({ whichcalendarisactive }) =>
     whichcalendarisactive === "start"
-      ? "inset -7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"
-      : "-7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"};
+        ? "inset -7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"
+        : "-7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"};
 `;
 
 export const StyledEndsAtButton = styled(Button)`
@@ -27,13 +27,13 @@ export const StyledEndsAtButton = styled(Button)`
   border: 1px solid #e5e5e5;
   border-radius: 0 20px 20px 0;
   color: ${({ whichcalendarisactive }) =>
-    whichcalendarisactive === "end" ? `#747474` : `#9B9B9B`};
+          whichcalendarisactive === "end" ? `#747474` : `#9B9B9B`};
   font-weight: ${({ whichcalendarisactive }) =>
-    whichcalendarisactive === "end" ? "600" : "300"};
+          whichcalendarisactive === "end" ? "600" : "300"};
   box-shadow: ${({ whichcalendarisactive }) =>
-    whichcalendarisactive === "end"
-      ? "inset -7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"
-      : "-7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"};
+          whichcalendarisactive === "end"
+                  ? "inset -7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"
+                  : "-7px 9px 38px -32px color: ${({ theme }) => theme.palette.primary.font}"};
 `;
 
 export const StyledButtonGroup = styled(ButtonGroup)`
@@ -59,7 +59,7 @@ export const StyledCalendarContainer = styled("div")`
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     width: 100%;
-    padding: 0; /* Zapewnia brak dodatkowego marginesu */
+    padding: 0; 
   }
 
   & .MuiPickersDay-root {
@@ -78,14 +78,9 @@ export const StyledCalendarContainer = styled("div")`
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     width: 100%;
-    padding: 0; /* Zapewnia brak dodatkowego marginesu */
+    padding: 0;
   }
-
-  /* Zapewnia jednolity wygląd kalendarzy */
-  & .MuiDateCalendar-root,
-  & .MuiDateRangeCalendar-root {
-    border-bottom: none; /* Usuwa ciemną kreskę na dole */
-  }
+  
 `;
 
 export const StyledPriceContainer = styled("div")`
