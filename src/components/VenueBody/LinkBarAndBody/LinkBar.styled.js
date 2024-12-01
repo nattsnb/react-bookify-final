@@ -15,6 +15,16 @@ export const StyledBodyLinkBarContainer = styled("div")`
   & .MuiButton-root {
     text-transform: lowercase;
   }
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    padding: ${({ theme }) => theme.spacing(4)}
+    ${({ theme }) => theme.spacing(7)};
+  }
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: ${({ theme }) => theme.spacing(4)}
+    ${({ theme }) => theme.spacing(2)};
+  }
 `;
 
 export const StyledWideBodyClickedContentContainer = styled("div")`
