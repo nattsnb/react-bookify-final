@@ -1,5 +1,5 @@
-import React from "react";
-import { CircularProgress, Typography } from "@mui/material";
+import React, { useContext } from "react";
+import { CircularProgress, Snackbar, Typography } from "@mui/material";
 import { usePaginatedList } from "./usePaginatedList.js";
 import { VenueCard } from "./VenueCard/index.jsx";
 import {
@@ -9,6 +9,7 @@ import {
   StyledPagination,
 } from "./PaginatedList.styled.jsx";
 import { VerticalContainer } from "../../../shared/styledComponents/verticalContainer.styled.js";
+import { Context } from "../../../App.jsx";
 
 export const PaginatedList = ({ limit }) => {
   const {
@@ -20,6 +21,8 @@ export const PaginatedList = ({ limit }) => {
     handleChange,
   } = usePaginatedList(limit);
 
+  const contextIsError = useContext(Context)[0];
+
   if (isLoading) {
     return (
       <VerticalContainer>
@@ -27,6 +30,12 @@ export const PaginatedList = ({ limit }) => {
       </VerticalContainer>
     );
   }
+
+
+  if (contextIsError) {
+    return <></>;
+  }
+
 
   return (
     <ListWrapper>

@@ -6,23 +6,30 @@ import { Results } from "./pages/ResultsView/index.jsx";
 import { Venue } from "./pages/Venue/index.jsx";
 import { Layout } from "./components/Layout/index.jsx";
 import "./poppins.css";
+import React, { useState } from "react";
+
+export const Context = React.createContext();
 
 export function App() {
+  const [isError, setIsError] = useState(false);
+
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Results />} exact />
-          <Route path="/venue/:venueId" element={<Venue />} />
-          <Route path="/aboutUs/" element={<p>about us</p>} />
-          <Route path="/yourFavourites/" element={<p>your favourites</p>} />
-          <Route path="/startHosting/" element={<p>start hosting</p>} />
-          <Route path="/login/" element={<p>log in</p>} />
-          <Route path="/contact/" element={<p>contact</p>} />
-          <Route path="/assistance/" element={<p>assistance</p>} />
-        </Routes>
-      </Layout>
-    </ThemeProvider>
+    <Context.Provider value={[isError, setIsError]}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Results />} exact />
+            <Route path="/venue/:venueId" element={<Venue />} />
+            <Route path="/aboutUs/" element={<p>about us</p>} />
+            <Route path="/yourFavourites/" element={<p>your favourites</p>} />
+            <Route path="/startHosting/" element={<p>start hosting</p>} />
+            <Route path="/login/" element={<p>log in</p>} />
+            <Route path="/contact/" element={<p>contact</p>} />
+            <Route path="/assistance/" element={<p>assistance</p>} />
+          </Routes>
+        </Layout>
+      </ThemeProvider>
+    </Context.Provider>
   );
 }
