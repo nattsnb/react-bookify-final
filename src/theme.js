@@ -149,25 +149,4 @@ const theme = createTheme({
   },
 });
 
-document.documentElement.style.setProperty(
-  "--primary-main",
-  theme.palette.primary.main,
-);
-document.documentElement.style.setProperty(
-  "--secondary-main",
-  theme.palette.secondary.main,
-);
-document.documentElement.style.setProperty(
-  "--secondary-light",
-  theme.palette.secondary.light,
-);
-document.documentElement.style.setProperty(
-  "--background-gray",
-  theme.palette.background.gray,
-);
-document.documentElement.style.setProperty(
-  "--background-default",
-  theme.palette.background.default,
-);
-
 export default theme;

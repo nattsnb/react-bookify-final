@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../../shared/api.js";
+import { Context } from "../../../App.jsx";
 
 export const usePaginatedList = (limit) => {
   const [venuesOnPage, setVenuesOnPage] = useState(null);
@@ -7,6 +8,8 @@ export const usePaginatedList = (limit) => {
   const [isLoading, setIsLoading] = useState(true);
   const [numberOfAllPages, setNumberOfAllPages] = useState(null);
   const [page, setPage] = useState(1);
+
+  const contextSetIsError = useContext(Context)[1];
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -27,6 +30,7 @@ export const usePaginatedList = (limit) => {
           EUR: currencyResponse.rates.EUR,
         });
       } catch (error) {
+        contextSetIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);

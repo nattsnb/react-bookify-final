@@ -11,9 +11,10 @@ import {
   StyleThinContentContainer,
 } from "./Results.styled.js";
 import { PaginatedList } from "./PaginatedList/index.jsx";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { SearchBar } from "../Banner/SearchBar/index.jsx";
 import { SortDrawer } from "./SortDrawer.jsx";
+import { Context } from "../../App.jsx";
 
 const INITIAL_LIMIT = 6;
 
@@ -32,6 +33,7 @@ export function ResultsBody() {
   const toggleSortDrawer = (boolean) => () => {
     setIsSortDrawerOpen(boolean);
   };
+
   return (
     <PageWidthContainer>
       {isViewportLargerThanMd ? (
