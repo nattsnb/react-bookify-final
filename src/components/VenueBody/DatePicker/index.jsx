@@ -16,7 +16,7 @@ import {
   StyledBookButtonContainer,
 } from "./DatePicker.styled.js";
 import { DateCalendar } from "@mui/x-date-pickers";
-import { usePriceInPLN } from "../../../shared/getPrice.js";
+import { usePriceInPLNData } from "../../../shared/getPrice.js";
 import { useDatePicker } from "./useDatePicker.js";
 import { useContext } from "react";
 import { Context } from "../../../App.jsx";
@@ -37,10 +37,10 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
   } = useDatePicker();
 
   const contextIsError = useContext(Context)[0];
-  const priceInPLNData = usePriceInPLN(
+  const priceInPLNData = usePriceInPLNData(
     venueDetails.venuesBasicData.pricePerNightInEURCent,
   );
-  const countedPriceInPLN = daysBetween * priceInPLNData.priceInPLN;
+  const fullPriceInPLN = daysBetween * priceInPLNData.priceInPLN;
 
   return (
     <>
@@ -138,7 +138,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
             ) : contextIsError ? (
               "error"
             ) : (
-              `${countedPriceInPLN} zł`
+              `${fullPriceInPLN} zł`
             )}
           </div>
         </StyledTotalContainer>

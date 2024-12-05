@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { api } from "./api.js";
 import { Context } from "../App.jsx";
 
-export function usePriceInPLN(pricePerNightInEURCent) {
+export function usePriceInPLNData(pricePerNightInEURCent) {
   const [priceInPLN, setPriceInPLN] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const setContextIsError = useContext(Context)[1];
@@ -13,7 +13,6 @@ export function usePriceInPLN(pricePerNightInEURCent) {
       try {
         const currencyResponse = await api.getCurrencyResults();
         const plnRate = currencyResponse.rates.PLN;
-
         const calculatedPrice = (
           (pricePerNightInEURCent / 100) *
           plnRate

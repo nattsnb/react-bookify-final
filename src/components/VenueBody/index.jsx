@@ -10,7 +10,7 @@ import {
   StyledWideBodyContainer,
 } from "./Venue.styled.js";
 import { DetailsAndImageContainer } from "./DetailsAndImageContainer/index.jsx";
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useVenue } from "./useVenue.js";
 import { WideBodyLinkBarAndContentContainer } from "./LinkBarAndBody/WideBodyLinkBarAndContentContainer.jsx";
 import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
@@ -22,6 +22,7 @@ import { Gallery } from "./Gallery/index.jsx";
 import MapWithAddress from "./MapWithAddress/index.jsx";
 import { useLinkBar } from "./LinkBarAndBody/useLinkBar.js";
 import { BookDrawer } from "./BookDrawer.jsx";
+import { Context } from "../../App.jsx";
 
 const DisplayedContentValue = {
   description: "description",
@@ -41,6 +42,8 @@ export function Venue({ venueId }) {
   const theme = useTheme();
   const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
 
+  const contextIsError = useContext(Context)[0];
+
   const handleScroll = (ref) => {
     if (ref?.current.offsetTop) {
       window.scrollTo({
@@ -59,6 +62,10 @@ export function Venue({ venueId }) {
         <CircularProgress />
       </VerticalContainer>
     );
+  }
+  
+  if (contextIsError) {
+    return <></>;
   }
 
   return (

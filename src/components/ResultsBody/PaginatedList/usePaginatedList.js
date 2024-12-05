@@ -8,8 +8,7 @@ export const usePaginatedList = (limit) => {
   const [isLoading, setIsLoading] = useState(true);
   const [numberOfAllPages, setNumberOfAllPages] = useState(null);
   const [page, setPage] = useState(1);
-
-  const contextSetIsError = useContext(Context)[1];
+  const setContextIsError = useContext(Context)[1];
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -19,18 +18,11 @@ export const usePaginatedList = (limit) => {
     async function getData(page, limit) {
       setIsLoading(true);
       try {
-        const [venuesResponse, currencyResponse] = await Promise.all([
-          api.getVenuesOnPage(page, limit),
-          api.getCurrencyResults(),
-        ]);
+        const venuesResponse = await api.getVenuesOnPage(page, limit);
         setNumberOfAllPages(venuesResponse.pages);
         setVenuesOnPage(venuesResponse.data);
-        setCurrencyData({
-          PLN: currencyResponse.rates.PLN,
-          EUR: currencyResponse.rates.EUR,
-        });
       } catch (error) {
-        contextSetIsError(true);
+        setContextIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);

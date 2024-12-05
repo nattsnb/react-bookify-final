@@ -20,14 +20,15 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useVenueCard } from "./useVenueCard.js";
 import RoomIcon from "@mui/icons-material/Room";
+import { useContext } from "react";
+import { Context } from "../../../../App.jsx";
+import { usePriceInPLNData } from "../../../../shared/getPrice.js";
 
-export function VenueCard({ venue, currencyData }) {
-  const {
-    currentPictureNumber,
-    pricePreNightInPLN,
-    handleClickForward,
-    handleClickBack,
-  } = useVenueCard(venue, currencyData);
+export function VenueCard({ venue, priceInPLN }) {
+  const { currentPictureNumber, handleClickForward, handleClickBack } =
+    useVenueCard(venue);
+
+  const priceInPLNData = usePriceInPLNData(venue.pricePerNightInEURCent);
 
   return (
     <Link href={`/venue/${venue.id}/`}>
@@ -54,7 +55,7 @@ export function VenueCard({ venue, currencyData }) {
           <StyledPictureBottomInfoDiv>
             <div>
               <Typography variant="boldOnCard">
-                {pricePreNightInPLN} zł / doba
+                {priceInPLNData.priceInPLN} zł / doba
               </Typography>
             </div>
             <StyledLocalizationDiv>
