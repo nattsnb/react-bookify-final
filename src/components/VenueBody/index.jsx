@@ -63,7 +63,7 @@ export function Venue({ venueId }) {
       </VerticalContainer>
     );
   }
-  
+
   if (contextIsError) {
     return <></>;
   }
