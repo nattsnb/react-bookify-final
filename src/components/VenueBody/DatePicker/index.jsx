@@ -1,6 +1,6 @@
 import * as React from "react";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import { Checkbox, Divider } from "@mui/material";
+import { Checkbox, CircularProgress, Divider } from "@mui/material";
 import { StyledContactInfoTypogrphy } from "../ContactInfo/ContactInfo.styled.js";
 import {
   StyledEndsAtButton,
@@ -16,8 +16,10 @@ import {
   StyledBookButtonContainer,
 } from "./DatePicker.styled.js";
 import { DateCalendar } from "@mui/x-date-pickers";
-import { getPriceInPLN } from "../../../shared/getPrice.js";
+import { usePriceInPLN } from "../../../shared/getPrice.js";
 import { useDatePicker } from "./useDatePicker.js";
+import { useContext } from "react";
+import { Context } from "../../../App.jsx";
 
 export default function DatePicker({ venueDetails, drawerOpen }) {
   const {
@@ -33,6 +35,12 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
     handleStartDateChange,
     handleEndDateChange,
   } = useDatePicker();
+
+  const contextIsError = useContext(Context)[0];
+  const priceInPLNData = usePriceInPLN(
+    venueDetails.venuesBasicData.pricePerNightInEURCent,
+  );
+  const countedPriceInPLN = daysBetween * priceInPLNData.priceInPLN;
 
   return (
     <>
@@ -112,19 +120,26 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
         <StyledPerDayContainer>
           <div>per day</div>
           <div>
-            {getPriceInPLN(venueDetails.venuesBasicData.pricePerNightInEURCent)}{" "}
-            zł
+            {priceInPLNData.isLoading ? (
+              <CircularProgress />
+            ) : contextIsError ? (
+              "error"
+            ) : (
+              `${priceInPLNData.priceInPLN} zł`
+            )}
           </div>
         </StyledPerDayContainer>
         <Divider variant="light"></Divider>
         <StyledTotalContainer>
           <div>total</div>
           <div>
-            {daysBetween *
-              getPriceInPLN(
-                venueDetails.venuesBasicData.pricePerNightInEURCent,
-              )}{" "}
-            zł
+            {priceInPLNData.isLoading ? (
+              <CircularProgress />
+            ) : contextIsError ? (
+              "error"
+            ) : (
+              `${countedPriceInPLN} zł`
+            )}
           </div>
         </StyledTotalContainer>
         <StyledBookButtonContainer>

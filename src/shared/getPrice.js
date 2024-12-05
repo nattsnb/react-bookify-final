@@ -1,32 +1,34 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "./api.js";
+import { Context } from "../App.jsx";
 
-export function getPriceInPLN(pricePerNightInEURCent) {
-  const [currencyData, setCurrencyData] = useState(null);
+export function usePriceInPLN(pricePerNightInEURCent) {
+  const [priceInPLN, setPriceInPLN] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const setContextIsError = useContext(Context)[1];
 
   useEffect(() => {
     async function getCurrencyData() {
       setIsLoading(true);
       try {
         const currencyResponse = await api.getCurrencyResults();
-        setCurrencyData({
-          PLN: currencyResponse.rates.PLN,
-        });
+        const plnRate = currencyResponse.rates.PLN;
+
+        const calculatedPrice = (
+          (pricePerNightInEURCent / 100) *
+          plnRate
+        ).toFixed(0);
+        setPriceInPLN(calculatedPrice);
       } catch (error) {
-        console.error("Error while fetching data:", error);
+        setContextIsError(true);
+        console.error("Error while fetching currency data:", error);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     }
 
     getCurrencyData();
-  }, []);
+  }, [priceInPLN, setContextIsError]);
 
-  if (!isLoading) {
-    const pricePreNightInPLN = (
-      (pricePerNightInEURCent / 100) *
-      currencyData.PLN
-    ).toFixed(0);
-    return pricePreNightInPLN;
-  }
+  return { priceInPLN, isLoading };
 }
