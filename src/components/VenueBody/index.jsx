@@ -63,7 +63,7 @@ export function Venue({ venueId }) {
     <PageWidthContainer>
       <StyledBodyContainer>
         <StyledBackToResultsLinkContainer>
-          <Link href={"/results/"}>
+          <Link href={"/"}>
             <StyledBackToResultsFlexDiv>
               <StyledArrowBackIosIcon /> <p>back to results</p>
             </StyledBackToResultsFlexDiv>
