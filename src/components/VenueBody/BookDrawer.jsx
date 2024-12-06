@@ -9,20 +9,20 @@ import {
 import DatePicker from "./DatePicker/index.jsx";
 
 export const BookDrawer = ({ venueDetails }) => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => setDrawerOpen(!drawerOpen);
+  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
   return (
     <StyledBookDrawerWrapper>
-      <StyledDatePickerContainer open={drawerOpen}>
+      <StyledDatePickerContainer open={isDrawerOpen}>
         <StyledDatePickerBodyWrapper>
-          <DatePicker venueDetails={venueDetails} drawerOpen={drawerOpen} />
+          <DatePicker venueDetails={venueDetails} drawerOpen={isDrawerOpen} />
         </StyledDatePickerBodyWrapper>
       </StyledDatePickerContainer>
-      <ButtonWrapper open={drawerOpen}>
+      <ButtonWrapper open={isDrawerOpen}>
         <ToggleButton onClick={toggleDrawer}>
-          {drawerOpen ? "Back to venue" : "Book this venue"}
+          {isDrawerOpen ? "Back to venue" : "Book this venue"}
         </ToggleButton>
       </ButtonWrapper>
     </StyledBookDrawerWrapper>

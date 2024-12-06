@@ -17,7 +17,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LanguageIcon from "@mui/icons-material/Language";
 
 export function ContactInfo({ venueDetails, contactsRef }) {
-  let contactDetailsToList = [
+  const contactDetailsToList = [
     {
       id: 0,
       Icon: PhoneIcon,
@@ -65,7 +65,7 @@ export function ContactInfo({ venueDetails, contactsRef }) {
       </StyledContactInfoTypogrphy>
       <Divider variant="dark" />
       <StyledSMLinksContainer>
-        <SMLinks links={socialMediaLinks}></SMLinks>
+        <SMLinks links={socialMediaLinks} />
       </StyledSMLinksContainer>
     </div>
   );

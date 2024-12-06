@@ -13,10 +13,10 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import MailIcon from "@mui/icons-material/Mail";
 
 const socialMediaLinks = [
-  { id: 0, path: "www.facebook.com", Icon: FacebookIcon },
-  { id: 1, path: "www.instagram.com", Icon: InstagramIcon },
-  { id: 2, path: "www.twitter.com", Icon: TwitterIcon },
-  { id: 3, path: "www.gmail.com", Icon: MailIcon },
+  { id: 0, path: "facebook.com", Icon: FacebookIcon },
+  { id: 1, path: "instagram.com", Icon: InstagramIcon },
+  { id: 2, path: "twitter.com", Icon: TwitterIcon },
+  { id: 3, path: "gmail.com", Icon: MailIcon },
 ];
 export function Footer() {
   const theme = useTheme();

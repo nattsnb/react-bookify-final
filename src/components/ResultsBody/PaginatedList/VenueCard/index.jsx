@@ -24,7 +24,7 @@ import { useContext } from "react";
 import { Context } from "../../../../App.jsx";
 import { usePriceInPLNData } from "../../../../shared/getPrice.js";
 
-export function VenueCard({ venue, priceInPLN }) {
+export function VenueCard({ venue }) {
   const { currentPictureNumber, handleClickForward, handleClickBack } =
     useVenueCard(venue);
 

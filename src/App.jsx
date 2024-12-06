@@ -25,9 +25,12 @@ export function App() {
             <Routes>
               <Route path="/" element={<Results />} exact />
               <Route path="/venue/:venueId" element={<VenueView />} />
-              <Route path="/aboutUs/" element={<p>about us</p>} />
-              <Route path="/yourFavourites/" element={<p>your favourites</p>} />
-              <Route path="/startHosting/" element={<p>start hosting</p>} />
+              <Route path="/about-us/" element={<p>about us</p>} />
+              <Route
+                path="/your-favourites/"
+                element={<p>your favourites</p>}
+              />
+              <Route path="/start-hosting/" element={<p>start hosting</p>} />
               <Route path="/login/" element={<p>log in</p>} />
               <Route path="/contact/" element={<p>contact</p>} />
               <Route path="/assistance/" element={<p>assistance</p>} />
