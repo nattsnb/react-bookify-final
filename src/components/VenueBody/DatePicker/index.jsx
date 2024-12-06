@@ -1,5 +1,4 @@
 import * as React from "react";
-import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { Checkbox, CircularProgress, Divider } from "@mui/material";
 import { StyledContactInfoTypogrphy } from "../ContactInfo/ContactInfo.styled.js";
 import {
@@ -20,7 +19,14 @@ import { usePriceInPLNData } from "../../../shared/getPrice.js";
 import { useDatePicker } from "./useDatePicker.js";
 import { useContext } from "react";
 import { Context } from "../../../App.jsx";
+import { Container } from "@mui/system";
+import * as PropTypes from "prop-types";
 
+function Item(props) {
+  return null;
+}
+
+Item.propTypes = { children: PropTypes.node };
 export default function DatePicker({ venueDetails, drawerOpen }) {
   const {
     whichCalendarIsActive,
@@ -76,42 +82,36 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
         <StyledOneDayTypography>just one day</StyledOneDayTypography>
       </StyledOneDayContainer>
       <StyledCalendarContainer>
-        <DemoContainer
+        <Container
           components={["DateCalendar", "DateCalendar", "DateCalendar"]}
         >
           {isChecked ? (
-            <DemoItem>
-              <DateCalendar
-                showDaysOutsideCurrentMonth
-                value={startDate}
-                onChange={handleStartDateChange}
-                calendars={1}
-              />
-            </DemoItem>
+            <DateCalendar
+              showDaysOutsideCurrentMonth
+              value={startDate}
+              onChange={handleStartDateChange}
+              calendars={1}
+            />
           ) : (
             <>
               {whichCalendarIsActive === "start" ? (
-                <DemoItem>
-                  <DateCalendar
-                    showDaysOutsideCurrentMonth
-                    value={startDate}
-                    onChange={handleStartDateChange}
-                    calendars={1}
-                  />
-                </DemoItem>
+                <DateCalendar
+                  showDaysOutsideCurrentMonth
+                  value={startDate}
+                  onChange={handleStartDateChange}
+                  calendars={1}
+                />
               ) : (
-                <DemoItem>
-                  <DateCalendar
-                    showDaysOutsideCurrentMonth
-                    value={endDate}
-                    onChange={handleEndDateChange}
-                    calendars={1}
-                  />
-                </DemoItem>
+                <DateCalendar
+                  showDaysOutsideCurrentMonth
+                  value={endDate}
+                  onChange={handleEndDateChange}
+                  calendars={1}
+                />
               )}
             </>
           )}
-        </DemoContainer>
+        </Container>
       </StyledCalendarContainer>
 
       {isCalendarError && <div>that's not a time machine, start over.</div>}

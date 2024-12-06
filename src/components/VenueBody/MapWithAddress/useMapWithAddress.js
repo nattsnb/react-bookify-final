@@ -1,9 +1,9 @@
-import {useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../../shared/api.js";
 import { useMap } from "react-leaflet";
 import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
-import {Context} from "../../../App.jsx";
+import { Context } from "../../../App.jsx";
 
 export function useMapWithAddress(locationData) {
   const [coordinatesData, setCoordinatesData] = useState({});

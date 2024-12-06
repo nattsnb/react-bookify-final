@@ -39,6 +39,8 @@ export const StyledEndsAtButton = styled(Button)`
 export const StyledButtonGroup = styled(ButtonGroup)`
   box-shadow: none;
   margin-top: ${({ theme }) => theme.spacing(10)};
+  padding-right: ${({ theme }) => theme.spacing(6)};
+  padding-left: ${({ theme }) => theme.spacing(6)};
 `;
 
 export const StyledOneDayContainer = styled("div")`
@@ -48,16 +50,21 @@ export const StyledOneDayContainer = styled("div")`
   align-items: center;
   margin-top: ${({ theme }) => theme.spacing(4)};
   margin-bottom: ${({ theme }) => theme.spacing(2)};
+  padding-right: ${({ theme }) => theme.spacing(6)};
+  padding-left: ${({ theme }) => theme.spacing(6)};
 `;
 
 export const StyledOneDayTypography = styled(Typography)`
   font-size: 16px;
   color: #747474;
+  padding-right: ${({ theme }) => theme.spacing(6)};
+  padding-left: ${({ theme }) => theme.spacing(6)};
 `;
 
 export const StyledCalendarContainer = styled("div")`
   display: flex;
   justify-content: center;
+
   & .MuiDateCalendar-root {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -75,19 +82,14 @@ export const StyledCalendarContainer = styled("div")`
     margin-left: ${({ theme }) => theme.spacing(2)};
     margin-right: ${({ theme }) => theme.spacing(2)};
   }
-
-  & .MuiDateRangeCalendar-root {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    width: 100%;
-    padding: 0;
-  }
 `;
 
 export const StyledPriceContainer = styled("div")`
   display: flex;
   flex-direction: column;
   margin-bottom: ${({ theme }) => theme.spacing(35)};
+  padding-right: ${({ theme }) => theme.spacing(6)};
+  padding-left: ${({ theme }) => theme.spacing(6)};
 `;
 
 export const StyledPerDayContainer = styled("div")`

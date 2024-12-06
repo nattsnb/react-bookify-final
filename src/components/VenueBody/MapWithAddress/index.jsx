@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { StyledMapContainer } from "./MapWithAddress.styled.js";
@@ -8,10 +8,9 @@ import { CircularProgress, useMediaQuery, useTheme } from "@mui/material";
 import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
 import { StyledContactInfoTypogrphy } from "../ContactInfo/ContactInfo.styled.js";
-import {Context} from "../../../App.jsx";
+import { Context } from "../../../App.jsx";
 
 const MapWithAddress = ({ locationData, mapRef }) => {
-
   const { coordinatesData, isLoading, address, FullscreenControl } =
     useMapWithAddress(locationData);
   let latitude = null;
@@ -21,7 +20,6 @@ const MapWithAddress = ({ locationData, mapRef }) => {
   const isViewportSmallerThanLg = useMediaQuery(theme.breakpoints.down("lg"));
 
   const contextIsError = useContext(Context)[0];
-
 
   if (isLoading) {
     return (

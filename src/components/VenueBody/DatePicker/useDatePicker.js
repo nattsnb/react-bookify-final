@@ -9,16 +9,16 @@ export const useDatePicker = () => {
   const [daysBetween, setDaysBetween] = useState(0);
 
   useEffect(() => {
-      if (!startDate || !endDate) {
-        setDaysBetween(0);
-      } else if (startDate === endDate) {
-        setDaysBetween(1);
-      } else {
-        const diff = Math.ceil(
-          (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24),
-        );
-        setDaysBetween(diff);
-      }
+    if (!startDate || !endDate) {
+      setDaysBetween(0);
+    } else if (startDate === endDate) {
+      setDaysBetween(1);
+    } else {
+      const diff = Math.ceil(
+        (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24),
+      );
+      setDaysBetween(diff);
+    }
   }, [startDate, endDate]);
 
   const handleStartsAtClick = () => {

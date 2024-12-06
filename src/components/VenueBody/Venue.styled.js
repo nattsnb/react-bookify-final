@@ -220,7 +220,8 @@ export const StyledDatePickerContainer = styled("div")`
 `;
 
 export const StyledDatePickerBodyWrapper = styled("div")`
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
