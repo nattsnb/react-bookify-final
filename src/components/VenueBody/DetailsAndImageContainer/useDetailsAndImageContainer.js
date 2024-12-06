@@ -1,25 +1,26 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { PictureContext } from "../index.jsx";
 
 export const useDetailsAndImageContainer = (venue) => {
-  const [currentPictureNumber, setCurrentPictureNumber] = useState(0);
+  const contextSetDisplayedPictureNumber = useContext(PictureContext)[1];
+  const contextDisplayedPictureNumber = useContext(PictureContext)[0];
   const handleClickForward = () => {
-    if (currentPictureNumber === venue.images.length - 1) {
-      setCurrentPictureNumber(0);
+    if (contextDisplayedPictureNumber === venue.images.length - 1) {
+      contextSetDisplayedPictureNumber(0);
     } else {
-      setCurrentPictureNumber(currentPictureNumber + 1);
+      contextSetDisplayedPictureNumber(contextDisplayedPictureNumber + 1);
     }
   };
 
   const handleClickBack = () => {
-    if (currentPictureNumber === 0) {
-      setCurrentPictureNumber(venue.images.length - 1);
+    if (contextSetDisplayedPictureNumber === 0) {
+      contextSetDisplayedPictureNumber(venue.images.length - 1);
     } else {
-      setCurrentPictureNumber(currentPictureNumber - 1);
+      contextSetDisplayedPictureNumber(contextDisplayedPictureNumber - 1);
     }
   };
 
   return {
-    currentPictureNumber,
     handleClickForward,
     handleClickBack,
   };
