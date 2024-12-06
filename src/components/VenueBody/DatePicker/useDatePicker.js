@@ -9,7 +9,6 @@ export const useDatePicker = () => {
   const [daysBetween, setDaysBetween] = useState(0);
 
   useEffect(() => {
-    const calculateDaysBetween = () => {
       if (!startDate || !endDate) {
         setDaysBetween(0);
       } else if (startDate === endDate) {
@@ -20,8 +19,6 @@ export const useDatePicker = () => {
         );
         setDaysBetween(diff);
       }
-    };
-    calculateDaysBetween();
   }, [startDate, endDate]);
 
   const handleStartsAtClick = () => {
