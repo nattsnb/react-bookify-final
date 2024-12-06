@@ -19,6 +19,8 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useDetailsAndImageContainer } from "./useDetailsAndImageContainer.js";
 import { HiddenElement } from "../../../shared/styledComponents/hiddenElement.styled.js";
+import { useContext } from "react";
+import { PictureContext } from "../index.jsx";
 
 export function DetailsAndImageContainer({ venueDetails }) {
   const { currentPictureNumber, handleClickForward, handleClickBack } =
@@ -27,6 +29,9 @@ export function DetailsAndImageContainer({ venueDetails }) {
   const cityNameLowerCase = cityName.toLowerCase();
   const numberOfStars = Math.round(venueDetails.venuesBasicData.rating);
   const stars = new Array(numberOfStars).fill("star");
+
+  const contextDisplayedPictureNumber = useContext(PictureContext)[0];
+
   return (
     <StyledDetailsAndImageContainer>
       <StyledDetailsContainer>
@@ -52,7 +57,7 @@ export function DetailsAndImageContainer({ venueDetails }) {
       </StyledDetailsContainer>
       <StyledImageContainer
         backgroundurl={
-          venueDetails.venuesBasicData.images[currentPictureNumber]
+          venueDetails.venuesBasicData.images[contextDisplayedPictureNumber]
         }
       >
         <StyledHeartDiv>

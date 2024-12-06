@@ -11,6 +11,7 @@ export const useVenue = (venueId) => {
   const contactsRef = useRef(null);
   const [venueDetails, setVenueDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [displayedPictureNumber, setDisplayedPictureNumber] = useState(0);
   const setContextIsError = useContext(Context)[1];
 
   const handleScroll = (ref) => {
@@ -48,5 +49,7 @@ export const useVenue = (venueId) => {
     mapRef,
     contactsRef,
     handleScroll,
+    displayedPictureNumber,
+    setDisplayedPictureNumber,
   };
 };

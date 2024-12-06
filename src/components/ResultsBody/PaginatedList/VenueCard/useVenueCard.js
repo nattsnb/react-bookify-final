@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useVenueCard = (venue, currencyData) => {
+export const useVenueCard = (venue) => {
   const [currentPictureNumber, setCurrentPictureNumber] = useState(0);
 
   const handleClickForward = () => {

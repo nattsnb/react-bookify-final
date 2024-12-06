@@ -10,7 +10,7 @@ import {
   StyledWideBodyContainer,
 } from "./Venue.styled.js";
 import { DetailsAndImageContainer } from "./DetailsAndImageContainer/index.jsx";
-import React, { useContext, useRef } from "react";
+import React, { createContext, useContext, useRef, useState } from "react";
 import { useVenue } from "./useVenue.js";
 import { WideBodyLinkBarAndContentContainer } from "./LinkBarAndBody/WideBodyLinkBarAndContentContainer.jsx";
 import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
@@ -31,6 +31,8 @@ const DisplayedContentValue = {
   contacts: "contacts",
 };
 
+export const PictureContext = createContext([]);
+
 export function Venue({ venueId }) {
   const {
     venueDetails,
@@ -40,6 +42,8 @@ export function Venue({ venueId }) {
     mapRef,
     contactsRef,
     handleScroll,
+    displayedPictureNumber,
+    setDisplayedPictureNumber,
   } = useVenue(venueId);
   const { venuesAmenities } = useLinkBar(DisplayedContentValue);
   const contextIsError = useContext(Context)[0];
@@ -60,59 +64,63 @@ export function Venue({ venueId }) {
   }
 
   return (
-    <PageWidthContainer>
-      <StyledBodyContainer>
-        <StyledBackToResultsLinkContainer>
-          <Link href={"/"}>
-            <StyledBackToResultsFlexDiv>
-              <StyledArrowBackIosIcon /> <p>back to results</p>
-            </StyledBackToResultsFlexDiv>
-          </Link>
-        </StyledBackToResultsLinkContainer>
-        {isViewportLargerThanLg ? (
-          <StyledWideBodyContainer>
-            <StyledLeftColumnContainer>
+    <PictureContext.Provider
+      value={[displayedPictureNumber, setDisplayedPictureNumber]}
+    >
+      <PageWidthContainer>
+        <StyledBodyContainer>
+          <StyledBackToResultsLinkContainer>
+            <Link href={"/"}>
+              <StyledBackToResultsFlexDiv>
+                <StyledArrowBackIosIcon /> <p>back to results</p>
+              </StyledBackToResultsFlexDiv>
+            </Link>
+          </StyledBackToResultsLinkContainer>
+          {isViewportLargerThanLg ? (
+            <StyledWideBodyContainer>
+              <StyledLeftColumnContainer>
+                <DetailsAndImageContainer venueDetails={venueDetails} />
+                <WideBodyLinkBarAndContentContainer
+                  venueDetails={venueDetails}
+                  DisplayedContentValue={DisplayedContentValue}
+                />
+              </StyledLeftColumnContainer>
+              <StyledRightColumnContainer>
+                <DatePicker venueDetails={venueDetails} />
+                <ContactInfo venueDetails={venueDetails} />
+              </StyledRightColumnContainer>
+            </StyledWideBodyContainer>
+          ) : (
+            <>
               <DetailsAndImageContainer venueDetails={venueDetails} />
-              <WideBodyLinkBarAndContentContainer
-                venueDetails={venueDetails}
-                DisplayedContentValue={DisplayedContentValue}
+              <NarrowBodyLinkBar
+                handleScroll={handleScroll}
+                descriptionRef={descriptionRef}
+                galleryRef={galleryRef}
+                mapRef={mapRef}
+                contactsRef={contactsRef}
               />
-            </StyledLeftColumnContainer>
-            <StyledRightColumnContainer>
-              <DatePicker venueDetails={venueDetails} />
-              <ContactInfo venueDetails={venueDetails} />
-            </StyledRightColumnContainer>
-          </StyledWideBodyContainer>
-        ) : (
-          <>
-            <DetailsAndImageContainer venueDetails={venueDetails} />
-            <NarrowBodyLinkBar
-              handleScroll={handleScroll}
-              descriptionRef={descriptionRef}
-              galleryRef={galleryRef}
-              mapRef={mapRef}
-              contactsRef={contactsRef}
-            />
 
-            <Description
-              venueDetails={venueDetails}
-              venuesAmenities={venuesAmenities}
-              isLoading={isLoading}
-              descriptionRef={descriptionRef}
-            />
-            <Gallery venueDetails={venueDetails} galleryRef={galleryRef} />
-            <MapWithAddress
-              locationData={venueDetails.venuesBasicData.location}
-              mapRef={mapRef}
-            />
-            <ContactInfo
-              venueDetails={venueDetails}
-              contactsRef={contactsRef}
-            />
-            <BookDrawer venueDetails={venueDetails} />
-          </>
-        )}
-      </StyledBodyContainer>
-    </PageWidthContainer>
+              <Description
+                venueDetails={venueDetails}
+                venuesAmenities={venuesAmenities}
+                isLoading={isLoading}
+                descriptionRef={descriptionRef}
+              />
+              <Gallery venueDetails={venueDetails} galleryRef={galleryRef} />
+              <MapWithAddress
+                locationData={venueDetails.venuesBasicData.location}
+                mapRef={mapRef}
+              />
+              <ContactInfo
+                venueDetails={venueDetails}
+                contactsRef={contactsRef}
+              />
+              <BookDrawer venueDetails={venueDetails} />
+            </>
+          )}
+        </StyledBodyContainer>
+      </PageWidthContainer>
+    </PictureContext.Provider>
   );
 }
