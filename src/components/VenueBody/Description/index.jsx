@@ -17,9 +17,10 @@ import {
   StyledSleepingDetailsContainer,
 } from "./Description.styled.js";
 import { VerticalContainer } from "../../../shared/styledComponents/verticalContainer.styled.js";
-import React from "react";
+import React, {useContext} from "react";
 import { produceAmenitiesToList } from "./produceAmenitiesToList.js";
 import { produceSleepingDetailsToList } from "./produceSleepingDetailsToList.js";
+import {Context} from "../../../App.jsx";
 
 export function Description({
   venueDetails,
@@ -27,18 +28,28 @@ export function Description({
   isLoading,
   descriptionRef,
 }) {
-  let amenitiesToList = [];
-  let sleepingDetailsToList = [];
-  if (isLoading) {
-    return (
-      <VerticalContainer>
-        <CircularProgress />
-      </VerticalContainer>
-    );
-  } else {
+
+  const contextIsError = useContext(Context)[0];
+
+    let amenitiesToList = [];
+    let sleepingDetailsToList = [];
+
+    if (isLoading) {
+      return (
+          <VerticalContainer>
+              <CircularProgress/>
+          </VerticalContainer>
+      )
+    }
+
+    if (contextIsError) {
+      return <></>;
+    }
+
     amenitiesToList = produceAmenitiesToList(venueDetails, venuesAmenities);
     sleepingDetailsToList = produceSleepingDetailsToList(venueDetails);
-  }
+
+
 
   return (
     <StyledDescriptionContainer ref={descriptionRef}>

@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import { api } from "../../../shared/api.js";
+import {Context} from "../../../App.jsx";
 
 export function useLinkBar(DisplayedContentValue) {
   const [displayedContent, setDisplayedContent] = useState("description");
   const [venuesAmenities, setVenuesAmenities] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const setContextIsError = useContext(Context)[1];
+
 
   useEffect(() => {
     async function getVenuesAmenities() {
@@ -13,6 +16,7 @@ export function useLinkBar(DisplayedContentValue) {
         const venuesAmenitiesResponse = await api.getVenuesAmenities();
         setVenuesAmenities(venuesAmenitiesResponse);
       } catch (error) {
+        setContextIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);
