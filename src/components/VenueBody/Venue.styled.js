@@ -239,6 +239,7 @@ export const ButtonWrapper = styled("div")`
   bottom: ${({ open }) => (open ? "calc(100% - 50px)" : "0px")};
   left: 0;
   transition: bottom 0.3s ease;
+  z-index: 1000;
 `;
 
 export const ToggleButton = styled(Button)`
