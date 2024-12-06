@@ -23,11 +23,9 @@ export function Gallery({ venueDetails, galleryRef }) {
         </>
       ) : (
         <StyledGalleryContainer>
-          {venueDetails.venueDetails.venuesBasicData.images.map(
-            (imageURL, index) => (
-              <StyledImageContainer key={index} imageUrl={imageURL} />
-            ),
-          )}
+          {venueDetails.venuesBasicData.images.map((imageURL, index) => (
+            <StyledImageContainer key={index} imageUrl={imageURL} />
+          ))}
         </StyledGalleryContainer>
       )}
     </div>
