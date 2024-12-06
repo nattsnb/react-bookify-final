@@ -1,4 +1,4 @@
-import { FiltersDrawer } from "./FiltersDrawer.jsx";
+import { Index } from "./FiltersDrawer/index.jsx";
 import { ResultsElementsWrapper } from "./ResultsElementsWrapper.jsx";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import { Drawer, useMediaQuery, useTheme } from "@mui/material";
@@ -38,7 +38,7 @@ export function ResultsBody() {
     <PageWidthContainer>
       {isViewportLargerThanMd ? (
         <StyledWideContentContainer>
-          <FiltersDrawer />
+          <Index />
           <ResultsElementsWrapper limit={limit} setLimit={setLimit} />
         </StyledWideContentContainer>
       ) : (
@@ -54,7 +54,7 @@ export function ResultsBody() {
               open={isFilterDrawerOpen}
               onClose={toggleFiltersDrawer(false)}
             >
-              <FiltersDrawer />
+              <Index />
             </Drawer>
             <Drawer
               anchor="right"

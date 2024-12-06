@@ -11,10 +11,10 @@ import {
   StyledDrawerToolbar,
   StyledDrawerToolbarBackground,
   StyledFiltersContainer,
-} from "./Results.styled.js";
-import { HiddenElement } from "../../shared/styledComponents/hiddenElement.styled.js";
+} from "../Results.styled.js";
+import { HiddenElement } from "../../../shared/styledComponents/hiddenElement.styled.js";
 
-export function FiltersDrawer() {
+export function Index() {
   const arrayOfFilters = [
     { id: 0, name: "price range" },
     { id: 1, name: "amenities" },
