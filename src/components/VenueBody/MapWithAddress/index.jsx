@@ -12,8 +12,8 @@ import { StyledContactInfoTypogrphy } from "../ContactInfo/ContactInfo.styled.js
 const MapWithAddress = ({ locationData, mapRef }) => {
   const { coordinatesData, isLoading, address, FullscreenControl } =
     useMapWithAddress(locationData);
-  let lat = null;
-  let lng = null;
+  let latitude = null;
+  let longitude = null;
   const theme = useTheme();
   const isViewportSmallerThanLg = useMediaQuery(theme.breakpoints.down("lg"));
 
@@ -23,10 +23,10 @@ const MapWithAddress = ({ locationData, mapRef }) => {
         <CircularProgress />
       </VerticalContainer>
     );
-  } else {
-    lat = coordinatesData.results[0].geometry.lat;
-    lng = coordinatesData.results[0].geometry.lng;
   }
+
+  latitude = coordinatesData.results[0].geometry.lat;
+  longitude = coordinatesData.results[0].geometry.lng;
 
   return (
     <div ref={mapRef}>
@@ -34,9 +34,9 @@ const MapWithAddress = ({ locationData, mapRef }) => {
         <>
           <StyledContactInfoTypogrphy>Map</StyledContactInfoTypogrphy>
           <StyledMapContainer>
-            <MapContainer center={[lat, lng]} zoom={13}>
+            <MapContainer center={[latitude, longitude]} zoom={13}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-              <Marker position={[lat, lng]}>
+              <Marker position={[latitude, longitude]}>
                 <Popup>{address}</Popup>
               </Marker>
               <FullscreenControl />
@@ -45,9 +45,9 @@ const MapWithAddress = ({ locationData, mapRef }) => {
         </>
       ) : (
         <StyledMapContainer>
-          <MapContainer center={[lat, lng]} zoom={13}>
+          <MapContainer center={[latitude, longitude]} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[lat, lng]}>
+            <Marker position={[latitude, longitude]}>
               <Popup>{address}</Popup>
             </Marker>
             <FullscreenControl />

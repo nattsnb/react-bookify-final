@@ -32,29 +32,20 @@ const DisplayedContentValue = {
 };
 
 export function Venue({ venueId }) {
-  const descriptionRef = useRef(null);
-  const galleryRef = useRef(null);
-  const mapRef = useRef(null);
-  const contactsRef = useRef(null);
-
-  const { venueDetails, isLoading } = useVenue(venueId);
+  const {
+    venueDetails,
+    isLoading,
+    descriptionRef,
+    galleryRef,
+    mapRef,
+    contactsRef,
+    handleScroll,
+  } = useVenue(venueId);
   const { venuesAmenities } = useLinkBar(DisplayedContentValue);
-  const theme = useTheme();
-  const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
-
   const contextIsError = useContext(Context)[0];
 
-  const handleScroll = (ref) => {
-    if (ref?.current.offsetTop) {
-      window.scrollTo({
-        top: ref.current.offsetTop,
-        left: 0,
-        behavior: "smooth",
-      });
-    } else {
-      console.warn("Ref is null or undefined:", ref);
-    }
-  };
+  const theme = useTheme();
+  const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   if (isLoading) {
     return (

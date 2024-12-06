@@ -1,12 +1,29 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { api } from "../../shared/api.js";
 import { Context } from "../../App.jsx";
+import { useLinkBar } from "./LinkBarAndBody/useLinkBar.js";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export const useVenue = (venueId) => {
+  const descriptionRef = useRef(null);
+  const galleryRef = useRef(null);
+  const mapRef = useRef(null);
+  const contactsRef = useRef(null);
   const [venueDetails, setVenueDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const setContextIsError = useContext(Context)[1];
-  const contextIsError = useContext(Context)[0];
+
+  const handleScroll = (ref) => {
+    if (ref?.current.offsetTop) {
+      window.scrollTo({
+        top: ref.current.offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    } else {
+      console.warn("Ref is null or undefined:", ref);
+    }
+  };
 
   useEffect(() => {
     async function getVenueDetails(venueId) {
@@ -26,5 +43,10 @@ export const useVenue = (venueId) => {
   return {
     venueDetails,
     isLoading,
+    descriptionRef,
+    galleryRef,
+    mapRef,
+    contactsRef,
+    handleScroll,
   };
 };
