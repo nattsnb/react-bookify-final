@@ -11,6 +11,8 @@ import {
   StyledUnderCardInfoCategoryDiv,
   StyledPictureFrameTopInfoContainer,
   StyledIconContainer,
+  StyledPictureAndPictureFrameContainer,
+  StyledImg,
 } from "./VenueCard.styled.jsx";
 import { Box, IconButton, Link } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -20,8 +22,6 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useVenueCard } from "./useVenueCard.js";
 import RoomIcon from "@mui/icons-material/Room";
-import { useContext } from "react";
-import { Context } from "../../../../App.jsx";
 import { usePriceInPLNData } from "../../../../shared/getPrice.js";
 
 export function VenueCard({ venue }) {
@@ -31,9 +31,15 @@ export function VenueCard({ venue }) {
   const priceInPLNData = usePriceInPLNData(venue.pricePerNightInEURCent);
 
   return (
-    <Link href={`/venue/${venue.id}/`}>
-      <StyledVenueCardWrapper>
-        <StyledPictureFrame backgroundurl={venue.images[currentPictureNumber]}>
+    <StyledVenueCardWrapper>
+      <StyledPictureAndPictureFrameContainer>
+        <Link href={`/venue/${venue.id}/`}>
+          <StyledImg
+            src={venue.images[currentPictureNumber]}
+            alt="venue image"
+          />
+        </Link>
+        <StyledPictureFrame>
           <StyledPictureFrameTopInfoContainer>
             <StyledHeartDiv>
               <Typography variant="boldOnCard">
@@ -68,6 +74,8 @@ export function VenueCard({ venue }) {
             </StyledLocalizationDiv>
           </StyledPictureBottomInfoDiv>
         </StyledPictureFrame>
+      </StyledPictureAndPictureFrameContainer>
+      <Link href={`/venue/${venue.id}/`}>
         <StyledUnderCardInfoBox>
           <StyledUnderCardInfoBoxHalfContainer>
             <GradeIcon />
@@ -84,7 +92,7 @@ export function VenueCard({ venue }) {
             <Box>{venue.capacity}</Box>
           </StyledUnderCardInfoBoxHalfContainer>
         </StyledUnderCardInfoBox>
-      </StyledVenueCardWrapper>
-    </Link>
+      </Link>
+    </StyledVenueCardWrapper>
   );
 }
