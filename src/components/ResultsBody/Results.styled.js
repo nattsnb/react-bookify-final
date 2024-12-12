@@ -84,8 +84,17 @@ export const StyledLimitWrapper = styled("div")`
 export const StyledFiltersContainer = styled("div")`
   box-shadow: 0 5px 4px ${({ theme }) => theme.palette.secondary.light};
   width: 285px;
+  font-size: 16px;
 
-  & .MuiMenuItem-root {
+  &.MuiTypography-root {
+    font-size: 16px;  // nadpisanie domyślnego rozmiaru czcionki
+    font-weight: bold;  // przykład dodatkowego stylu
+  }
+  &.MuiListItemText-primary {
+    font-size: 16px;
+  }
+  
+  & .MuiListItem-root {
     padding-bottom: ${({ theme }) => theme.spacing(8)};
   }
   

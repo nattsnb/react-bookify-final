@@ -132,6 +132,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           padding: 0,
+          fontSize: "16px",
         },
       },
     },
