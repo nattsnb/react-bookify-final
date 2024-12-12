@@ -1,4 +1,4 @@
-import { Select, styled, TextField, Toolbar } from "@mui/material";
+import { Select, Slider, styled, TextField, Toolbar } from "@mui/material";
 import toolbarBackgroundImage from "../../images/toolbar.svg";
 
 export const StyledWideContentContainer = styled("div")`
@@ -151,4 +151,16 @@ export const SortButton = styled("button")`
   color: ${({ theme }) => theme.palette.background.default};
   height: 40px;
   width: 64px;
+`;
+
+export const StyledSlider = styled(Slider)`
+  padding-left: ${({ theme }) => theme.spacing(13)};
+  padding-right: ${({ theme }) => theme.spacing(13)};
+  width: 70%;
+`;
+
+export const StyledSliderContainer = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

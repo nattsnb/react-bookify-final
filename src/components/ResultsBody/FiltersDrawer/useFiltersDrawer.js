@@ -19,6 +19,11 @@ export const useFiltersDrawer = () => {
   });
   const [venuesAmenities, setVenuesAmenities] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [priceRangeValue, setPriceRangeValue] = useState([0, 100]);
+
+  const handleRangeChange = (event, newValue) => {
+    setPriceRangeValue(newValue);
+  };
 
   const handleClick = (section) => {
     setOpenSections((previousState) => ({
@@ -41,5 +46,12 @@ export const useFiltersDrawer = () => {
     getVenuesAmenities();
   }, []);
 
-  return { openSections, handleClick, venuesAmenities, isLoading };
+  return {
+    openSections,
+    handleClick,
+    venuesAmenities,
+    isLoading,
+    priceRangeValue,
+    handleRangeChange,
+  };
 };

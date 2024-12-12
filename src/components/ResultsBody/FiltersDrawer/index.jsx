@@ -5,7 +5,6 @@ import {
   Collapse,
   List,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -14,6 +13,8 @@ import {
   StyledDrawerToolbar,
   StyledDrawerToolbarBackground,
   StyledFiltersContainer,
+  StyledSlider,
+  StyledSliderContainer,
 } from "../Results.styled.js";
 import { HiddenElement } from "../../../shared/styledComponents/hiddenElement.styled.js";
 import { useFiltersDrawer } from "./useFiltersDrawer.js";
@@ -30,8 +31,14 @@ const arrayOfFilters = [
 ];
 
 export function FiltersDrawer() {
-  const { openSections, handleClick, venuesAmenities, isLoading } =
-    useFiltersDrawer();
+  const {
+    openSections,
+    handleClick,
+    venuesAmenities,
+    isLoading,
+    priceRangeValue,
+    handleRangeChange,
+  } = useFiltersDrawer();
 
   if (isLoading) {
     return (
@@ -58,10 +65,29 @@ export function FiltersDrawer() {
       </StyledDrawerToolbarBackground>
 
       <List>
-        <ListItemButton key={arrayOfFilters[0].id}>
+        <ListItemButton
+          key={arrayOfFilters[0].id}
+          onClick={() => handleClick("priceRange")}
+        >
           <ListItemText>{arrayOfFilters[0].name}</ListItemText>
-          {openSections.amenities ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+          {openSections.priceRange ? (
+            <ArrowDropUpIcon />
+          ) : (
+            <ArrowDropDownIcon />
+          )}
         </ListItemButton>
+        <Collapse in={openSections.priceRange} timeout="auto" unmountOnExit>
+          <StyledSliderContainer>
+            <StyledSlider
+              getAriaLabel={() => "Price range"}
+              value={priceRangeValue}
+              onChange={() => {
+                handleRangeChange;
+              }}
+              valueLabelDisplay="auto"
+            />
+          </StyledSliderContainer>
+        </Collapse>
         <ListItemButton
           key={arrayOfFilters[1].id}
           onClick={() => handleClick("amenities")}
