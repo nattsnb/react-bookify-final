@@ -1,6 +1,5 @@
 import { Divider, useMediaQuery, useTheme } from "@mui/material";
 import { SMLinks } from "../SMLinks/index.jsx";
-import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import {
   StyledFooterContainer,
   StyledFooterLink,

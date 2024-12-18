@@ -1,8 +1,6 @@
 import { StyledBodyLinkBarContainer } from "./LinkBar.styled.js";
 import { Button } from "@mui/material";
-import React, { useState } from "react";
-import { useLinkBar } from "./useLinkBar.js";
-import { useVenue } from "../useVenue.js";
+import React from "react";
 
 export function NarrowBodyLinkBar({
   handleScroll,

@@ -1,4 +1,4 @@
-import { Icon, List, ListItem, styled } from "@mui/material";
+import { Icon, List, styled } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 
 export const StyledDescriptionContainer = styled("div")`

@@ -102,7 +102,9 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
         </Container>
       </StyledCalendarContainer>
 
-      {isCalendarError && <div>that's not a time machine, start over.</div>}
+      {isCalendarError && (
+        <div>that&apos;s not a time machine, start over.</div>
+      )}
 
       <StyledPriceContainer>
         <StyledPerDayContainer>

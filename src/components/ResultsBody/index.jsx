@@ -11,7 +11,7 @@ import {
   StyleThinContentContainer,
 } from "./Results.styled.js";
 import { PaginatedList } from "./PaginatedList/index.jsx";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { SearchBar } from "../Banner/SearchBar/index.jsx";
 import { SortDrawer } from "./SortDrawer.jsx";
 

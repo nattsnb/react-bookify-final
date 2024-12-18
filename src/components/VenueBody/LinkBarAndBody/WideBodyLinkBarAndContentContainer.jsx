@@ -3,7 +3,7 @@ import {
   StyledWideBodyClickedContentContainer,
 } from "./LinkBar.styled.js";
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { Description } from "../Description/index.jsx";
 import { Gallery } from "../Gallery/index.jsx";
 import MapWithAddress from "../MapWithAddress/index.jsx";

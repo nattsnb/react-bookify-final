@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import { Link, useMediaQuery, useTheme } from "@mui/material";
-import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   StyledLoginLink,

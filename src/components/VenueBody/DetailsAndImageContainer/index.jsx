@@ -23,8 +23,9 @@ import { useContext } from "react";
 import { PictureContext } from "../index.jsx";
 
 export function DetailsAndImageContainer({ venueDetails }) {
-  const { currentPictureNumber, handleClickForward, handleClickBack } =
-    useDetailsAndImageContainer(venueDetails.venuesBasicData);
+  const { handleClickForward, handleClickBack } = useDetailsAndImageContainer(
+    venueDetails.venuesBasicData,
+  );
   const cityName = venueDetails.venuesBasicData.location.city;
   const cityNameLowerCase = cityName.toLowerCase();
   const numberOfStars = Math.round(venueDetails.venuesBasicData.rating);

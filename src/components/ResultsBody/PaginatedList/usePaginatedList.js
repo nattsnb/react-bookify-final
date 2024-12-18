@@ -4,7 +4,6 @@ import { ErrorContext } from "../../../App.jsx";
 
 export const usePaginatedList = (limit) => {
   const [venuesOnPage, setVenuesOnPage] = useState(null);
-  const [currencyData, setCurrencyData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [numberOfAllPages, setNumberOfAllPages] = useState(null);
   const [page, setPage] = useState(1);
@@ -33,7 +32,6 @@ export const usePaginatedList = (limit) => {
 
   return {
     venuesOnPage,
-    currencyData,
     isLoading,
     numberOfAllPages,
     page,

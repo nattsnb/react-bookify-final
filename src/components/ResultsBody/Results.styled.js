@@ -1,4 +1,4 @@
-import { Select, Slider, styled, TextField, Toolbar } from "@mui/material";
+import { Slider, styled, TextField, Toolbar } from "@mui/material";
 import toolbarBackgroundImage from "../../images/toolbar.svg";
 
 export const StyledWideContentContainer = styled("div")`
