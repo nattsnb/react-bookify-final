@@ -46,7 +46,7 @@ export function Venue({ venueId }) {
     setDisplayedPictureNumber,
   } = useVenue(venueId);
   const { venuesAmenities } = useLinkBar(DisplayedContentValue);
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { isError } = useContext(ErrorContext);
 
   const theme = useTheme();
   const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));

@@ -10,7 +10,7 @@ export const useVenue = (venueId) => {
   const [venueDetails, setVenueDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [displayedPictureNumber, setDisplayedPictureNumber] = useState(0);
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { setIsError } = useContext(ErrorContext);
 
   const handleScroll = (ref) => {
     if (ref?.current.offsetTop) {

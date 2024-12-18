@@ -6,7 +6,7 @@ export function useLinkBar(DisplayedContentValue) {
   const [displayedContent, setDisplayedContent] = useState("description");
   const [venuesAmenities, setVenuesAmenities] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { setIsError } = useContext(ErrorContext);
 
   useEffect(() => {
     async function getVenuesAmenities() {

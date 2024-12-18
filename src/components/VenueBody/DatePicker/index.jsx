@@ -36,7 +36,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
     handleEndDateChange,
   } = useDatePicker();
 
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { isError } = useContext(ErrorContext);
   const priceInPLNData = usePriceInPLNData(
     venueDetails.venuesBasicData.pricePerNightInEURCent,
   );

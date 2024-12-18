@@ -31,8 +31,7 @@ export function DetailsAndImageContainer({ venueDetails }) {
   const numberOfStars = Math.round(venueDetails.venuesBasicData.rating);
   const stars = new Array(numberOfStars).fill("star");
 
-  const { displayedPictureNumber, setDisplayedPictureNumber } =
-    useContext(PictureContext);
+  const { displayedPictureNumber } = useContext(PictureContext);
 
   return (
     <StyledDetailsAndImageContainer>

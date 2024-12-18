@@ -5,7 +5,7 @@ import { ErrorContext } from "../App.jsx";
 export function usePriceInPLNData(pricePerNightInEURCent) {
   const [priceInPLN, setPriceInPLN] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { setIsError } = useContext(ErrorContext);
 
   useEffect(() => {
     async function getCurrencyData() {

@@ -19,7 +19,7 @@ const MapWithAddress = ({ locationData, mapRef }) => {
   const theme = useTheme();
   const isViewportSmallerThanLg = useMediaQuery(theme.breakpoints.down("lg"));
 
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { isError } = useContext(ErrorContext);
 
   if (isLoading) {
     return (

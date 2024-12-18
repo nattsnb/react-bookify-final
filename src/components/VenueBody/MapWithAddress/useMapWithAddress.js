@@ -10,7 +10,7 @@ export function useMapWithAddress(locationData) {
   const [isLoading, setIsLoading] = useState(true);
   const address =
     `${locationData.streetNumber} ${locationData.streetName}, ${locationData.postalCode}, ${locationData.city}`.toLowerCase();
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { setIsError } = useContext(ErrorContext);
 
   useEffect(() => {
     async function getCoordinatesData(address) {

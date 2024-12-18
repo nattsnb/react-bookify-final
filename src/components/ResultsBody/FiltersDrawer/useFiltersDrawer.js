@@ -20,7 +20,7 @@ export const useFiltersDrawer = () => {
   const [venuesAmenities, setVenuesAmenities] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [priceRangeValue, setPriceRangeValue] = useState([0, 100]);
-  const { isError, setIsError } = useContext(ErrorContext);
+  const { setIsError } = useContext(ErrorContext);
 
   const handleRangeChange = (event, newValue) => {
     setPriceRangeValue(newValue);
