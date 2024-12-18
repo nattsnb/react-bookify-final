@@ -20,14 +20,23 @@ import { HiddenElement } from "../../../shared/styledComponents/hiddenElement.st
 import { useFiltersDrawer } from "./useFiltersDrawer.js";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { VerticalContainer } from "../../../shared/styledComponents/verticalContainer.styled.js";
-import React from "react";
+import React, { Fragment } from "react";
 
-const arrayOfFilters = [
-  { id: 0, name: "price range" },
-  { id: 1, name: "amenities" },
-  { id: 2, name: "room amenities" },
-  { id: 3, name: "neighbourhoods" },
-  { id: 4, name: "handicap accessibility" },
+const priceRangeFilterData = {
+  id: 0,
+  name: "price range",
+  sectionName: "priceRange",
+};
+
+const arrayOfDropdownFilters = [
+  { id: 0, name: "amenities", sectionName: "amenities" },
+  { id: 1, name: "room amenities", sectionName: "roomAmenities" },
+  { id: 2, name: "neighbourhoods", sectionName: "neighbourhoods" },
+  {
+    id: 3,
+    name: "handicap accessibility",
+    sectionName: "handicapAccessibility",
+  },
 ];
 
 export function FiltersDrawer() {
@@ -66,20 +75,24 @@ export function FiltersDrawer() {
 
       <List>
         <ListItemButton
-          key={arrayOfFilters[0].id}
-          onClick={() => handleClick("priceRange")}
+          key={priceRangeFilterData.id}
+          onClick={() => handleClick(priceRangeFilterData.sectionName)}
         >
-          <ListItemText>{arrayOfFilters[0].name}</ListItemText>
-          {openSections.priceRange ? (
+          <ListItemText>{priceRangeFilterData.name}</ListItemText>
+          {openSections[priceRangeFilterData.sectionName] ? (
             <ArrowDropUpIcon />
           ) : (
             <ArrowDropDownIcon />
           )}
         </ListItemButton>
-        <Collapse in={openSections.priceRange} timeout="auto" unmountOnExit>
+        <Collapse
+          in={openSections[priceRangeFilterData.sectionName]}
+          timeout="auto"
+          unmountOnExit
+        >
           <StyledSliderContainer>
             <StyledSlider
-              getAriaLabel={() => "Price range"}
+              getAriaLabel={() => priceRangeFilterData.name}
               value={priceRangeValue}
               onChange={() => {
                 handleRangeChange;
@@ -88,93 +101,33 @@ export function FiltersDrawer() {
             />
           </StyledSliderContainer>
         </Collapse>
-        <ListItemButton
-          key={arrayOfFilters[1].id}
-          onClick={() => handleClick("amenities")}
-        >
-          <ListItemText>{arrayOfFilters[1].name}</ListItemText>
-          {openSections.amenities ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
-        </ListItemButton>
-        <Collapse in={openSections.amenities} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {venuesAmenities.amenities.map((filter) => (
-              <ListItemButton key={filter.id}>
-                <Checkbox />
-                <ListItemText>{filter.name}</ListItemText>
-              </ListItemButton>
-            ))}
-          </List>
-        </Collapse>
 
-        <ListItemButton
-          key={arrayOfFilters[2].id}
-          onClick={() => handleClick("roomAmenities")}
-        >
-          <ListItemText>{arrayOfFilters[2].name}</ListItemText>
-          {openSections.roomAmenities ? (
-            <ArrowDropUpIcon />
-          ) : (
-            <ArrowDropDownIcon />
-          )}
-        </ListItemButton>
-        <Collapse in={openSections.roomAmenities} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {venuesAmenities.roomAmenities.map((filter) => (
-              <ListItemButton key={filter.id}>
-                <Checkbox />
-                <ListItemText>{filter.name}</ListItemText>
-              </ListItemButton>
-            ))}
-          </List>
-        </Collapse>
-
-        <ListItemButton
-          key={arrayOfFilters[3].id}
-          onClick={() => handleClick("neighbourhoods")}
-        >
-          <ListItemText>{arrayOfFilters[3].name}</ListItemText>
-          {openSections.neighbourhoods ? (
-            <ArrowDropUpIcon />
-          ) : (
-            <ArrowDropDownIcon />
-          )}
-        </ListItemButton>
-        <Collapse in={openSections.neighbourhoods} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {venuesAmenities.neighbourhoods.map((filter) => (
-              <ListItemButton key={filter.id}>
-                <Checkbox />
-                <ListItemText>{filter.name}</ListItemText>
-              </ListItemButton>
-            ))}
-          </List>
-        </Collapse>
-
-        <ListItemButton
-          key={arrayOfFilters[4].id}
-          onClick={() => handleClick("handicapAccessibility")}
-        >
-          <ListItemText>{arrayOfFilters[4].name}</ListItemText>
-          {openSections.handicapAccessibility ? (
-            <ArrowDropUpIcon />
-          ) : (
-            <ArrowDropDownIcon />
-          )}
-        </ListItemButton>
-        <Collapse
-          in={openSections.handicapAccessibility}
-          timeout="auto"
-          unmountOnExit
-        >
-          <List component="div" disablePadding>
-            {venuesAmenities.handicapAccessibility.map((filter) => (
-              <ListItemButton key={filter.id}>
-                <Checkbox />
-                <ListItemText>{filter.name}</ListItemText>
-              </ListItemButton>
-            ))}
-          </List>
-        </Collapse>
+        {arrayOfDropdownFilters.map(({ id, name, sectionName }) => (
+          <Fragment key={id}>
+            <ListItemButton onClick={() => handleClick(sectionName)}>
+              <ListItemText>{name}</ListItemText>
+              {openSections.sectionName ? (
+                <ArrowDropUpIcon />
+              ) : (
+                <ArrowDropDownIcon />
+              )}
+            </ListItemButton>
+            <Collapse
+              in={openSections[sectionName]}
+              timeout="auto"
+              unmountOnExit
+            >
+              <List component="div" disablePadding>
+                {venuesAmenities[sectionName]?.map((filter) => (
+                  <ListItemButton key={filter.id}>
+                    <Checkbox />
+                    <ListItemText>{filter.name}</ListItemText>
+                  </ListItemButton>
+                ))}
+              </List>
+            </Collapse>
+          </Fragment>
+        ))}
       </List>
     </StyledFiltersContainer>
   );
