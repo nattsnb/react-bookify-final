@@ -20,13 +20,7 @@ import { useDatePicker } from "./useDatePicker.js";
 import { useContext } from "react";
 import { ErrorContext } from "../../../App.jsx";
 import { Container } from "@mui/system";
-import * as PropTypes from "prop-types";
 
-function Item(props) {
-  return null;
-}
-
-Item.propTypes = { children: PropTypes.node };
 export default function DatePicker({ venueDetails, drawerOpen }) {
   const {
     whichCalendarIsActive,
@@ -82,9 +76,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
         <StyledOneDayTypography>just one day</StyledOneDayTypography>
       </StyledOneDayContainer>
       <StyledCalendarContainer>
-        <Container
-          components={["DateCalendar", "DateCalendar", "DateCalendar"]}
-        >
+        <Container>
           {isChecked ? (
             <DateCalendar
               showDaysOutsideCurrentMonth
@@ -92,24 +84,20 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
               onChange={handleStartDateChange}
               calendars={1}
             />
+          ) : whichCalendarIsActive === "start" ? (
+            <DateCalendar
+              showDaysOutsideCurrentMonth
+              value={startDate}
+              onChange={handleStartDateChange}
+              calendars={1}
+            />
           ) : (
-            <>
-              {whichCalendarIsActive === "start" ? (
-                <DateCalendar
-                  showDaysOutsideCurrentMonth
-                  value={startDate}
-                  onChange={handleStartDateChange}
-                  calendars={1}
-                />
-              ) : (
-                <DateCalendar
-                  showDaysOutsideCurrentMonth
-                  value={endDate}
-                  onChange={handleEndDateChange}
-                  calendars={1}
-                />
-              )}
-            </>
+            <DateCalendar
+              showDaysOutsideCurrentMonth
+              value={endDate}
+              onChange={handleEndDateChange}
+              calendars={1}
+            />
           )}
         </Container>
       </StyledCalendarContainer>
@@ -129,7 +117,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
             )}
           </div>
         </StyledPerDayContainer>
-        <Divider variant="light"></Divider>
+        <Divider variant="light" />
         <StyledTotalContainer>
           <div>total</div>
           <div>
