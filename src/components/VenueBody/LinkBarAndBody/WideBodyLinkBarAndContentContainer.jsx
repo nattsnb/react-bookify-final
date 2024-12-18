@@ -29,19 +29,19 @@ export function WideBodyLinkBarAndContentContainer({
         <Button onClick={handleMapClick}>map</Button>
       </StyledBodyLinkBarContainer>
       <StyledWideBodyClickedContentContainer>
-        {displayedContent !== DisplayedContentValue.description ? (
-          displayedContent !== DisplayedContentValue.gallery ? (
-            <MapWithAddress
-              locationData={venueDetails.venuesBasicData.location}
-            />
-          ) : (
-            <Gallery venueDetails={venueDetails} />
-          )
-        ) : (
+        {displayedContent === DisplayedContentValue.description && (
           <Description
             venueDetails={venueDetails}
             venuesAmenities={venuesAmenities}
             isLoading={isLoading}
+          />
+        )}
+        {displayedContent === DisplayedContentValue.gallery && (
+          <Gallery venueDetails={venueDetails} />
+        )}
+        {displayedContent === DisplayedContentValue.map && (
+          <MapWithAddress
+            locationData={venueDetails.venuesBasicData.location}
           />
         )}
       </StyledWideBodyClickedContentContainer>

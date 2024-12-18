@@ -17,42 +17,43 @@ export const SearchBar = () => {
     setIscollapsed((prev) => !prev);
   };
   const theme = useTheme();
+  const isViewportSmallerThanMd = useMediaQuery(theme.breakpoints.down("md"));
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
+  const isViewportSmallerThanLg = useMediaQuery(theme.breakpoints.down("lg"));
   const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <StyledSearchBarContainer>
-        {isViewportLargerThanMd ? (
-          isViewportLargerThanLg ? (
-            <Collapse
-              in={iscollapsed}
-              orientation="horizontal"
-              collapsedSize={245}
-            >
-              <InputsContainer
-                register={register}
-                iscollapsed={iscollapsed.toString()}
-              />
-            </Collapse>
-          ) : (
-            <Collapse
-              in={iscollapsed}
-              orientation="horizontal"
-              collapsedSize={228}
-            >
-              <InputsContainer
-                register={register}
-                iscollapsed={iscollapsed.toString()}
-              />
-            </Collapse>
-          )
-        ) : (
+        {isViewportSmallerThanMd && (
           <Collapse in={iscollapsed} collapsedSize={95}>
             <InputsContainer register={register} />
           </Collapse>
         )}
-
+        {isViewportLargerThanMd && isViewportSmallerThanLg && (
+          <Collapse
+            in={iscollapsed}
+            orientation="horizontal"
+            collapsedSize={228}
+          >
+            <InputsContainer
+              register={register}
+              iscollapsed={iscollapsed.toString()}
+            />
+          </Collapse>
+        )}
+        {isViewportLargerThanLg && (
+          <Collapse
+            in={iscollapsed}
+            orientation="horizontal"
+            collapsedSize={245}
+          >
+            <InputsContainer
+              register={register}
+              iscollapsed={iscollapsed.toString()}
+            />
+          </Collapse>
+        )}
         <StyledCollapseTypographyContainer>
           <Button variant="outlined" onClick={collapseSearchBar}>
             {!iscollapsed
