@@ -14,8 +14,7 @@ import { ErrorContext } from "../../../App.jsx";
 export const PaginatedList = ({ limit }) => {
   const { venuesOnPage, isLoading, numberOfAllPages, page, handleChange } =
     usePaginatedList(limit);
-
-  const contextIsError = useContext(ErrorContext)[0];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   if (isLoading) {
     return (
@@ -25,7 +24,7 @@ export const PaginatedList = ({ limit }) => {
     );
   }
 
-  if (contextIsError) {
+  if (isError) {
     return null;
   }
 

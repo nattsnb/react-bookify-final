@@ -12,7 +12,7 @@ export const useVenue = (venueId) => {
   const [venueDetails, setVenueDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [displayedPictureNumber, setDisplayedPictureNumber] = useState(0);
-  const setContextIsError = useContext(ErrorContext)[1];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   const handleScroll = (ref) => {
     if (ref?.current.offsetTop) {
@@ -33,7 +33,7 @@ export const useVenue = (venueId) => {
         const venueDetailsResponse = await api.getVenueDetails(venueId);
         setVenueDetails(venueDetailsResponse);
       } catch (error) {
-        setContextIsError(true);
+        setIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);

@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { PictureContext } from "../index.jsx";
 
 export const useGallery = () => {
-  const contextSetDisplayedPictureNumber = useContext(PictureContext)[1];
+  const { displayedPictureNumber, setDisplayedPictureNumber } =
+    useContext(PictureContext);
 
   const handleOnClick = (pictureIndex) => {
-    contextSetDisplayedPictureNumber(pictureIndex);
+    setDisplayedPictureNumber(pictureIndex);
   };
 
   return handleOnClick;

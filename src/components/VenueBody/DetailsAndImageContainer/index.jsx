@@ -30,7 +30,8 @@ export function DetailsAndImageContainer({ venueDetails }) {
   const numberOfStars = Math.round(venueDetails.venuesBasicData.rating);
   const stars = new Array(numberOfStars).fill("star");
 
-  const contextDisplayedPictureNumber = useContext(PictureContext)[0];
+  const { displayedPictureNumber, setDisplayedPictureNumber } =
+    useContext(PictureContext);
 
   return (
     <StyledDetailsAndImageContainer>
@@ -57,7 +58,7 @@ export function DetailsAndImageContainer({ venueDetails }) {
       </StyledDetailsContainer>
       <StyledImageContainer
         backgroundurl={
-          venueDetails.venuesBasicData.images[contextDisplayedPictureNumber]
+          venueDetails.venuesBasicData.images[displayedPictureNumber]
         }
       >
         <StyledHeartDiv>

@@ -6,11 +6,11 @@ import { VerticalContainer } from "../../shared/styledComponents/verticalContain
 import { Snackbar } from "@mui/material";
 
 export function Layout({ children }) {
-  const contextIsError = useContext(ErrorContext)[0];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   return (
     <>
-      {contextIsError && (
+      {isError && (
         <VerticalContainer>
           <Snackbar open={true} message="Error fetching data." />
         </VerticalContainer>

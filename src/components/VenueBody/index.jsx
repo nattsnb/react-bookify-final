@@ -46,7 +46,7 @@ export function Venue({ venueId }) {
     setDisplayedPictureNumber,
   } = useVenue(venueId);
   const { venuesAmenities } = useLinkBar(DisplayedContentValue);
-  const contextIsError = useContext(ErrorContext)[0];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   const theme = useTheme();
   const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
@@ -59,13 +59,13 @@ export function Venue({ venueId }) {
     );
   }
 
-  if (contextIsError) {
+  if (isError) {
     return null;
   }
 
   return (
     <PictureContext.Provider
-      value={[displayedPictureNumber, setDisplayedPictureNumber]}
+      value={{ displayedPictureNumber, setDisplayedPictureNumber }}
     >
       <PageWidthContainer>
         <StyledBodyContainer>

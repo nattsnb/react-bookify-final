@@ -8,7 +8,7 @@ export const usePaginatedList = (limit) => {
   const [isLoading, setIsLoading] = useState(true);
   const [numberOfAllPages, setNumberOfAllPages] = useState(null);
   const [page, setPage] = useState(1);
-  const setContextIsError = useContext(ErrorContext)[1];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -22,7 +22,7 @@ export const usePaginatedList = (limit) => {
         setNumberOfAllPages(venuesResponse.pages);
         setVenuesOnPage(venuesResponse.data);
       } catch (error) {
-        setContextIsError(true);
+        setIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);

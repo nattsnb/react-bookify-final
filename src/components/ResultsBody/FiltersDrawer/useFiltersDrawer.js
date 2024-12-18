@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../../shared/api.js";
+import { ErrorContext } from "../../../App.jsx";
 
 const DisplayedContentValue = {
   description: "description",
@@ -19,6 +20,7 @@ export const useFiltersDrawer = () => {
   const [venuesAmenities, setVenuesAmenities] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [priceRangeValue, setPriceRangeValue] = useState([0, 100]);
+  const { isError, setIsError } = useContext(ErrorContext);
 
   const handleRangeChange = (event, newValue) => {
     setPriceRangeValue(newValue);
@@ -37,7 +39,7 @@ export const useFiltersDrawer = () => {
         const venuesAmenitiesResponse = await api.getVenuesAmenities();
         setVenuesAmenities(venuesAmenitiesResponse);
       } catch (error) {
-        setContextIsError(true);
+        setIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);

@@ -6,7 +6,7 @@ export function useLinkBar(DisplayedContentValue) {
   const [displayedContent, setDisplayedContent] = useState("description");
   const [venuesAmenities, setVenuesAmenities] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const setContextIsError = useContext(ErrorContext)[1];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   useEffect(() => {
     async function getVenuesAmenities() {
@@ -15,7 +15,7 @@ export function useLinkBar(DisplayedContentValue) {
         const venuesAmenitiesResponse = await api.getVenuesAmenities();
         setVenuesAmenities(venuesAmenitiesResponse);
       } catch (error) {
-        setContextIsError(true);
+        setIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);

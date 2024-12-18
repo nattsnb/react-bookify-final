@@ -5,7 +5,7 @@ import { ErrorContext } from "../App.jsx";
 export function usePriceInPLNData(pricePerNightInEURCent) {
   const [priceInPLN, setPriceInPLN] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const setContextIsError = useContext(ErrorContext)[1];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   useEffect(() => {
     async function getCurrencyData() {
@@ -19,7 +19,7 @@ export function usePriceInPLNData(pricePerNightInEURCent) {
         ).toFixed(0);
         setPriceInPLN(calculatedPrice);
       } catch (error) {
-        setContextIsError(true);
+        setIsError(true);
         console.error("Error while fetching currency data:", error);
       } finally {
         setIsLoading(false);
@@ -27,7 +27,7 @@ export function usePriceInPLNData(pricePerNightInEURCent) {
     }
 
     getCurrencyData();
-  }, [priceInPLN, setContextIsError]);
+  }, [priceInPLN, setIsError]);
 
   return { priceInPLN, isLoading };
 }

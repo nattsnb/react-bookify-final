@@ -28,7 +28,7 @@ export function Description({
   isLoading,
   descriptionRef,
 }) {
-  const contextIsError = useContext(ErrorContext)[0];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   let amenitiesToList = [];
   let sleepingDetailsToList = [];
@@ -41,7 +41,7 @@ export function Description({
     );
   }
 
-  if (contextIsError) {
+  if (isError) {
     return <></>;
   }
 

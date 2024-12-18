@@ -10,7 +10,7 @@ export function useMapWithAddress(locationData) {
   const [isLoading, setIsLoading] = useState(true);
   const address =
     `${locationData.streetNumber} ${locationData.streetName}, ${locationData.postalCode}, ${locationData.city}`.toLowerCase();
-  const setContextIsError = useContext(ErrorContext)[1];
+  const { isError, setIsError } = useContext(ErrorContext);
 
   useEffect(() => {
     async function getCoordinatesData(address) {
@@ -19,7 +19,7 @@ export function useMapWithAddress(locationData) {
         const coordinatesRes = await api.getCoordinatesData(address);
         setCoordinatesData(coordinatesRes);
       } catch (error) {
-        setContextIsError(true);
+        setIsError(true);
         console.error("Error while fetching data:", error);
       }
       setIsLoading(false);

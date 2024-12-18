@@ -42,7 +42,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
     handleEndDateChange,
   } = useDatePicker();
 
-  const contextIsError = useContext(ErrorContext)[0];
+  const { isError, setIsError } = useContext(ErrorContext);
   const priceInPLNData = usePriceInPLNData(
     venueDetails.venuesBasicData.pricePerNightInEURCent,
   );
@@ -122,7 +122,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
           <div>
             {priceInPLNData.isLoading ? (
               <CircularProgress />
-            ) : contextIsError ? (
+            ) : isError ? (
               "error"
             ) : (
               `${priceInPLNData.priceInPLN} zł`
@@ -135,7 +135,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
           <div>
             {priceInPLNData.isLoading ? (
               <CircularProgress />
-            ) : contextIsError ? (
+            ) : isError ? (
               "error"
             ) : (
               `${fullPriceInPLN} zł`

@@ -17,7 +17,7 @@ export function App() {
   const [isError, setIsError] = useState(false);
 
   return (
-    <ErrorContext.Provider value={[isError, setIsError]}>
+    <ErrorContext.Provider value={{ isError, setIsError }}>
       <LocalizationProvider dateAdapter={AdapterDateFns} locale={pl}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
