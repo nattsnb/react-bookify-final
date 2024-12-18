@@ -84,18 +84,15 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
               onChange={handleStartDateChange}
               calendars={1}
             />
-          ) : whichCalendarIsActive === "start" ? (
-            <DateCalendar
-              showDaysOutsideCurrentMonth
-              value={startDate}
-              onChange={handleStartDateChange}
-              calendars={1}
-            />
           ) : (
             <DateCalendar
               showDaysOutsideCurrentMonth
-              value={endDate}
-              onChange={handleEndDateChange}
+              value={whichCalendarIsActive === "start" ? startDate : endDate}
+              onChange={
+                whichCalendarIsActive === "start"
+                  ? handleStartDateChange
+                  : handleEndDateChange
+              }
               calendars={1}
             />
           )}
@@ -110,26 +107,16 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
         <StyledPerDayContainer>
           <div>per day</div>
           <div>
-            {priceInPLNData.isLoading ? (
-              <CircularProgress />
-            ) : isError ? (
-              "error"
-            ) : (
-              `${priceInPLNData.priceInPLN} zł`
-            )}
+            {priceInPLNData.isLoading && <CircularProgress />}
+            {isError ? "error" : `${priceInPLNData.priceInPLN} zł`}
           </div>
         </StyledPerDayContainer>
         <Divider variant="light" />
         <StyledTotalContainer>
           <div>total</div>
           <div>
-            {priceInPLNData.isLoading ? (
-              <CircularProgress />
-            ) : isError ? (
-              "error"
-            ) : (
-              `${fullPriceInPLN} zł`
-            )}
+            {priceInPLNData.isLoading && <CircularProgress />}
+            {isError ? "error" : `${fullPriceInPLN} zł`}
           </div>
         </StyledTotalContainer>
         <StyledBookButtonContainer>
