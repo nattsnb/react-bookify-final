@@ -49,6 +49,12 @@ const getCoordinatesData = async (address) => {
     .catch((error) => console.error("Error geocoding:", error));
 };
 
+const getHead = () => {
+  return fetch(`http://localhost:3000/`, {
+    method: "HEAD",
+  }).catch((error) => console.error("Error fetching venues:", error));
+};
+
 export const api = {
   getAllVenues,
   getVenueDetails,
@@ -56,4 +62,5 @@ export const api = {
   getCurrencyResults,
   getVenuesAmenities,
   getCoordinatesData,
+  getHead,
 };
