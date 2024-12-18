@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../../shared/api.js";
-import { Context } from "../../../App.jsx";
+import { ErrorContext } from "../../../App.jsx";
 
 export const usePaginatedList = (limit) => {
   const [venuesOnPage, setVenuesOnPage] = useState(null);
@@ -8,7 +8,7 @@ export const usePaginatedList = (limit) => {
   const [isLoading, setIsLoading] = useState(true);
   const [numberOfAllPages, setNumberOfAllPages] = useState(null);
   const [page, setPage] = useState(1);
-  const setContextIsError = useContext(Context)[1];
+  const setContextIsError = useContext(ErrorContext)[1];
 
   const handleChange = (event, value) => {
     setPage(value);

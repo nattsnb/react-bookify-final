@@ -9,13 +9,13 @@ import {
   StyledPagination,
 } from "./PaginatedList.styled.jsx";
 import { VerticalContainer } from "../../../shared/styledComponents/verticalContainer.styled.js";
-import { Context } from "../../../App.jsx";
+import { ErrorContext } from "../../../App.jsx";
 
 export const PaginatedList = ({ limit }) => {
   const { venuesOnPage, isLoading, numberOfAllPages, page, handleChange } =
     usePaginatedList(limit);
 
-  const contextIsError = useContext(Context)[0];
+  const contextIsError = useContext(ErrorContext)[0];
 
   if (isLoading) {
     return (
@@ -26,7 +26,7 @@ export const PaginatedList = ({ limit }) => {
   }
 
   if (contextIsError) {
-    return <></>;
+    return null;
   }
 
   return (

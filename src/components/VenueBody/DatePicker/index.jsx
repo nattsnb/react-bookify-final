@@ -18,7 +18,7 @@ import { DateCalendar } from "@mui/x-date-pickers";
 import { usePriceInPLNData } from "../../../shared/getPrice.js";
 import { useDatePicker } from "./useDatePicker.js";
 import { useContext } from "react";
-import { Context } from "../../../App.jsx";
+import { ErrorContext } from "../../../App.jsx";
 import { Container } from "@mui/system";
 import * as PropTypes from "prop-types";
 
@@ -42,7 +42,7 @@ export default function DatePicker({ venueDetails, drawerOpen }) {
     handleEndDateChange,
   } = useDatePicker();
 
-  const contextIsError = useContext(Context)[0];
+  const contextIsError = useContext(ErrorContext)[0];
   const priceInPLNData = usePriceInPLNData(
     venueDetails.venuesBasicData.pricePerNightInEURCent,
   );

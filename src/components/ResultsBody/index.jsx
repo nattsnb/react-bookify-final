@@ -14,7 +14,6 @@ import { PaginatedList } from "./PaginatedList/index.jsx";
 import React, { useState, useContext } from "react";
 import { SearchBar } from "../Banner/SearchBar/index.jsx";
 import { SortDrawer } from "./SortDrawer.jsx";
-import { Context } from "../../App.jsx";
 
 const INITIAL_LIMIT = 6;
 

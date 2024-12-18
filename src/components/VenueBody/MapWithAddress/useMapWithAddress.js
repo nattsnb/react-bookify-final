@@ -3,14 +3,14 @@ import { api } from "../../../shared/api.js";
 import { useMap } from "react-leaflet";
 import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
-import { Context } from "../../../App.jsx";
+import { ErrorContext } from "../../../App.jsx";
 
 export function useMapWithAddress(locationData) {
   const [coordinatesData, setCoordinatesData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const address =
     `${locationData.streetNumber} ${locationData.streetName}, ${locationData.postalCode}, ${locationData.city}`.toLowerCase();
-  const setContextIsError = useContext(Context)[1];
+  const setContextIsError = useContext(ErrorContext)[1];
 
   useEffect(() => {
     async function getCoordinatesData(address) {

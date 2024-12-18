@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { api } from "./api.js";
-import { Context } from "../App.jsx";
+import { ErrorContext } from "../App.jsx";
 
 export function usePriceInPLNData(pricePerNightInEURCent) {
   const [priceInPLN, setPriceInPLN] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const setContextIsError = useContext(Context)[1];
+  const setContextIsError = useContext(ErrorContext)[1];
 
   useEffect(() => {
     async function getCurrencyData() {

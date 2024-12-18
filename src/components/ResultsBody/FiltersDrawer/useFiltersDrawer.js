@@ -1,4 +1,3 @@
-import { useLinkBar } from "../../VenueBody/LinkBarAndBody/useLinkBar.js";
 import { useEffect, useState } from "react";
 import { api } from "../../../shared/api.js";
 

@@ -20,7 +20,7 @@ import { VerticalContainer } from "../../../shared/styledComponents/verticalCont
 import React, { useContext } from "react";
 import { produceAmenitiesToList } from "./produceAmenitiesToList.js";
 import { produceSleepingDetailsToList } from "./produceSleepingDetailsToList.js";
-import { Context } from "../../../App.jsx";
+import { ErrorContext } from "../../../App.jsx";
 
 export function Description({
   venueDetails,
@@ -28,7 +28,7 @@ export function Description({
   isLoading,
   descriptionRef,
 }) {
-  const contextIsError = useContext(Context)[0];
+  const contextIsError = useContext(ErrorContext)[0];
 
   let amenitiesToList = [];
   let sleepingDetailsToList = [];

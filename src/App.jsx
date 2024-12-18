@@ -8,7 +8,7 @@ import { Layout } from "./components/Layout/index.jsx";
 import "./poppins.css";
 import React, { useState } from "react";
 
-export const Context = React.createContext();
+export const ErrorContext = React.createContext();
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import pl from "date-fns/locale/pl";
@@ -17,7 +17,7 @@ export function App() {
   const [isError, setIsError] = useState(false);
 
   return (
-    <Context.Provider value={[isError, setIsError]}>
+    <ErrorContext.Provider value={[isError, setIsError]}>
       <LocalizationProvider dateAdapter={AdapterDateFns} locale={pl}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
@@ -38,6 +38,6 @@ export function App() {
           </Layout>
         </ThemeProvider>
       </LocalizationProvider>
-    </Context.Provider>
+    </ErrorContext.Provider>
   );
 }

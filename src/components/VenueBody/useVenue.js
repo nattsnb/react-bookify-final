@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { api } from "../../shared/api.js";
-import { Context } from "../../App.jsx";
+import { ErrorContext } from "../../App.jsx";
 import { useLinkBar } from "./LinkBarAndBody/useLinkBar.js";
 import { useMediaQuery, useTheme } from "@mui/material";
 
@@ -12,7 +12,7 @@ export const useVenue = (venueId) => {
   const [venueDetails, setVenueDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [displayedPictureNumber, setDisplayedPictureNumber] = useState(0);
-  const setContextIsError = useContext(Context)[1];
+  const setContextIsError = useContext(ErrorContext)[1];
 
   const handleScroll = (ref) => {
     if (ref?.current.offsetTop) {

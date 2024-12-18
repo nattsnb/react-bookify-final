@@ -22,7 +22,7 @@ import { Gallery } from "./Gallery/index.jsx";
 import MapWithAddress from "./MapWithAddress/index.jsx";
 import { useLinkBar } from "./LinkBarAndBody/useLinkBar.js";
 import { BookDrawer } from "./BookDrawer.jsx";
-import { Context } from "../../App.jsx";
+import { ErrorContext } from "../../App.jsx";
 
 const DisplayedContentValue = {
   description: "description",
@@ -46,7 +46,7 @@ export function Venue({ venueId }) {
     setDisplayedPictureNumber,
   } = useVenue(venueId);
   const { venuesAmenities } = useLinkBar(DisplayedContentValue);
-  const contextIsError = useContext(Context)[0];
+  const contextIsError = useContext(ErrorContext)[0];
 
   const theme = useTheme();
   const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
@@ -60,7 +60,7 @@ export function Venue({ venueId }) {
   }
 
   if (contextIsError) {
-    return <></>;
+    return null;
   }
 
   return (

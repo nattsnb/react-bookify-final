@@ -1,12 +1,12 @@
 import { Footer } from "../Footer/index.jsx";
 import { NavBar } from "../NavBar/index.jsx";
 import React, { useContext } from "react";
-import { Context } from "../../App.jsx";
+import { ErrorContext } from "../../App.jsx";
 import { VerticalContainer } from "../../shared/styledComponents/verticalContainer.styled.js";
 import { Snackbar } from "@mui/material";
 
 export function Layout({ children }) {
-  const contextIsError = useContext(Context)[0];
+  const contextIsError = useContext(ErrorContext)[0];
 
   return (
     <>
