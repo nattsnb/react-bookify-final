@@ -11,6 +11,8 @@ import {
   StyledUnderCardInfoCategoryDiv,
   StyledPictureFrameTopInfoContainer,
   StyledIconContainer,
+  StyledPictureAndPictureFrameContainer,
+  StyledImg,
 } from "./VenueCard.styled.jsx";
 import { Box, IconButton, Link } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -20,19 +22,24 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useVenueCard } from "./useVenueCard.js";
 import RoomIcon from "@mui/icons-material/Room";
+import { usePriceInPLNData } from "../../../../shared/getPrice.js";
 
-export function VenueCard({ venue, currencyData }) {
-  const {
-    currentPictureNumber,
-    pricePreNightInPLN,
-    handleClickForward,
-    handleClickBack,
-  } = useVenueCard(venue, currencyData);
+export function VenueCard({ venue }) {
+  const { currentPictureNumber, handleClickForward, handleClickBack } =
+    useVenueCard(venue);
+
+  const priceInPLNData = usePriceInPLNData(venue.pricePerNightInEURCent);
 
   return (
-    <Link href={`/venue/${venue.id}/`}>
-      <StyledVenueCardWrapper>
-        <StyledPictureFrame backgroundurl={venue.images[currentPictureNumber]}>
+    <StyledVenueCardWrapper>
+      <StyledPictureAndPictureFrameContainer>
+        <Link href={`/venue/${venue.id}/`}>
+          <StyledImg
+            src={venue.images[currentPictureNumber]}
+            alt="venue image"
+          />
+        </Link>
+        <StyledPictureFrame>
           <StyledPictureFrameTopInfoContainer>
             <StyledHeartDiv>
               <Typography variant="boldOnCard">
@@ -54,7 +61,7 @@ export function VenueCard({ venue, currencyData }) {
           <StyledPictureBottomInfoDiv>
             <div>
               <Typography variant="boldOnCard">
-                {pricePreNightInPLN} zł / doba
+                {priceInPLNData.priceInPLN} zł / doba
               </Typography>
             </div>
             <StyledLocalizationDiv>
@@ -67,6 +74,8 @@ export function VenueCard({ venue, currencyData }) {
             </StyledLocalizationDiv>
           </StyledPictureBottomInfoDiv>
         </StyledPictureFrame>
+      </StyledPictureAndPictureFrameContainer>
+      <Link href={`/venue/${venue.id}/`}>
         <StyledUnderCardInfoBox>
           <StyledUnderCardInfoBoxHalfContainer>
             <GradeIcon />
@@ -83,7 +92,7 @@ export function VenueCard({ venue, currencyData }) {
             <Box>{venue.capacity}</Box>
           </StyledUnderCardInfoBoxHalfContainer>
         </StyledUnderCardInfoBox>
-      </StyledVenueCardWrapper>
-    </Link>
+      </Link>
+    </StyledVenueCardWrapper>
   );
 }

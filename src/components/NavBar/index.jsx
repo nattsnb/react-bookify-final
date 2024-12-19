@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import { Link, useMediaQuery, useTheme } from "@mui/material";
-import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   StyledLoginLink,
@@ -22,13 +21,13 @@ export function NavBar() {
               </Link>
             </div>
             <StyledNavBarLinksContainer>
-              <Link href={"/aboutUs/"} variant="link">
+              <Link href={"/about-us/"} variant="link">
                 <Typography variant="aboutUsLink">about us</Typography>
               </Link>
-              <Link href={"/yourFavourites/"} variant="link">
+              <Link href={"/your-favourites/"} variant="link">
                 your favourites
               </Link>
-              <Link href={"/startHosting/"} variant="link">
+              <Link href={"/start-hosting/"} variant="link">
                 start hosting
               </Link>
               <StyledLoginLink href={"/login/"} variant="boldLink">

@@ -14,19 +14,19 @@ const textFieldsDataArray = [
     id: 0,
     placeholder: "localization",
     startAdornmentIcon: <Search />,
-    endAdornmentIcon: <></>,
+    endAdornmentIcon: null,
   },
   {
     id: 1,
     placeholder: "occasion",
     startAdornmentIcon: <Search />,
-    endAdornmentIcon: <></>,
+    endAdornmentIcon: null,
   },
   {
     id: 2,
     placeholder: "date",
     startAdornmentIcon: <CalendarMonthIcon />,
-    endAdornmentIcon: <></>,
+    endAdornmentIcon: null,
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const textFieldsDataArray = [
     id: 4,
     placeholder: "venue type",
     startAdornmentIcon: <Search />,
-    endAdornmentIcon: <></>,
+    endAdornmentIcon: null,
   },
 ];
 
