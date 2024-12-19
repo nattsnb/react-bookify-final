@@ -8,7 +8,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3 
-      - uses: actions/setup-node@v4 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - run: npm ci # install dependencies
       - run: npm run build  # build the app
 
