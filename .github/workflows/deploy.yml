@@ -15,11 +15,13 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm ci 
+      - run: npm ci
 
-      - name: Start Server and Build
-        run: |
-          npx concurrently "npm run server" "npm run build"
+      - name: Start JSON Server
+        run: nohup npm run server &
+
+      - name: Build React App
+        run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
