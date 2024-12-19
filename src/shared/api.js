@@ -18,12 +18,9 @@ const getVenueDetails = (venueId) => {
 };
 
 const getVenuesOnPage = (page, limit) => {
-  return fetch(
-    `${API_URL}/venues?_page=${page}&_per_page=${limit}`,
-    {
-      method: "GET",
-    },
-  )
+  return fetch(`${API_URL}/venues?_page=${page}&_per_page=${limit}`, {
+    method: "GET",
+  })
     .then((res) => res.json())
     .catch((error) => console.error("Error fetching venues:", error));
 };
