@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npm run server\" \"vite\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -14,12 +14,21 @@
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@mui/icons-material": "^6.1.8",
-    "@mui/material": "^6.1.8",
+    "@mui/material": "^6.1.9",
+    "@mui/system": "^6.1.9",
+    "@mui/x-date-pickers": "^7.23.0",
+    "@mui/x-date-pickers-pro": "^7.23.0",
+    "date-fns": "^2.30.0",
+    "dayjs": "^1.11.13",
+    "leaflet": "^1.9.4",
+    "leaflet-fullscreen": "^1.0.2",
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.2",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.28.0",
+    "styled-components": "^6.1.13",
     "vite-plugin-checker": "^0.8.0"
   },
   "devDependencies": {
@@ -27,11 +36,15 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.1.0",
     "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-plugin-sonarjs": "^3.0.1",
     "globals": "^15.11.0",
+    "json-server": "^1.0.0-beta.3",
     "vite": "^5.4.10"
   }
 }
