@@ -1,28 +1,34 @@
 name: Build and Deploy to Netlify
+
 on:
   push:
     branches: feat/venueView
+
 jobs:
   build:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v3 
+      - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci # install dependencies
-      - run: npm run build  # build the app
+
+      - run: npm ci
+
+      - name: Start JSON Server
+        run: nohup npm run server &
+
+      - run: npm run build
 
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.0 # Netlify deploy action
+        uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './dist' # the build files location
-          # github-token is required by Netlify,
-          # it will be added by GitHub itself
+          publish-dir: './dist' 
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
-          production-branch: feat/venueView # define the branch to trigger the production deploy
-        env: # the secrets available in the Netlify app config
+          production-branch: feat/venueView
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
