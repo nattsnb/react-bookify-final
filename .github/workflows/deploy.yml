@@ -15,17 +15,16 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm ci
+      - run: npm ci 
 
-      - name: Start JSON Server
-        run: nohup npm run server &
-
-      - run: npm run build
+      - name: Start Server and Build
+        run: |
+          npx concurrently "npm run server" "npm run build"
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './dist' 
+          publish-dir: './dist'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           production-branch: feat/venueView
