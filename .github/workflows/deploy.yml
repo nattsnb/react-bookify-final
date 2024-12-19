@@ -1,24 +1,26 @@
 name: Build and Deploy to Netlify
 on:
   push:
-    branches: main
+    branches: main # Trigger on main branch push
 jobs:
   build:
-    runs-on: ubuntu-22.04 
+    runs-on: ubuntu-22.04 # use an ubuntu as a runner
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v4 
-      - run: npm ci
-      - run: npm run build
+      - uses: actions/checkout@v3 # checkout to the repository
+      - uses: actions/setup-node@v4 # setup ned environment for the runner
+      - run: npm ci # install dependencies
+      - run: npm run build  # build the app
 
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.0 
+        uses: nwtgck/actions-netlify@v2.0 # Netlify deploy action
         with:
-          publish-dir: './dist'
+          publish-dir: './dist' # the build files location
+          # github-token is required by Netlify,
+          # it will be added by GitHub itself
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
-          production-branch: main
-        env:
+          production-branch: main # define the branch to trigger the production deploy
+        env: # the secrets available in the Netlify app config
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}<ol class="ql-rendered-list-container"><li data-block-id="block-b1ae73b3-f367-4674-8781-f6bc124d0919" class="ql-rendered-ordered-list"><p>The workflow</p><ol class="ql-rendered-list-container"><li data-block-id="block-23c9b289-66e0-4192-88dd-830160f5572f" class="ql-rendered-ordered-list"><p>Trigger on push to the <code>main</code>  branch</p></li><li data-block-id="block-58410c46-5dc7-4ea8-8c19-2686ffe4d106" class="ql-rendered-ordered-list"><p>Single job called <code>build</code> </p></li><li data-block-id="block-d5ca6e6b-ec16-4920-9ffc-be9175210744" class="ql-rendered-ordered-list"><p>use <code>ubuntu-22.04</code> runner</p></li><li data-block-id="block-f87f536c-e76c-4727-ba8d-58b86d491e6b" class="ql-rendered-ordered-list"><p>Steps</p><ol class="ql-rendered-list-container"><li data-block-id="block-04663c9a-679e-40eb-abe2-362565a45cc9" class="ql-rendered-ordered-list"><p>call <code>actions/checkout@v3</code> action to fetch the newest code</p></li><li data-block-id="block-c593929a-7b35-4e7d-85c1-771220779726" class="ql-rendered-ordered-list"><p>call the <code>actions/setup-node@v4</code>  to set up the node environment</p></li><li data-block-id="block-46fab1c1-0cc4-47e1-9b5f-8775c63e0c56" class="ql-rendered-ordered-list"><p>run <code>npm ci</code> to install dependencies</p></li><li data-block-id="block-28908962-459b-4394-a4b6-dddddc8112a2" class="ql-rendered-ordered-list"><p>run <code>npm run build</code>  to build the application</p></li><li data-block-id="block-b71b31af-b8a1-49e5-a96c-98ea2a9d92cd" class="ql-rendered-ordered-list"><p>Call <code>wtgck/actions-netlify@v2.0</code> action (with a custom step name "Deploy to Netlify") to upload the build files from <code>./dist</code>  directory to Netlify</p><ol class="ql-rendered-list-container"><li data-block-id="block-6535f548-4ff0-47c6-98a3-8a770dd5e300" class="ql-rendered-ordered-list"><p><code>github-token: ${{ secrets.GITHUB_TOKEN }}</code> - the token so Netlify has access to the github instance</p></li><li data-block-id="block-47ec9557-f01d-4738-88c8-aecece1c76d4" class="ql-rendered-ordered-list"><p><code>deploy-message: "Deploy from GitHub Actions"</code>  - custom message seen in the workflow summary view on GitHub</p></li><li data-block-id="block-aba47bfb-91b8-4736-8608-f9a30b4daa6e" class="ql-rendered-ordered-list"><p><code>production-branch: main</code> - Netlify can deploy app into multiple domains, usually it is something like <code>https://luxury-banoffee-9abfce.netlify.app/ </code>, but each deployment based on the commit hash has its own URL for example <code>https://65772376e7e60902c3e8be41--luxury-banoffee-9abfce.netlify.app/ </code> . By using the <code>production-branch</code>  option we specify that the deployments to the <code>main</code>  branch should be immediately visible under the main app URL. Without this we would need to publish each deployment manually (see the screenshot) <cu-enhanced-image src="https://t24538860.p.clickup-attachments.com/t24538860/ff6fa35e-c614-4942-be3f-9dbabd872fb3/image.png" data-id="ff6fa35e-c614-4942-be3f-9dbabd872fb3.png" _nghost-ng-c545506791="" ng-version="18.2.2" class="ql-image"><cu-skeleton-row _ngcontent-ng-c545506791="" class="cu-skeleton-row cu-image-placeholder cu-skeleton-row_full-height ng-star-inserted"><div class="cu-skeleton-row__item" style="width: 100%;"></div></cu-skeleton-row><!----><!----></cu-enhanced-image></p></li><li data-block-id="block-df9761a6-c8b1-4064-bce9-c3dcf8784f87" class="ql-rendered-ordered-list"><p><code>env:</code>  - a definition of the environment variables that will be sent to Netlify while executing <code>nwtgck/actions-netlify@v2.0</code>  action. Netlify requires those 2 values to identify the application and gain an access to it</p></li></ol></li></ol></li></ol></li></ol>
