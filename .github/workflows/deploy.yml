@@ -18,7 +18,7 @@ jobs:
           publish-dir: './dist' # the build files location
           # github-token is required by Netlify,
           # it will be added by GitHub itself
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token:  ${{ secrets.SECRET_NAME }}
           deploy-message: "Deploy from GitHub Actions"
           production-branch: main # define the branch to trigger the production deploy
         env: # the secrets available in the Netlify app config
