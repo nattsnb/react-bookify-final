@@ -45,7 +45,7 @@ export function Layout({ children }) {
       {isServerRunning ? (
         children
       ) : (
-        <VerticalContainer>check connection to server</VerticalContainer>
+        <VerticalContainer>no connection to server</VerticalContainer>
       )}
       <Footer />
     </>
