@@ -1,7 +1,8 @@
 const OPENCAGE_API_KEY = "938e7cda5d2c45f986a8c74c468eaaa7";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const getAllVenues = () => {
-  return fetch(`http://localhost:3000/venues/`, {
+  return fetch(`${API_URL}/venues/`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -9,7 +10,7 @@ const getAllVenues = () => {
 };
 
 const getVenueDetails = (venueId) => {
-  return fetch(`http://localhost:3000/venuesDetails/${venueId}`, {
+  return fetch(`${API_URL}/venuesDetails/${venueId}`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -18,7 +19,7 @@ const getVenueDetails = (venueId) => {
 
 const getVenuesOnPage = (page, limit) => {
   return fetch(
-    `http://localhost:3000/venues?_page=${page}&_per_page=${limit}`,
+    `${API_URL}/venues?_page=${page}&_per_page=${limit}`,
     {
       method: "GET",
     },
@@ -34,7 +35,7 @@ function getCurrencyResults() {
 }
 
 const getVenuesAmenities = () => {
-  return fetch(`http://localhost:3000/venuesAmenities/`, {
+  return fetch(`${API_URL}/venuesAmenities/`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -50,7 +51,7 @@ const getCoordinatesData = async (address) => {
 };
 
 const getHead = () => {
-  return fetch(`http://localhost:3000/`, {
+  return fetch(`${API_URL}`, {
     method: "HEAD",
   }).catch((error) => console.error("Error fetching venues:", error));
 };
