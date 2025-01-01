@@ -4,6 +4,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const getAllVenues = () => {
   return fetch(`${API_URL}/venues/`, {
     method: "GET",
+    mode: 'no-cors',
   })
     .then((res) => res.json())
     .catch((error) => console.error("Error fetching venues:", error));
@@ -12,6 +13,7 @@ const getAllVenues = () => {
 const getVenueDetails = (venueId) => {
   return fetch(`${API_URL}/venuesDetails/${venueId}`, {
     method: "GET",
+    mode: 'no-cors',
   })
     .then((res) => res.json())
     .catch((error) => console.error("Error fetching venue details:", error));
@@ -20,13 +22,16 @@ const getVenueDetails = (venueId) => {
 const getVenuesOnPage = (page, limit) => {
   return fetch(`${API_URL}/venues?_page=${page}&_per_page=${limit}`, {
     method: "GET",
+    mode: 'no-cors',
   })
     .then((res) => res.json())
     .catch((error) => console.error("Error fetching venues:", error));
 };
 
 function getCurrencyResults() {
-  return fetch(`https://api.exchangerate-api.com/v4/latest/USD`)
+  return fetch(`https://api.exchangerate-api.com/v4/latest/USD`, {
+    mode: 'no-cors',
+  })
     .then((res) => res.json())
     .catch((error) => console.error("Error fetching venues:", error));
 }
@@ -34,6 +39,7 @@ function getCurrencyResults() {
 const getVenuesAmenities = () => {
   return fetch(`${API_URL}/venuesAmenities/`, {
     method: "GET",
+    mode: 'no-cors',
   })
     .then((res) => res.json())
     .catch((error) => console.error("Error fetching venues:", error));
@@ -41,7 +47,9 @@ const getVenuesAmenities = () => {
 
 const getCoordinatesData = async (address) => {
   return fetch(
-    `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPENCAGE_API_KEY}`,
+    `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPENCAGE_API_KEY}`, {
+        mode: 'no-cors',
+      }
   )
     .then((res) => res.json())
     .catch((error) => console.error("Error geocoding:", error));
@@ -50,6 +58,7 @@ const getCoordinatesData = async (address) => {
 const getHead = () => {
   return fetch(`${API_URL}`, {
     method: "HEAD",
+    mode: 'no-cors',
   }).catch((error) => console.error("Error fetching venues:", error));
 };
 
