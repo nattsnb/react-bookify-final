@@ -16,6 +16,7 @@ export function Layout({ children }) {
       setIsLoading(true);
       try {
         const headResponse = await api.getHead();
+        console.log(headResponse)
         headResponse.ok && setIsServerRunning(true);
       } catch (error) {
         setIsError(true);

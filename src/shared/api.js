@@ -1,5 +1,5 @@
 const OPENCAGE_API_KEY = "938e7cda5d2c45f986a8c74c468eaaa7";
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 console.log('API URL:', API_URL);
 
@@ -54,7 +54,6 @@ const getCoordinatesData = async (address) => {
 const getHead = () => {
   return fetch(`${API_URL}`, {
     method: "HEAD",
-    mode: "no-cors"
   }).catch((error) => console.error("Server is not running:", error));
 };
 
