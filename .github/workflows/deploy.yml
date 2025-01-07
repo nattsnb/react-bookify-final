@@ -17,6 +17,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Set Environment Variables
+        run: echo "VITE_API_URL=https://my-json-server.typicode.com/nattsnb/bookify-data-to-post" >> $GITHUB_ENV
+
       - name: Build React App
         run: npm run build
 
