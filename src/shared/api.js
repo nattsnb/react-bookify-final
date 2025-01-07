@@ -59,7 +59,7 @@ const getHead = () => {
   return fetch(`${API_URL}`, {
     method: "HEAD",
     mode: 'no-cors',
-  }).catch((error) => console.error("Error fetching venues:", error));
+  }).catch((error) => console.error("Server is not running:", error));
 };
 
 export const api = {

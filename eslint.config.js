@@ -32,7 +32,6 @@ export default [
       "import/prefer-default-export": "off",
       "object-curly-newline": "off",
       "react/prop-types": "off",
-      "react/require-default-props": "off",
       "no-param-reassign": [
         "error",
         { props: true, ignorePropertyModificationsFor: ["state"] },

@@ -34,19 +34,7 @@ export const SearchBar = () => {
           <Collapse
             in={iscollapsed}
             orientation="horizontal"
-            collapsedSize={228}
-          >
-            <InputsContainer
-              register={register}
-              iscollapsed={iscollapsed.toString()}
-            />
-          </Collapse>
-        )}
-        {isViewportLargerThanLg && (
-          <Collapse
-            in={iscollapsed}
-            orientation="horizontal"
-            collapsedSize={245}
+            collapsedSize={isViewportSmallerThanLg ? 228 : 245}
           >
             <InputsContainer
               register={register}
