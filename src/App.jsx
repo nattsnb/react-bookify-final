@@ -7,11 +7,11 @@ import { VenueView } from "./pages/VenueView/index.jsx";
 import { Layout } from "./components/Layout/index.jsx";
 import "./poppins.css";
 import React, { useState } from "react";
-
-export const ErrorContext = React.createContext();
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import pl from "date-fns/locale/pl";
+
+export const ErrorContext = React.createContext();
 
 export function App() {
   const [isError, setIsError] = useState(false);
