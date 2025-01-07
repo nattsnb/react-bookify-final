@@ -52,9 +52,10 @@ const getCoordinatesData = async (address) => {
 };
 
 const getHead = () => {
-  return fetch(`${API_URL}`, {
+  return fetch(`${API_URL}/venues`, {
     method: "HEAD",
-  }).catch((error) => console.error("Server is not running:", error));
+  })
+      .catch((error) => console.error("Server is not running:", error));
 };
 
 export const api = {
