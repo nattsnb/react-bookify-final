@@ -20,7 +20,6 @@ export const SearchBar = () => {
   const isViewportSmallerThanMd = useMediaQuery(theme.breakpoints.down("md"));
   const isViewportLargerThanMd = useMediaQuery(theme.breakpoints.up("md"));
   const isViewportSmallerThanLg = useMediaQuery(theme.breakpoints.down("lg"));
-  const isViewportLargerThanLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -30,7 +29,7 @@ export const SearchBar = () => {
             <InputsContainer register={register} />
           </Collapse>
         )}
-        {isViewportLargerThanMd && isViewportSmallerThanLg && (
+        {isViewportLargerThanMd && (
           <Collapse
             in={iscollapsed}
             orientation="horizontal"
