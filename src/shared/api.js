@@ -1,7 +1,6 @@
 const OPENCAGE_API_KEY = "938e7cda5d2c45f986a8c74c468eaaa7";
 const API_URL = import.meta.env.VITE_API_URL
 
-console.log('API URL:', API_URL);
 
 const getAllVenues = () => {
   return fetch(`${API_URL}/venues/`, {

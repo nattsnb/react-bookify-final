@@ -16,6 +16,8 @@ export const PaginatedList = ({ limit }) => {
     usePaginatedList(limit);
   const { isError } = useContext(ErrorContext);
 
+  console.log(venuesOnPage)
+
   if (isLoading) {
     return (
       <VerticalContainer>
