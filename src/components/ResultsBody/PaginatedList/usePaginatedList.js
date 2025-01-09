@@ -18,6 +18,7 @@ export const usePaginatedList = (limit) => {
       setIsLoading(true);
       try {
         const venuesResponse = await api.getVenuesOnPage(page, limit);
+        console.log(venuesResponse)
         setNumberOfAllPages(venuesResponse.pages);
         setVenuesOnPage(venuesResponse.data);
       } catch (error) {

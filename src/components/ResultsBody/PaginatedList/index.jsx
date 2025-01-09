@@ -16,8 +16,6 @@ export const PaginatedList = ({ limit }) => {
     usePaginatedList(limit);
   const { isError } = useContext(ErrorContext);
 
-  console.log(venuesOnPage)
-
   if (isLoading) {
     return (
       <VerticalContainer>
@@ -32,6 +30,7 @@ export const PaginatedList = ({ limit }) => {
 
   return (
     <ListWrapper>
+        {console.log(venuesOnPage)}
       <CardsWrapper>
         {limit > 0 ? (
           venuesOnPage.map((venue, index) => (
