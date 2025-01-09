@@ -31,6 +31,8 @@ export const usePaginatedList = (limit) => {
     getData(page, limit);
   }, [page, limit]);
 
+  console.log(venuesOnPage)
+
   return {
     venuesOnPage,
     isLoading,
