@@ -1,0 +1,442 @@
+{
+  "venues": [
+    {
+      "id": 0,
+      "location": {
+        "streetNumber": 30,
+        "streetName": "SALISBURY ROAD",
+        "postalCode": "EX4 6LU",
+        "city": "EXETER"
+      },
+      "pricePerNightInEURCent": "8582",
+      "rating": 2.8,
+      "reviews": 0,
+      "capacity": 7,
+      "name": "splendid cow",
+      "images": [
+        "https://fastly.picsum.photos/id/1011/282/186.jpg?hmac=dgCZ5K249wOE2qT0zwwFUoaw6CA_th-Un98hFQdhWwg",
+        "https://fastly.picsum.photos/id/661/282/186.jpg?hmac=fTDsT9qe3YDQQylnFXgl4Gh4cyfjU7i2VpN1yvkCNnE",
+        "https://fastly.picsum.photos/id/15/282/186.jpg?hmac=IXrhSh9_p95EEv5cO2l9OVsLFf88it6AOH4TSn_xbd8",
+        "https://fastly.picsum.photos/id/379/282/186.jpg?hmac=7hYx7XyICAylVVBrqUl4iE6W81Y2U8Ha2mu0gLB1tjM",
+        "https://fastly.picsum.photos/id/474/282/186.jpg?hmac=qQFZJ4cRKTuWNEfinHRROOuSRC8kJ8S1I1MkMsPIKgE",
+        "https://fastly.picsum.photos/id/73/282/186.jpg?hmac=txcY_X8swYLtZiQ12ra45fu6PfMa5KKMfselAeXi8p0",
+        "https://fastly.picsum.photos/id/102/282/186.jpg?hmac=yzGF6sNDztKKlCkiIH0lQwtkYm5TBKbY8jv5KAsiPPk"
+      ]
+    },
+    {
+      "id": 1,
+      "location": {
+        "streetNumber": 3,
+        "streetName": "GOOD SHEPHERD DRIVE",
+        "postalCode": "EX2 4JE",
+        "city": "EXETER"
+      },
+      "pricePerNightInEURCent": "7762",
+      "rating": 4.7,
+      "reviews": 0,
+      "capacity": 10,
+      "name": "frightened trolley",
+      "images": [
+        "https://fastly.picsum.photos/id/370/282/186.jpg?hmac=miO-mEouvmPt5fbQAIPy5akqu31kGaTk08rjvIXEx4k",
+        "https://fastly.picsum.photos/id/898/282/186.jpg?hmac=Dkx0BMueC6Rzmmt8SHdG8_-I5vW1NQ2SPmkg_hXPg5E",
+        "https://fastly.picsum.photos/id/1076/282/186.jpg?hmac=ttAOezoaGYvuLQ0zmBa40CWv0J_E4Wrw7K7zDdTY0kw",
+        "https://fastly.picsum.photos/id/508/282/186.jpg?hmac=jzeT3_je03QmKR926NPqCIcZXEoMc5DdlaRCIvxLP2c"
+      ]
+    }
+  ],
+  "venuesDetails": [
+    {
+      "id": 0,
+      "venuesBasicData": {
+        "id": 0,
+        "location": {
+          "streetNumber": 30,
+          "streetName": "SALISBURY ROAD",
+          "postalCode": "EX4 6LU",
+          "city": "EXETER"
+        },
+        "pricePerNightInEURCent": "8582",
+        "rating": 2.8,
+        "reviews": 0,
+        "capacity": 7,
+        "name": "splendid cow",
+        "images": [
+          "https://fastly.picsum.photos/id/1011/282/186.jpg?hmac=dgCZ5K249wOE2qT0zwwFUoaw6CA_th-Un98hFQdhWwg",
+          "https://fastly.picsum.photos/id/661/282/186.jpg?hmac=fTDsT9qe3YDQQylnFXgl4Gh4cyfjU7i2VpN1yvkCNnE",
+          "https://fastly.picsum.photos/id/15/282/186.jpg?hmac=IXrhSh9_p95EEv5cO2l9OVsLFf88it6AOH4TSn_xbd8",
+          "https://fastly.picsum.photos/id/379/282/186.jpg?hmac=7hYx7XyICAylVVBrqUl4iE6W81Y2U8Ha2mu0gLB1tjM",
+          "https://fastly.picsum.photos/id/474/282/186.jpg?hmac=qQFZJ4cRKTuWNEfinHRROOuSRC8kJ8S1I1MkMsPIKgE",
+          "https://fastly.picsum.photos/id/73/282/186.jpg?hmac=txcY_X8swYLtZiQ12ra45fu6PfMa5KKMfselAeXi8p0",
+          "https://fastly.picsum.photos/id/102/282/186.jpg?hmac=yzGF6sNDztKKlCkiIH0lQwtkYm5TBKbY8jv5KAsiPPk"
+        ]
+      },
+      "description": "ambitus aeger tollo trepide thalassinus cibus pecco coepi annus antepono depromo spargo ocer teneo libero apud ab depulso cursim spargo cura astrum tamdiu vulnero absum truculenter debeo conventus tepesco ascisco decens terreo concedo ante ara dolorum provident terga nihil tabgo patior victoria decor thesaurus harum condico tribuo quam virgo solvo eum corroboro verbera culpa curso aut valeo vitae trucido sustineo ciminatio coruscus saepe utilis solio tenetur voveo uterque succurro amet valde cura tergiversatio umerus tempus adfero amplitudo animi amiculum conspergo",
+      "activeFiltersAndOccasions": {
+        "activeFilters": {
+          "activeAmenities": [12, 7, 4, 15, 3, 14, 8, 1],
+          "activeRoomAmenities": [2, 1, 5, 3],
+          "activeHandicapAccessibility": [0],
+          "activeNeighbourhoods": [12, 6, 3, 4, 2, 14, 1, 8, 15, 0, 16, 9]
+        },
+        "suitableOccasions": []
+      },
+      "sleepingDetails": {
+        "maxCapacity": 7,
+        "amountOfBeds": 4,
+        "extraDetails": "ater absens turba carpo defaeco"
+      },
+      "checkInHourPM": 16,
+      "checkOutHourAM": 11,
+      "distanceFromCityCenterInKM": 3.5,
+      "contactDetails": {
+        "phone": "(817) 402-8572 x0466",
+        "email": "Chandler.Hand96@hotmail.com"
+      },
+      "socialMediaLinks": {
+        "fb": "www.facebook.com",
+        "instagram": "www.instagram.com",
+        "twitter": "www.twitter.com",
+        "website": "www.google.com"
+      }
+    },
+    {
+      "id": 1,
+      "venuesBasicData": {
+        "id": 1,
+        "location": {
+          "streetNumber": 3,
+          "streetName": "GOOD SHEPHERD DRIVE",
+          "postalCode": "EX2 4JE",
+          "city": "EXETER"
+        },
+        "pricePerNightInEURCent": "7762",
+        "rating": 4.7,
+        "reviews": 0,
+        "capacity": 10,
+        "name": "frightened trolley",
+        "images": [
+          "https://fastly.picsum.photos/id/370/282/186.jpg?hmac=miO-mEouvmPt5fbQAIPy5akqu31kGaTk08rjvIXEx4k",
+          "https://fastly.picsum.photos/id/898/282/186.jpg?hmac=Dkx0BMueC6Rzmmt8SHdG8_-I5vW1NQ2SPmkg_hXPg5E",
+          "https://fastly.picsum.photos/id/1076/282/186.jpg?hmac=ttAOezoaGYvuLQ0zmBa40CWv0J_E4Wrw7K7zDdTY0kw",
+          "https://fastly.picsum.photos/id/508/282/186.jpg?hmac=jzeT3_je03QmKR926NPqCIcZXEoMc5DdlaRCIvxLP2c"
+        ]
+      },
+      "description": "tui solus decipio denique thesaurus verto titulus approbo tripudio defessus cruciamentum alias altus vestrum studio voluptates nulla theologus vilis eaque aveho inflammatio turba ustulo et aestivus urbanus utroque aegrus cupiditate teneo surgo stabilis vester verbera derideo uredo contra somnus molestiae aeneus somniculosus ipsam arceo corpus decimus bene aiunt attonbitus altus acies bardus crinis ipsum terminatio versus iure distinctio non inventore torqueo adicio ultra vulticulus comes decretum angelus verto aiunt totus averto careo cornu carus adipiscor aegrus correptius totus videlicet depono",
+      "activeFiltersAndOccasions": {
+        "activeFilters": {
+          "activeAmenities": [1, 13, 3, 2, 8, 12, 11, 5, 4, 9, 10, 7, 15],
+          "activeRoomAmenities": [3, 2, 1, 4],
+          "activeHandicapAccessibility": [3, 1, 2, 0],
+          "activeNeighbourhoods": [0, 6, 4, 14, 2, 7, 5]
+        },
+        "suitableOccasions": []
+      },
+      "sleepingDetails": {
+        "maxCapacity": 10,
+        "amountOfBeds": 5,
+        "extraDetails": "vesica"
+      },
+      "checkInHourPM": 21,
+      "checkOutHourAM": 12,
+      "distanceFromCityCenterInKM": 8,
+      "contactDetails": {
+        "phone": "1-968-661-8281",
+        "email": "Idella.Grady@yahoo.com"
+      },
+      "socialMediaLinks": {
+        "fb": "www.facebook.com",
+        "instagram": "www.instagram.com",
+        "twitter": "www.twitter.com",
+        "website": "www.google.com"
+      }
+    }
+  ],
+  "venuesAmenities": {
+    "amenities": [
+      {
+        "id": 12,
+        "name": "indoor music"
+      },
+      {
+        "id": 5,
+        "name": "jacuzzi"
+      },
+      {
+        "id": 8,
+        "name": "playground"
+      },
+      {
+        "id": 2,
+        "name": "restaurant"
+      },
+      {
+        "id": 9,
+        "name": "24h reception"
+      },
+      {
+        "id": 10,
+        "name": "speakers"
+      },
+      {
+        "id": 3,
+        "name": "bar"
+      },
+      {
+        "id": 7,
+        "name": "fitness centre"
+      },
+      {
+        "id": 13,
+        "name": "karaoke"
+      },
+      {
+        "id": 15,
+        "name": "pet friendly"
+      },
+      {
+        "id": 1,
+        "name": "WiFi"
+      },
+      {
+        "id": 11,
+        "name": "outdoor music"
+      },
+      {
+        "id": 6,
+        "name": "garden"
+      },
+      {
+        "id": 0,
+        "name": "parking"
+      },
+      {
+        "id": 4,
+        "name": "pool"
+      },
+      {
+        "id": 14,
+        "name": "library"
+      }
+    ],
+    "roomAmenities": [
+      {
+        "id": 3,
+        "name": "air conditioning"
+      },
+      {
+        "id": 2,
+        "name": "hypoallergenic bedding"
+      },
+      {
+        "id": 1,
+        "name": "bathroom facilities"
+      },
+      {
+        "id": 4,
+        "name": "safe"
+      },
+      {
+        "id": 5,
+        "name": "tv"
+      },
+      {
+        "id": 0,
+        "name": "kitchen facilities"
+      }
+    ],
+    "handicapAccessibility": [
+      {
+        "id": 3,
+        "name": "short-grown friendly"
+      },
+      {
+        "id": 1,
+        "name": "blind friendly"
+      },
+      {
+        "id": 2,
+        "name": "deaf friendly"
+      },
+      {
+        "id": 0,
+        "name": "wheelchair friendly"
+      }
+    ],
+    "neighbourhoods": [
+      {
+        "id": 0,
+        "name": "lake"
+      },
+      {
+        "id": 6,
+        "name": "park"
+      },
+      {
+        "id": 4,
+        "name": "national park"
+      },
+      {
+        "id": 14,
+        "name": "cinema"
+      },
+      {
+        "id": 2,
+        "name": "mountains"
+      },
+      {
+        "id": 7,
+        "name": "mail"
+      },
+      {
+        "id": 5,
+        "name": "river"
+      },
+      {
+        "id": 1,
+        "name": "forest"
+      },
+      {
+        "id": 15,
+        "name": "amusement park"
+      },
+      {
+        "id": 8,
+        "name": "zoo"
+      },
+      {
+        "id": 3,
+        "name": "sea"
+      },
+      {
+        "id": 13,
+        "name": "theatre"
+      },
+      {
+        "id": 11,
+        "name": "historical monuments"
+      },
+      {
+        "id": 10,
+        "name": "old town"
+      },
+      {
+        "id": 16,
+        "name": "restaurant"
+      },
+      {
+        "id": 12,
+        "name": "museum"
+      },
+      {
+        "id": 9,
+        "name": "church"
+      }
+    ],
+    "occasions": [
+      {
+        "id": 1,
+        "name": "conference",
+        "requiredAmenities": [0, 1, 10, 12],
+        "requiredRoomAmenities": [3, 5],
+        "accessibility": [0, 2],
+        "neighborhoods": [7, 11]
+      },
+      {
+        "id": 2,
+        "name": "romanticGetaway",
+        "requiredAmenities": [2, 3, 5, 4],
+        "requiredRoomAmenities": [2, 3],
+        "accessibility": [],
+        "neighborhoods": [3, 10, 11]
+      },
+      {
+        "id": 3,
+        "name": "familyVacation",
+        "requiredAmenities": [8, 4, 6, 15],
+        "requiredRoomAmenities": [1, 5],
+        "accessibility": [0, 3],
+        "neighborhoods": [1, 5, 15]
+      },
+      {
+        "id": 4,
+        "name": "businessTrip",
+        "requiredAmenities": [0, 1, 9, 3],
+        "requiredRoomAmenities": [3, 4],
+        "accessibility": [0, 2],
+        "neighborhoods": [7, 10]
+      },
+      {
+        "id": 5,
+        "name": "wedding",
+        "requiredAmenities": [0, 6, 4, 11],
+        "requiredRoomAmenities": [],
+        "accessibility": [0],
+        "neighborhoods": [1, 4]
+      },
+      {
+        "id": 6,
+        "name": "wellnessRetreat",
+        "requiredAmenities": [4, 5, 7, 6],
+        "requiredRoomAmenities": [0, 3],
+        "accessibility": [0],
+        "neighborhoods": [1, 2, 4]
+      },
+      {
+        "id": 7,
+        "name": "musicFestival",
+        "requiredAmenities": [11, 12, 13],
+        "requiredRoomAmenities": [],
+        "accessibility": [0, 2],
+        "neighborhoods": [1, 4]
+      },
+      {
+        "id": 8,
+        "name": "culturalTrip",
+        "requiredAmenities": [14, 12],
+        "requiredRoomAmenities": [],
+        "accessibility": [1],
+        "neighborhoods": [9, 11, 12, 13]
+      },
+      {
+        "id": 9,
+        "name": "adventure",
+        "requiredAmenities": [],
+        "requiredRoomAmenities": [1],
+        "accessibility": [],
+        "neighborhoods": [1, 2, 4]
+      },
+      {
+        "id": 10,
+        "name": "beachHoliday",
+        "requiredAmenities": [4, 3, 2],
+        "requiredRoomAmenities": [3, 5],
+        "accessibility": [0],
+        "neighborhoods": [3]
+      },
+      {
+        "id": 11,
+        "name": "shoppingTrip",
+        "requiredAmenities": [0, 1],
+        "requiredRoomAmenities": [],
+        "accessibility": [],
+        "neighborhoods": [7]
+      },
+      {
+        "id": 12,
+        "name": "educationalTrip",
+        "requiredAmenities": [14],
+        "requiredRoomAmenities": [],
+        "accessibility": [],
+        "neighborhoods": [12, 13]
+      },
+      {
+        "id": 13,
+        "name": "party",
+        "requiredAmenities": [3, 11, 12, 13],
+        "requiredRoomAmenities": [],
+        "accessibility": [0],
+        "neighborhoods": [6, 15]
+      }
+    ]
+  }
+}
