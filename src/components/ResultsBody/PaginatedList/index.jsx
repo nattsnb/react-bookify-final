@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CircularProgress, Snackbar, Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 import { usePaginatedList } from "./usePaginatedList.js";
 import { VenueCard } from "./VenueCard/index.jsx";
 import {
@@ -9,19 +9,12 @@ import {
   StyledPagination,
 } from "./PaginatedList.styled.jsx";
 import { VerticalContainer } from "../../../shared/styledComponents/verticalContainer.styled.js";
-import { Context } from "../../../App.jsx";
+import { ErrorContext } from "../../../App.jsx";
 
 export const PaginatedList = ({ limit }) => {
-  const {
-    venuesOnPage,
-    currencyData,
-    isLoading,
-    numberOfAllPages,
-    page,
-    handleChange,
-  } = usePaginatedList(limit);
-
-  const contextIsError = useContext(Context)[0];
+  const { venuesOnPage, isLoading, numberOfAllPages, page, handleChange } =
+    usePaginatedList(limit);
+  const { isError } = useContext(ErrorContext);
 
   if (isLoading) {
     return (
@@ -31,11 +24,9 @@ export const PaginatedList = ({ limit }) => {
     );
   }
 
-
-  if (contextIsError) {
-    return <></>;
+  if (isError) {
+    return null;
   }
-
 
   return (
     <ListWrapper>
@@ -43,11 +34,7 @@ export const PaginatedList = ({ limit }) => {
         {limit > 0 ? (
           venuesOnPage.map((venue, index) => (
             <CardContainer key={index}>
-              <VenueCard
-                backgroundurl={venue.coverPhoto}
-                venue={venue}
-                currencyData={currencyData}
-              />
+              <VenueCard backgroundurl={venue.coverPhoto} venue={venue} />
             </CardContainer>
           ))
         ) : (

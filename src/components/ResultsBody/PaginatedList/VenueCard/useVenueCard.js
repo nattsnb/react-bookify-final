@@ -1,11 +1,7 @@
 import { useState } from "react";
 
-export const useVenueCard = (venue, currencyData) => {
+export const useVenueCard = (venue) => {
   const [currentPictureNumber, setCurrentPictureNumber] = useState(0);
-  const pricePreNightInPLN = (
-    (venue.pricePerNightInEURCent / 100) *
-    currencyData.PLN
-  ).toFixed(0);
 
   const handleClickForward = () => {
     if (currentPictureNumber === venue.images.length - 1) {
@@ -25,7 +21,6 @@ export const useVenueCard = (venue, currencyData) => {
 
   return {
     currentPictureNumber,
-    pricePreNightInPLN,
     handleClickForward,
     handleClickBack,
   };

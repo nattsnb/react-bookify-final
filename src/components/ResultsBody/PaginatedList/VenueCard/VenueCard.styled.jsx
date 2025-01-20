@@ -7,15 +7,14 @@ export const StyledVenueCardWrapper = styled("div")`
 `;
 
 export const StyledPictureFrame = styled("div")`
-  height: 80%;
+  height: 100%;
   width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: ${(props) => `url(${props.backgroundurl})`};
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
+  pointer-events: none;
 `;
 
 export const StyledUnderCardInfoBox = styled("div")`
@@ -91,10 +90,22 @@ export const StyledIconContainer = styled("div")`
   flex-direction: row;
   justify-content: space-between;
   height: 40px;
+  pointer-events: auto;
 
   & .MuiSvgIcon-root {
     color: ${({ theme }) => theme.palette.background.offDefault};
     opacity: 80%;
     text-shadow: 3px 3px 15px ${({ theme }) => theme.palette.secondary.dark};
   }
+`;
+
+export const StyledPictureAndPictureFrameContainer = styled("div")`
+  position: relative;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+`;
+
+export const StyledImg = styled("img")`
+  position: absolute;
 `;

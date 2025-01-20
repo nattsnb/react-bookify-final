@@ -1,4 +1,4 @@
-import { FiltersDrawer } from "./FiltersDrawer.jsx";
+import { FiltersDrawer } from "./FiltersDrawer/index.jsx";
 import { ResultsElementsWrapper } from "./ResultsElementsWrapper.jsx";
 import { PageWidthContainer } from "../../shared/styledComponents/pageWidthContainer.js";
 import { Drawer, useMediaQuery, useTheme } from "@mui/material";
@@ -11,10 +11,9 @@ import {
   StyleThinContentContainer,
 } from "./Results.styled.js";
 import { PaginatedList } from "./PaginatedList/index.jsx";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { SearchBar } from "../Banner/SearchBar/index.jsx";
 import { SortDrawer } from "./SortDrawer.jsx";
-import { Context } from "../../App.jsx";
 
 const INITIAL_LIMIT = 6;
 
