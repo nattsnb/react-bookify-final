@@ -15,7 +15,7 @@ export const PaginatedList = ({ limit }) => {
   const { venuesOnPage, isLoading, numberOfAllPages, page, handleChange } =
     usePaginatedList(limit);
   const { isError } = useContext(ErrorContext);
-    console.log("venuesOnPage paginatedList:", venuesOnPage)
+  console.log("venuesOnPage paginatedList:", venuesOnPage);
 
   if (isLoading) {
     return (

@@ -1,6 +1,6 @@
 const OPENCAGE_API_KEY = "938e7cda5d2c45f986a8c74c468eaaa7";
-const API_URL = https://my-json-server.typicode.com/nattsnb/bookify-data-to-post/
-
+const API_URL =
+  "https://my-json-server.typicode.com/nattsnb/bookify-data-to-post/";
 
 const getAllVenues = () => {
   return fetch(`${API_URL}/venues/`, {
@@ -27,8 +27,7 @@ const getVenuesOnPage = (page, limit) => {
 };
 
 function getCurrencyResults() {
-  return fetch(`https://api.exchangerate-api.com/v4/latest/USD`, {
-  })
+  return fetch(`https://api.exchangerate-api.com/v4/latest/USD`, {})
     .then((res) => res.json())
     .catch((error) => console.error("Error fetching venues:", error));
 }
@@ -43,8 +42,8 @@ const getVenuesAmenities = () => {
 
 const getCoordinatesData = async (address) => {
   return fetch(
-    `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPENCAGE_API_KEY}`, {
-      }
+    `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPENCAGE_API_KEY}`,
+    {},
   )
     .then((res) => res.json())
     .catch((error) => console.error("Error geocoding:", error));
@@ -53,8 +52,7 @@ const getCoordinatesData = async (address) => {
 const getHead = () => {
   return fetch(`${API_URL}/venues`, {
     method: "HEAD",
-  })
-      .catch((error) => console.error("Server is not running:", error));
+  }).catch((error) => console.error("Server is not running:", error));
 };
 
 export const api = {
