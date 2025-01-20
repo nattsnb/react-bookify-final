@@ -20,14 +20,10 @@ export const usePaginatedList = (limit) => {
         const allVenuesResponse = await api.getAllVenues();
         const numberOfVenues = allVenuesResponse.length;
         setNumberOfAllPages(parseInt(numberOfVenues / limit));
-        console.log(numberOfAllPages);
         const venuesResponse = await api.getVenuesOnPage(page, limit);
-        console.log(typeof venuesResponse);
-        console.log("venuesResponse usePaginatedList", venuesResponse);
         setVenuesOnPage(venuesResponse);
       } catch (error) {
         setIsError(true);
-        console.error("Error while fetching data:", error);
       }
       setIsLoading(false);
     }
@@ -35,7 +31,6 @@ export const usePaginatedList = (limit) => {
     getData(page, limit);
   }, [page, limit]);
 
-  console.log("venuesOnPage usePaginatedList:", venuesOnPage);
 
   return {
     venuesOnPage,
